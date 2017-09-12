@@ -1,0 +1,5 @@
+WorkspaceName,Examples,Intents,Entity,Synonyms,Language,Description,Dialog Nodes,WorkspaceID,Counter Examples
+Prueba CSV,que es un perro,perro_que_es,pet,can,es,perros,,123456789,
+Prueba CSV,que es un perro,perro_que_es,dog,can,es,perros,,123456789,
+Prueba CSV,que es un perro,perro_que_es,building,can,es,perros,,123456789,
+Prueba CSV,que es un perro,perro_que_es,ship,can,es,perros,,123456789,

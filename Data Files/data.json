@@ -1,0 +1,120 @@
+{
+  "counterexamples": [],
+  "created": "2017-08-18T11:10:58.839933Z",
+  "description": "Hi",
+  "dialog_nodes": [],
+  "entities": [
+    {
+      "created": "2017-08-18T11:10:58.839933Z",
+      "description": null,
+      "entity": "hi",
+      "metadata": null,
+      "updated": "2017-08-18T11:10:58.840016Z",
+      "values": [
+        {
+          "created": "2017-08-18T11:10:58.839933Z",
+          "metadata": null,
+          "synonyms": [
+            "hola",
+            "prueba"
+          ],
+          "updated": "2017-08-18T11:10:58.840016Z",
+          "value": "hi"
+        }
+      ]
+    },
+    {
+      "created": "2017-08-18T11:10:58.839933Z",
+      "description": null,
+      "entity": "bye",
+      "metadata": null,
+      "updated": "2017-08-18T11:10:58.840016Z",
+      "values": [
+        {
+          "created": "2017-08-18T11:10:58.839933Z",
+          "metadata": null,
+          "synonyms": [
+            "bye",
+            "chao",
+            "adios",
+            "goodbye"
+          ],
+          "updated": "2017-08-18T11:10:58.840016Z",
+          "value": "bye"
+        }
+      ]
+    }
+  ],
+  "intents": [
+    {
+      "created": "2017-08-18T11:10:58.839933Z",
+      "description": null,
+      "examples": [
+        {
+          "created": "2017-08-18T11:10:58.839933Z",
+          "text": "hi",
+          "updated": "2017-08-18T11:10:58.840016Z"
+        },
+        {
+          "created": "2017-08-18T11:10:58.839933Z",
+          "text": "hello",
+          "updated": "2017-08-18T11:10:58.840016Z"
+        }
+      ],
+      "intent": "hi",
+      "updated": "2017-08-18T11:10:58.840016Z"
+    },
+    {
+      "created": "2017-08-18T11:10:58.839933Z",
+      "description": null,
+      "examples": [
+        {
+          "created": "2017-08-18T11:10:58.839933Z",
+          "text": "bye",
+          "updated": "2017-08-18T11:10:58.840016Z"
+        },
+        {
+          "created": "2017-08-18T11:10:58.839933Z",
+          "text": "goodbye",
+          "updated": "2017-08-18T11:10:58.840016Z"
+        },
+        {
+          "created": "2017-08-18T11:10:58.839933Z",
+          "text": "ciao",
+          "updated": "2017-08-18T11:10:58.840016Z"
+        }
+      ],
+      "intent": "bye",
+      "updated": "2017-08-18T11:10:58.840016Z"
+    },
+    {
+      "created": "2017-08-18T11:10:58.839933Z",
+      "description": null,
+      "examples": [
+        {
+          "created": "2017-08-18T11:10:58.839933Z",
+          "text": "maybe",
+          "updated": "2017-08-18T11:10:58.840016Z"
+        },
+        {
+          "created": "2017-08-18T11:10:58.839933Z",
+          "text": "perhaps",
+          "updated": "2017-08-18T11:10:58.840016Z"
+        }
+      ],
+      "intent": "maybe",
+      "updated": "2017-08-18T11:10:58.840016Z"
+    }
+  ],
+  "language": "en",
+  "learning_opt_out": false,
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2017-8-18"
+    }
+  },
+  "name": "Hi",
+  "updated": "2017-08-18T11:10:58.840016Z",
+  "workspace_id": "2a14843b-f067-4c2a-b490-7163883cb84d"
+}

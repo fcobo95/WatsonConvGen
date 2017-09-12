@@ -1,0 +1,1541 @@
+{
+  "name": "demo-chat",
+  "created": "2017-05-09T22:48:38.550Z",
+  "intents": [
+    {
+      "intent": "saludan_a_chatbot",
+      "created": "2017-07-05T16:47:49.330Z",
+      "updated": "2017-07-06T20:07:38.572Z",
+      "examples": [
+        {
+          "text": "Hola",
+          "created": "2017-07-05T16:47:54.163Z",
+          "updated": "2017-07-05T16:47:54.163Z"
+        },
+        {
+          "text": "¡Hola!",
+          "created": "2017-07-05T16:48:03.060Z",
+          "updated": "2017-07-05T16:48:03.060Z"
+        },
+        {
+          "text": "Buenos días.",
+          "created": "2017-07-05T16:48:12.318Z",
+          "updated": "2017-07-05T16:48:12.318Z"
+        },
+        {
+          "text": "Buenas tardes.",
+          "created": "2017-07-05T16:48:16.571Z",
+          "updated": "2017-07-05T16:48:16.571Z"
+        },
+        {
+          "text": "Buenas noches.",
+          "created": "2017-07-05T16:48:19.653Z",
+          "updated": "2017-07-05T16:48:19.653Z"
+        },
+        {
+          "text": "Hola, chatbot.",
+          "created": "2017-07-05T16:48:45.216Z",
+          "updated": "2017-07-05T16:48:45.216Z"
+        },
+        {
+          "text": "Buenas.",
+          "created": "2017-07-05T16:48:57.928Z",
+          "updated": "2017-07-05T16:48:57.928Z"
+        },
+        {
+          "text": "Hola, buenos días.",
+          "created": "2017-07-05T16:49:19.927Z",
+          "updated": "2017-07-05T16:49:19.927Z"
+        },
+        {
+          "text": "Hola, buenas tardes.",
+          "created": "2017-07-05T16:49:23.667Z",
+          "updated": "2017-07-05T16:49:23.667Z"
+        },
+        {
+          "text": "Hola, buenas noches.",
+          "created": "2017-07-05T16:49:28.029Z",
+          "updated": "2017-07-05T16:49:28.029Z"
+        },
+        {
+          "text": "Buenas buenas.",
+          "created": "2017-07-05T16:50:10.717Z",
+          "updated": "2017-07-05T16:50:10.717Z"
+        },
+        {
+          "text": "Buen día.",
+          "created": "2017-07-05T16:50:35.819Z",
+          "updated": "2017-07-05T16:50:35.819Z"
+        },
+        {
+          "text": "Saludos.",
+          "created": "2017-07-05T16:50:53.268Z",
+          "updated": "2017-07-05T16:50:53.268Z"
+        },
+        {
+          "text": "Cómo te llamas?",
+          "created": "2017-07-06T19:52:15.314Z",
+          "updated": "2017-07-06T19:52:15.314Z"
+        },
+        {
+          "text": "Como te llamas",
+          "created": "2017-07-06T20:05:55.686Z",
+          "updated": "2017-07-06T20:05:55.686Z"
+        },
+        {
+          "text": "Cómo te llamas",
+          "created": "2017-07-06T20:07:38.572Z",
+          "updated": "2017-07-06T20:07:38.572Z"
+        }
+      ],
+      "description": null
+    },
+    {
+      "intent": "despedida",
+      "created": "2017-07-06T18:41:43.663Z",
+      "updated": "2017-07-12T17:34:53.956Z",
+      "examples": [
+        {
+          "text": "Bueno, adios.",
+          "created": "2017-07-06T18:41:48.470Z",
+          "updated": "2017-07-06T18:41:48.470Z"
+        },
+        {
+          "text": "Muchas gracias, adios.",
+          "created": "2017-07-06T18:41:54.125Z",
+          "updated": "2017-07-06T18:41:54.125Z"
+        },
+        {
+          "text": "Bueno, muchas gracias.",
+          "created": "2017-07-06T18:42:04.392Z",
+          "updated": "2017-07-06T18:42:04.392Z"
+        },
+        {
+          "text": "Gracias, chao.",
+          "created": "2017-07-06T18:42:12.583Z",
+          "updated": "2017-07-06T18:42:12.583Z"
+        },
+        {
+          "text": "Chao.",
+          "created": "2017-07-06T18:42:15.395Z",
+          "updated": "2017-07-06T18:42:15.395Z"
+        },
+        {
+          "text": "Adios.",
+          "created": "2017-07-06T18:42:17.965Z",
+          "updated": "2017-07-06T18:42:17.965Z"
+        },
+        {
+          "text": "Mucho gusto, gracias.",
+          "created": "2017-07-06T18:42:23.659Z",
+          "updated": "2017-07-06T18:42:23.659Z"
+        },
+        {
+          "text": "Tuanis, mae",
+          "created": "2017-07-06T19:46:27.611Z",
+          "updated": "2017-07-06T19:46:27.611Z"
+        },
+        {
+          "text": "Nos vemos",
+          "created": "2017-07-06T19:46:35.091Z",
+          "updated": "2017-07-06T19:46:35.091Z"
+        },
+        {
+          "text": "Adiós.",
+          "created": "2017-07-12T17:34:53.956Z",
+          "updated": "2017-07-12T17:34:53.956Z"
+        }
+      ],
+      "description": null
+    },
+    {
+      "intent": "agradecen_a_chatbot",
+      "created": "2017-07-06T21:21:58.214Z",
+      "updated": "2017-07-06T21:23:09.400Z",
+      "examples": [
+        {
+          "text": "Gracias.",
+          "created": "2017-07-06T21:22:05.369Z",
+          "updated": "2017-07-06T21:22:05.369Z"
+        },
+        {
+          "text": "Gracias, chatbot.",
+          "created": "2017-07-06T21:22:09.760Z",
+          "updated": "2017-07-06T21:22:09.760Z"
+        },
+        {
+          "text": "Gracias por la asistencia.",
+          "created": "2017-07-06T21:22:47.109Z",
+          "updated": "2017-07-06T21:22:47.109Z"
+        },
+        {
+          "text": "Te agradezco por la ayuda.",
+          "created": "2017-07-06T21:22:56.758Z",
+          "updated": "2017-07-06T21:22:56.758Z"
+        },
+        {
+          "text": "Muchas gracias.",
+          "created": "2017-07-06T21:23:09.400Z",
+          "updated": "2017-07-06T21:23:09.400Z"
+        }
+      ],
+      "description": null
+    },
+    {
+      "intent": "chatbot_que_es",
+      "created": "2017-05-10T00:01:11.233Z",
+      "updated": "2017-07-06T21:41:15.716Z",
+      "examples": [
+        {
+          "text": "¿Qué es un chatbot?",
+          "created": "2017-05-10T00:05:23.366Z",
+          "updated": "2017-05-10T00:05:23.366Z"
+        },
+        {
+          "text": "Qué es esa vara de chatbots?",
+          "created": "2017-05-10T00:05:33.753Z",
+          "updated": "2017-05-10T00:05:33.753Z"
+        },
+        {
+          "text": "En qué consiste un chatbot",
+          "created": "2017-05-10T00:05:41.958Z",
+          "updated": "2017-05-10T00:05:41.958Z"
+        },
+        {
+          "text": "Qué es un robot de chat",
+          "created": "2017-05-10T00:05:49.550Z",
+          "updated": "2017-05-10T00:05:49.550Z"
+        },
+        {
+          "text": "¿De qué trata los chat con inteligencia artificial?",
+          "created": "2017-05-10T00:06:05.810Z",
+          "updated": "2017-05-10T00:06:05.810Z"
+        },
+        {
+          "text": "Un chatbot que es?",
+          "created": "2017-05-10T00:06:43.115Z",
+          "updated": "2017-05-10T00:06:43.115Z"
+        },
+        {
+          "text": "Qué es eso de chatear con una máquina",
+          "created": "2017-05-10T00:08:17.262Z",
+          "updated": "2017-05-10T00:08:17.262Z"
+        },
+        {
+          "text": "Eres",
+          "created": "2017-07-06T21:37:54.595Z",
+          "updated": "2017-07-06T21:37:54.595Z"
+        },
+        {
+          "text": "Qué eres?",
+          "created": "2017-07-06T21:41:15.716Z",
+          "updated": "2017-07-06T21:41:15.716Z"
+        }
+      ],
+      "description": null
+    },
+    {
+      "intent": "chatbot_beneficio",
+      "created": "2017-05-10T05:42:51.878Z",
+      "updated": "2017-05-28T02:36:07.759Z",
+      "examples": [
+        {
+          "text": "que ventajas tengo al usar un chatbot",
+          "created": "2017-05-10T06:25:11.808Z",
+          "updated": "2017-05-10T06:25:11.808Z"
+        },
+        {
+          "text": "cuales son los beneficios del chatbot",
+          "created": "2017-05-10T06:25:21.073Z",
+          "updated": "2017-05-10T06:25:21.073Z"
+        },
+        {
+          "text": "en que me beneficia tener un chatbot",
+          "created": "2017-05-10T06:25:30.449Z",
+          "updated": "2017-05-10T06:25:30.449Z"
+        },
+        {
+          "text": "como gano teniendo un chatbot",
+          "created": "2017-05-10T06:25:43.361Z",
+          "updated": "2017-05-10T06:25:43.361Z"
+        },
+        {
+          "text": "en qué me puede ayudar tener un chatbot",
+          "created": "2017-05-10T06:25:56.063Z",
+          "updated": "2017-05-10T06:25:56.063Z"
+        },
+        {
+          "text": "como beneficia a mi empresa usar un chatbot",
+          "created": "2017-05-28T02:25:45.784Z",
+          "updated": "2017-05-28T02:25:45.784Z"
+        },
+        {
+          "text": "en que me beneficia",
+          "created": "2017-05-28T02:36:07.759Z",
+          "updated": "2017-05-28T02:36:07.759Z"
+        }
+      ],
+      "description": null
+    },
+    {
+      "intent": "chatbot_como_funciona",
+      "created": "2017-05-10T00:02:16.126Z",
+      "updated": "2017-05-10T00:08:06.731Z",
+      "examples": [
+        {
+          "text": "Como funcionan?",
+          "created": "2017-05-10T00:06:50.919Z",
+          "updated": "2017-05-10T00:06:50.919Z"
+        },
+        {
+          "text": "Como funciona un chatbot",
+          "created": "2017-05-10T00:07:02.752Z",
+          "updated": "2017-05-10T00:07:02.752Z"
+        },
+        {
+          "text": "Como es el funcionamiento de los chatbots",
+          "created": "2017-05-10T00:07:11.234Z",
+          "updated": "2017-05-10T00:07:11.234Z"
+        },
+        {
+          "text": "como funciona el chat con inteligencia artificial",
+          "created": "2017-05-10T00:07:19.657Z",
+          "updated": "2017-05-10T00:07:19.657Z"
+        },
+        {
+          "text": "como funcionan los chats con máquinas",
+          "created": "2017-05-10T00:08:06.731Z",
+          "updated": "2017-05-10T00:08:06.731Z"
+        }
+      ],
+      "description": null
+    },
+    {
+      "intent": "inteligencia_artificial_que_es",
+      "created": "2017-05-10T06:20:17.388Z",
+      "updated": "2017-05-10T06:27:46.583Z",
+      "examples": [
+        {
+          "text": "qué es IA",
+          "created": "2017-05-10T06:26:48.946Z",
+          "updated": "2017-05-10T06:26:48.946Z"
+        },
+        {
+          "text": "Qué es AI",
+          "created": "2017-05-10T06:26:53.607Z",
+          "updated": "2017-05-10T06:26:53.607Z"
+        },
+        {
+          "text": "Qué es inteligencia artificial",
+          "created": "2017-05-10T06:27:03.132Z",
+          "updated": "2017-05-10T06:27:03.132Z"
+        },
+        {
+          "text": "como es una inteligencia artificial",
+          "created": "2017-05-10T06:27:09.550Z",
+          "updated": "2017-05-10T06:27:09.550Z"
+        },
+        {
+          "text": "de que va eso de inteligencia artificial",
+          "created": "2017-05-10T06:27:17.393Z",
+          "updated": "2017-05-10T06:27:17.393Z"
+        },
+        {
+          "text": "como es esa vara de IA",
+          "created": "2017-05-10T06:27:24.879Z",
+          "updated": "2017-05-10T06:27:24.879Z"
+        },
+        {
+          "text": "explicame sobre inteligencia artificial",
+          "created": "2017-05-10T06:27:37.573Z",
+          "updated": "2017-05-10T06:27:37.573Z"
+        },
+        {
+          "text": "cuéntame sobre inteligencia artificial",
+          "created": "2017-05-10T06:27:46.583Z",
+          "updated": "2017-05-10T06:27:46.583Z"
+        }
+      ],
+      "description": null
+    },
+    {
+      "intent": "apagar",
+      "created": "2017-07-05T16:17:31.912Z",
+      "updated": "2017-07-06T21:19:42.986Z",
+      "examples": [
+        {
+          "text": "Quiero apagar la música.",
+          "created": "2017-07-05T16:18:28.653Z",
+          "updated": "2017-07-05T16:18:28.653Z"
+        },
+        {
+          "text": "Ya no quiero escuchar música.",
+          "created": "2017-07-05T16:18:41.875Z",
+          "updated": "2017-07-05T16:18:41.875Z"
+        },
+        {
+          "text": "Ya no quiero ver televisión.",
+          "created": "2017-07-05T16:19:04.263Z",
+          "updated": "2017-07-05T16:19:04.263Z"
+        },
+        {
+          "text": "¿Puedo cancelar el modo cruise?",
+          "created": "2017-07-05T16:20:27.704Z",
+          "updated": "2017-07-05T16:20:27.704Z"
+        },
+        {
+          "text": "Ya no necesito usar los limpia parabrisas.",
+          "created": "2017-07-05T16:20:56.700Z",
+          "updated": "2017-07-05T16:20:56.700Z"
+        },
+        {
+          "text": "Ya no quiero escuchar la radio.",
+          "created": "2017-07-05T16:21:06.930Z",
+          "updated": "2017-07-05T16:21:06.930Z"
+        },
+        {
+          "text": "Apaga el modo avión.",
+          "created": "2017-07-05T16:21:19.655Z",
+          "updated": "2017-07-05T16:21:19.655Z"
+        },
+        {
+          "text": "No requiero esta aplicación de momento, apagala.",
+          "created": "2017-07-05T16:21:46.232Z",
+          "updated": "2017-07-05T16:21:46.232Z"
+        },
+        {
+          "text": "Apaga la aplicación, ya no la necesito.",
+          "created": "2017-07-05T16:21:57.126Z",
+          "updated": "2017-07-05T16:21:57.126Z"
+        },
+        {
+          "text": "Deseo cancelar este servicio.",
+          "created": "2017-07-05T16:22:43.910Z",
+          "updated": "2017-07-05T16:22:43.910Z"
+        },
+        {
+          "text": "Ya no quiero este servicio.",
+          "created": "2017-07-05T16:22:51.596Z",
+          "updated": "2017-07-05T16:22:51.596Z"
+        },
+        {
+          "text": "Apaga el servicio.",
+          "created": "2017-07-05T16:22:57.144Z",
+          "updated": "2017-07-05T16:22:57.144Z"
+        },
+        {
+          "text": "Quiero que apagues la radio.",
+          "created": "2017-07-06T17:33:10.776Z",
+          "updated": "2017-07-06T17:33:10.776Z"
+        },
+        {
+          "text": "Quiero apagar eso.",
+          "created": "2017-07-06T17:45:00.698Z",
+          "updated": "2017-07-06T17:45:00.698Z"
+        },
+        {
+          "text": "Ya no quiero la luz prendida.",
+          "created": "2017-07-06T20:51:46.067Z",
+          "updated": "2017-07-06T20:51:46.067Z"
+        },
+        {
+          "text": "Ya no quiero las luces prendidas.",
+          "created": "2017-07-06T20:54:33.911Z",
+          "updated": "2017-07-06T20:54:33.911Z"
+        },
+        {
+          "text": "Apaga mi celular.",
+          "created": "2017-07-06T21:19:12.973Z",
+          "updated": "2017-07-06T21:19:12.973Z"
+        },
+        {
+          "text": "Ya no quiero usar mi celular",
+          "created": "2017-07-06T21:19:21.334Z",
+          "updated": "2017-07-06T21:19:21.334Z"
+        },
+        {
+          "text": "Necesito que apagues mi celular.",
+          "created": "2017-07-06T21:19:42.986Z",
+          "updated": "2017-07-06T21:19:42.986Z"
+        }
+      ],
+      "description": null
+    },
+    {
+      "intent": "prueba_pregunta",
+      "created": "2017-07-04T17:17:43.885Z",
+      "updated": "2017-07-06T19:57:05.733Z",
+      "examples": [
+        {
+          "text": "Cómo te llamas",
+          "created": "2017-07-04T17:17:58.865Z",
+          "updated": "2017-07-04T17:17:58.865Z"
+        },
+        {
+          "text": "Qué eres",
+          "created": "2017-07-04T17:18:01.583Z",
+          "updated": "2017-07-04T17:18:01.583Z"
+        },
+        {
+          "text": "Quién eres?",
+          "created": "2017-07-04T17:18:07.628Z",
+          "updated": "2017-07-04T17:18:07.628Z"
+        },
+        {
+          "text": "Qué cosa eres?",
+          "created": "2017-07-04T17:18:13.142Z",
+          "updated": "2017-07-04T17:18:13.142Z"
+        },
+        {
+          "text": "Cuál es tu nombre?",
+          "created": "2017-07-04T17:18:26.014Z",
+          "updated": "2017-07-04T17:18:26.014Z"
+        },
+        {
+          "text": "Hola, qué eres?",
+          "created": "2017-07-06T18:06:10.277Z",
+          "updated": "2017-07-06T18:06:10.277Z"
+        },
+        {
+          "text": "Cómo te llamas?",
+          "created": "2017-07-06T19:57:05.733Z",
+          "updated": "2017-07-06T19:57:05.733Z"
+        }
+      ],
+      "description": null
+    },
+    {
+      "intent": "chatbot_ini",
+      "created": "2017-05-10T06:23:35.869Z",
+      "updated": "2017-05-10T06:26:38.300Z",
+      "examples": [
+        {
+          "text": "Chatbot",
+          "created": "2017-05-10T06:26:02.958Z",
+          "updated": "2017-05-10T06:26:02.958Z"
+        },
+        {
+          "text": "chat con inteligencia artificial",
+          "created": "2017-05-10T06:26:11.606Z",
+          "updated": "2017-05-10T06:26:11.606Z"
+        },
+        {
+          "text": "Chat inteligente",
+          "created": "2017-05-10T06:26:19.522Z",
+          "updated": "2017-05-10T06:26:19.522Z"
+        },
+        {
+          "text": "chat con computadora",
+          "created": "2017-05-10T06:26:31.438Z",
+          "updated": "2017-05-10T06:26:31.438Z"
+        },
+        {
+          "text": "chat bot",
+          "created": "2017-05-10T06:26:38.300Z",
+          "updated": "2017-05-10T06:26:38.300Z"
+        }
+      ],
+      "description": null
+    }
+  ],
+  "updated": "2017-07-14T20:35:23.972Z",
+  "entities": [
+    {
+      "entity": "sys-percentage",
+      "values": [],
+      "created": "2017-07-06T20:08:39.244Z",
+      "updated": "2017-07-06T20:08:39.244Z",
+      "metadata": null,
+      "description": null
+    },
+    {
+      "entity": "negación",
+      "values": [
+        {
+          "value": "Cancelar",
+          "created": "2017-07-12T17:43:28.026Z",
+          "updated": "2017-07-12T17:43:28.026Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Estoy en desacuerdo",
+          "created": "2017-07-06T21:11:11.797Z",
+          "updated": "2017-07-06T21:11:11.797Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "No estoy de acuerdo",
+          "created": "2017-07-06T21:10:38.913Z",
+          "updated": "2017-07-06T21:10:38.913Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "No, no me parece",
+          "created": "2017-07-06T21:10:49.347Z",
+          "updated": "2017-07-06T21:10:49.347Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "No, no estoy de acuerdo",
+          "created": "2017-07-06T21:10:46.647Z",
+          "updated": "2017-07-06T21:10:46.647Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "No",
+          "created": "2017-07-06T21:10:35.704Z",
+          "updated": "2017-07-06T21:10:35.704Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "No me parece",
+          "created": "2017-07-06T21:10:40.571Z",
+          "updated": "2017-07-06T21:10:40.571Z",
+          "metadata": null,
+          "synonyms": []
+        }
+      ],
+      "created": "2017-07-06T21:10:33.880Z",
+      "updated": "2017-07-12T17:43:28.026Z",
+      "metadata": null,
+      "description": null
+    },
+    {
+      "entity": "afirmación",
+      "values": [
+        {
+          "value": "Me parece bien",
+          "created": "2017-07-06T21:09:16.407Z",
+          "updated": "2017-07-06T21:09:16.407Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Claro",
+          "created": "2017-07-06T21:09:41.559Z",
+          "updated": "2017-07-06T21:09:41.559Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Estoy de acuerdo, me parece bien",
+          "created": "2017-07-06T21:09:59.664Z",
+          "updated": "2017-07-06T21:09:59.664Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Sí",
+          "created": "2017-07-06T21:09:07.573Z",
+          "updated": "2017-07-06T21:09:07.573Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Genial",
+          "created": "2017-07-06T21:10:08.175Z",
+          "updated": "2017-07-06T21:10:08.175Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Enhorabuena",
+          "created": "2017-07-06T21:09:48.324Z",
+          "updated": "2017-07-06T21:09:48.324Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Estoy de acuerdo",
+          "created": "2017-07-06T21:09:12.179Z",
+          "updated": "2017-07-06T21:09:12.179Z",
+          "metadata": null,
+          "synonyms": []
+        }
+      ],
+      "created": "2017-07-06T21:09:00.193Z",
+      "updated": "2017-07-06T21:10:11.951Z",
+      "metadata": null,
+      "description": null
+    },
+    {
+      "entity": "sys-number",
+      "values": [],
+      "created": "2017-07-06T20:08:39.247Z",
+      "updated": "2017-07-06T20:08:39.247Z",
+      "metadata": null,
+      "description": null
+    },
+    {
+      "entity": "servicios",
+      "values": [
+        {
+          "value": "Bluetooth",
+          "created": "2017-07-05T16:25:38.781Z",
+          "updated": "2017-07-05T16:25:38.781Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Aire acondicionado",
+          "created": "2017-07-05T16:25:56.473Z",
+          "updated": "2017-07-06T15:26:57.046Z",
+          "metadata": null,
+          "synonyms": [
+            "aire frio",
+            "aire"
+          ]
+        },
+        {
+          "value": "Wi-Fi",
+          "created": "2017-07-05T16:25:45.362Z",
+          "updated": "2017-07-06T15:27:27.129Z",
+          "metadata": null,
+          "synonyms": [
+            "internet inalámbico",
+            "wifi",
+            "inalámbrico"
+          ]
+        },
+        {
+          "value": "Servicios",
+          "created": "2017-07-05T16:27:12.856Z",
+          "updated": "2017-07-06T15:47:57.611Z",
+          "metadata": null,
+          "synonyms": [
+            "encargos",
+            "encargo",
+            "ocupación",
+            "trabajo",
+            "suscripción",
+            "oficio",
+            "prestación de servicios"
+          ]
+        },
+        {
+          "value": "Calefactor",
+          "created": "2017-07-05T16:25:50.776Z",
+          "updated": "2017-07-06T18:34:22.709Z",
+          "metadata": null,
+          "synonyms": [
+            "heater",
+            "calefacción",
+            "calentador"
+          ]
+        },
+        {
+          "value": "Modo avión",
+          "created": "2017-07-05T16:25:31.608Z",
+          "updated": "2017-07-05T16:25:31.608Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Música",
+          "created": "2017-07-05T16:26:33.215Z",
+          "updated": "2017-07-06T15:47:09.473Z",
+          "metadata": null,
+          "synonyms": [
+            "grabadora",
+            "radio",
+            "Canciones"
+          ]
+        },
+        {
+          "value": "Luz",
+          "created": "2017-07-05T16:25:16.962Z",
+          "updated": "2017-07-06T15:29:53.143Z",
+          "metadata": null,
+          "synonyms": [
+            "luces",
+            "faro",
+            "faroles"
+          ]
+        },
+        {
+          "value": "Laptop",
+          "created": "2017-07-06T21:14:14.975Z",
+          "updated": "2017-07-06T21:15:08.379Z",
+          "metadata": null,
+          "synonyms": [
+            "ordenador portátil",
+            "portátil"
+          ]
+        },
+        {
+          "value": "Celular",
+          "created": "2017-07-06T21:13:02.308Z",
+          "updated": "2017-07-06T21:13:48.326Z",
+          "metadata": null,
+          "synonyms": [
+            "aparato inteligente",
+            "celular inteligente",
+            "smartphone",
+            "móvil",
+            "teléfono",
+            "cel"
+          ]
+        },
+        {
+          "value": "Computadora",
+          "created": "2017-07-06T21:13:10.736Z",
+          "updated": "2017-07-06T21:13:56.179Z",
+          "metadata": null,
+          "synonyms": [
+            "compu",
+            "ordenador"
+          ]
+        },
+        {
+          "value": "Motor",
+          "created": "2017-07-06T21:12:53.356Z",
+          "updated": "2017-07-06T21:13:18.972Z",
+          "metadata": null,
+          "synonyms": [
+            "engine"
+          ]
+        },
+        {
+          "value": "Televisión",
+          "created": "2017-07-14T20:34:12.835Z",
+          "updated": "2017-07-14T20:34:33.397Z",
+          "metadata": null,
+          "synonyms": [
+            "Tele LED",
+            "El plasma",
+            "Pantalla",
+            "Tele",
+            "Televisor"
+          ]
+        }
+      ],
+      "created": "2017-07-05T16:25:07.770Z",
+      "updated": "2017-07-14T20:34:33.397Z",
+      "metadata": null,
+      "description": null,
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-date",
+      "values": [],
+      "created": "2017-07-06T20:08:39.243Z",
+      "updated": "2017-07-06T20:08:39.243Z",
+      "metadata": null,
+      "description": null
+    },
+    {
+      "entity": "sys-currency",
+      "values": [],
+      "created": "2017-07-06T20:08:39.245Z",
+      "updated": "2017-07-06T20:08:39.245Z",
+      "metadata": null,
+      "description": null
+    },
+    {
+      "entity": "qué_eres",
+      "values": [
+        {
+          "value": "Quién eres?",
+          "created": "2017-07-06T18:12:32.656Z",
+          "updated": "2017-07-06T18:12:32.656Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Cómo te llamas?",
+          "created": "2017-07-06T18:12:48.383Z",
+          "updated": "2017-07-06T18:12:48.383Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Qué eres?",
+          "created": "2017-07-06T18:08:46.126Z",
+          "updated": "2017-07-06T18:09:12.818Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Cómo eres?",
+          "created": "2017-07-06T18:36:24.060Z",
+          "updated": "2017-07-06T18:36:24.060Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Tu",
+          "created": "2017-07-06T21:36:24.232Z",
+          "updated": "2017-07-06T21:36:24.232Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Eres",
+          "created": "2017-07-06T21:36:07.410Z",
+          "updated": "2017-07-06T21:36:07.410Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Tú",
+          "created": "2017-07-06T21:36:22.626Z",
+          "updated": "2017-07-06T21:36:22.626Z",
+          "metadata": null,
+          "synonyms": []
+        }
+      ],
+      "created": "2017-07-06T18:08:36.946Z",
+      "updated": "2017-07-06T21:36:24.232Z",
+      "metadata": null,
+      "description": null,
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-time",
+      "values": [],
+      "created": "2017-07-06T20:08:39.276Z",
+      "updated": "2017-07-06T20:08:39.276Z",
+      "metadata": null,
+      "description": null
+    },
+    {
+      "entity": "despedida",
+      "values": [
+        {
+          "value": "Nos vemos",
+          "created": "2017-07-06T17:56:20.785Z",
+          "updated": "2017-07-06T17:57:17.452Z",
+          "metadata": null,
+          "synonyms": [
+            "hasta mañana",
+            "hasta más tarde",
+            "chao",
+            "hasta luego",
+            "adios"
+          ]
+        },
+        {
+          "value": "Hasta luego",
+          "created": "2017-07-06T17:56:13.746Z",
+          "updated": "2017-07-06T17:57:42.383Z",
+          "metadata": null,
+          "synonyms": [
+            "hasta mañana",
+            "hasta más tarde",
+            "chao",
+            "nos vemos",
+            "adios"
+          ]
+        },
+        {
+          "value": "Chao",
+          "created": "2017-07-06T17:56:09.622Z",
+          "updated": "2017-07-06T17:58:19.492Z",
+          "metadata": null,
+          "synonyms": [
+            "hasta más tarde",
+            "hasta mañana",
+            "hasta luego",
+            "adios",
+            "nos vemos"
+          ]
+        },
+        {
+          "value": "Hasta más tarde",
+          "created": "2017-07-06T17:56:34.865Z",
+          "updated": "2017-07-06T17:58:45.699Z",
+          "metadata": null,
+          "synonyms": [
+            "hasta mañana",
+            "chao",
+            "hasta luego",
+            "nos vemos",
+            "adios"
+          ]
+        },
+        {
+          "value": "Adios",
+          "created": "2017-07-06T17:56:05.512Z",
+          "updated": "2017-07-06T17:59:14.701Z",
+          "metadata": null,
+          "synonyms": [
+            "hasta mañana",
+            "hasta más tarde",
+            "chao",
+            "hasta luego",
+            "nos vemos"
+          ]
+        },
+        {
+          "value": "Hasta mañana",
+          "created": "2017-07-06T17:56:23.268Z",
+          "updated": "2017-07-06T17:59:36.744Z",
+          "metadata": null,
+          "synonyms": [
+            "adios",
+            "hasta más tarde",
+            "chao",
+            "hasta luego",
+            "nos vemos"
+          ]
+        },
+        {
+          "value": "Tuanis",
+          "created": "2017-07-06T19:41:21.090Z",
+          "updated": "2017-07-06T19:44:08.274Z",
+          "metadata": null,
+          "synonyms": []
+        }
+      ],
+      "created": "2017-07-06T17:55:59.391Z",
+      "updated": "2017-07-06T21:27:59.503Z",
+      "metadata": null,
+      "description": null,
+      "fuzzy_match": true
+    },
+    {
+      "entity": "saludo",
+      "values": [
+        {
+          "value": "Buen día",
+          "created": "2017-07-05T16:54:09.232Z",
+          "updated": "2017-07-05T16:54:09.232Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Buenos días",
+          "created": "2017-07-05T16:54:13.311Z",
+          "updated": "2017-07-05T16:54:13.311Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Buenas tardes",
+          "created": "2017-07-05T16:54:16.868Z",
+          "updated": "2017-07-05T16:54:16.868Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Buenas noches",
+          "created": "2017-07-05T16:54:21.246Z",
+          "updated": "2017-07-05T16:54:21.246Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "value": "Hola",
+          "created": "2017-07-05T16:53:04.927Z",
+          "updated": "2017-07-12T17:26:42.586Z",
+          "metadata": null,
+          "synonyms": [
+            "Buenas",
+            "Saludos",
+            "Holas",
+            "Holi",
+            "Bienvenido"
+          ]
+        },
+        {
+          "value": "Saludos",
+          "created": "2017-07-05T16:53:57.356Z",
+          "updated": "2017-07-12T17:26:46.696Z",
+          "metadata": null,
+          "synonyms": [
+            "Buenas",
+            "Holas",
+            "Holi",
+            "Bienvenido",
+            "Hola"
+          ]
+        },
+        {
+          "value": "Buena tarde",
+          "created": "2017-07-05T16:54:25.802Z",
+          "updated": "2017-07-05T16:54:25.802Z",
+          "metadata": null,
+          "synonyms": []
+        }
+      ],
+      "created": "2017-07-05T16:53:01.789Z",
+      "updated": "2017-07-12T17:26:46.696Z",
+      "metadata": null,
+      "description": null,
+      "fuzzy_match": true
+    }
+  ],
+  "language": "es",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2017-05-26"
+    }
+  },
+  "description": "Demo de un chatbot que puede saludar, responder, preguntar, etc.",
+  "dialog_nodes": [
+    {
+      "title": null,
+      "output": {},
+      "parent": null,
+      "context": null,
+      "created": "2017-07-05T16:30:36.587Z",
+      "updated": "2017-07-14T20:33:50.895Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "#apagar",
+      "description": null,
+      "dialog_node": "node_8_1499361659850",
+      "previous_sibling": "node_2_1494397221694"
+    },
+    {
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "El permanecer siempre en contacto con los clientes, a cualquier hora y cualquier día. Su programación e inteligencia artificial está desarrollada para ofrecer una atención al cliente personalizada. Pueden recabar  información y dirigir al usuario para la conversión (compra o adquisición de un producto o servicio). Pueden recabar datos de los usuarios sobre comportamiento de consumo que son útiles en las campañas de marketing y estrategias a aplicar. Ahorran tiempo, tanto a los usuarios como a las empresas además de ahorrar costos."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-05-10T05:42:02.634Z",
+      "updated": "2017-07-06T20:39:33.561Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "#chatbot_beneficio",
+      "description": null,
+      "dialog_node": "node_1_1494394918887",
+      "previous_sibling": "node_4_1494374522249"
+    },
+    {
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "Hola! Soy Robot-Lantern una inteligencia virtual entrenada en temas de Chatbot. En que te puedo ayudar?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-05-09T23:53:05.132Z",
+      "updated": "2017-07-12T17:33:55.181Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "conversation_start",
+      "description": null,
+      "dialog_node": "node_1_1494373982443",
+      "previous_sibling": null
+    },
+    {
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "La inteligencia artificial es considerada una rama de la computación y relaciona un fenómeno natural con una analogía artificial a través de programas de computador. La inteligencia artificial puede ser tomada como ciencia si se enfoca hacia la elaboración de programas basados en comparaciones con la eficiencia del hombre, contribuyendo a un mayor entendimiento del conocimiento humano. Si por otro lado es tomada como ingeniería, basada en una relación deseable de entrada-salida para sintetizar un programa de computador. \"El resultado es un programa de alta eficiencia que funciona como una poderosa herramienta para quien la utiliza.\""
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-07-06T20:02:01.193Z",
+      "updated": "2017-07-06T20:03:31.625Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "#inteligencia_artificial_que_es",
+      "description": null,
+      "dialog_node": "node_1_1499371320818",
+      "previous_sibling": "node_1_1499366406712"
+    },
+    {
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "Los chatbots funcionan usando respuestas prediseñadas para consultas comunes de los usuarios. Para que puedan responder bien, deben usarse frases coherentes y simples, con palabras claves. Al identificar las keywords o temáticas, el chatbot puede entregar respuestas y seguir una conversación lógica .<br>La empresa Lantern Tech gracias a Watson (AI) ha logrado ampliar el nivel de entendimiento, logrando así que el usuario pueda tener una conversación fluida con el Chatbot."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-05-10T00:02:05.081Z",
+      "updated": "2017-05-10T00:05:06.927Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "#chatbot_como_funciona",
+      "description": null,
+      "dialog_node": "node_4_1494374522249",
+      "previous_sibling": "saludan_a_chatbot"
+    },
+    {
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "Lo siento, no entiendo tu pregunta o no estoy entrenado con esa información, puedes intentar redactandola de una manera diferente."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-05-09T23:54:18.889Z",
+      "updated": "2017-07-06T21:26:13.408Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "anything_else",
+      "description": null,
+      "dialog_node": "node_2_1494374055634",
+      "previous_sibling": "Qué eres"
+    },
+    {
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "¿Qué deseas saber sobre los chatbot?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-05-10T06:20:25.059Z",
+      "updated": "2017-05-10T06:24:14.368Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "#chatbot_ini",
+      "description": null,
+      "dialog_node": "node_2_1494397221694",
+      "previous_sibling": "node_1_1494394918887"
+    },
+    {
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "Soy Lantern Chat-bot una inteligencia artificial, preparada para atender a lo clientes."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-07-06T18:26:00.700Z",
+      "updated": "2017-07-06T21:40:29.574Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "#chatbot_que_es && @qué_eres:Eres",
+      "description": null,
+      "dialog_node": "node_1_1499365560482",
+      "previous_sibling": "node_3_1499364131059"
+    },
+    {
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "Bueno, un placer.",
+            "Con mucho gusto. Adios."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-07-06T18:40:07.013Z",
+      "updated": "2017-07-06T18:40:29.321Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "@despedida",
+      "description": null,
+      "dialog_node": "node_1_1499366406712",
+      "previous_sibling": "node_1_1499365560482"
+    },
+    {
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "De nada, ha sido un placer.",
+            "Claro, ha sido un placer poder asistirle.",
+            "Con mucho gusto, cuando guste.",
+            "De nada.",
+            "No hay problema, para eso estamos."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-07-06T21:22:15.817Z",
+      "updated": "2017-07-06T21:26:56.486Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "#agradecen_a_chatbot",
+      "description": null,
+      "dialog_node": "node_1_1499376135590",
+      "previous_sibling": "node_1_1499371320818"
+    },
+    {
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "Mucho gusto, un placer haberle servido.",
+            "Que tenga un muy buen día. Adios.",
+            "Un placer atenderle. Hasta luego.",
+            "Espero que haya sido un servicio efectivo. Muchas gracias por utilizar Lantern-Chatbot.",
+            "Saludos. Que tenga un buen día. Hasta luego."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-07-06T18:02:00.237Z",
+      "updated": "2017-07-06T18:45:10.558Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "@despedida && #despedida && !@agradecimientos",
+      "description": null,
+      "dialog_node": "node_3_1499364131059",
+      "previous_sibling": "node_8_1499361659850"
+    },
+    {
+      "title": "Qué eres",
+      "output": {
+        "text": {
+          "values": [
+            "Hola, soy Lantern Chatbot. Soy una inteligencia artificial que sirve para atender a personal de Sykes.",
+            "Hola, humano. Soy Lantern Chatbot y estoy aquí para ayudar a los empleados de Sykes con sus preguntas.",
+            "Hola. Soy una inteligencia artificial, preparada para poder ayudar a los empleados de Sykes."
+          ],
+          "selection_policy": "random"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-07-12T17:30:08.306Z",
+      "updated": "2017-07-12T17:33:42.958Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "@qué_eres",
+      "description": null,
+      "dialog_node": "Qué eres",
+      "previous_sibling": "node_1_1499376135590"
+    },
+    {
+      "title": "saludan_a_chatbot",
+      "output": {
+        "text": {
+          "values": [
+            "Hola, humano.",
+            "Hola.",
+            "Buenos días.",
+            "Buenas tardes."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-07-12T17:20:31.796Z",
+      "updated": "2017-07-12T17:25:00.979Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "@saludo && #saludan_a_chatbot",
+      "description": null,
+      "dialog_node": "saludan_a_chatbot",
+      "previous_sibling": "saludan_a_chatbot_para_cancelar"
+    },
+    {
+      "title": "saludan_a_chatbot_para_cancelar",
+      "output": {
+        "text": {
+          "values": [
+            "Ok, cancelaré el servicio."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-07-12T17:41:46.708Z",
+      "updated": "2017-07-12T17:45:51.430Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "@dispositivos && @negación && @saludo",
+      "description": null,
+      "dialog_node": "saludan_a_chatbot_para_cancelar",
+      "previous_sibling": "node_1_1494373982443"
+    },
+    {
+      "type": "response_condition",
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "Claro, apagando @servicios."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_8_1499361659850",
+      "context": null,
+      "created": "2017-07-14T20:32:36.390Z",
+      "updated": "2017-07-14T20:33:26.371Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": " @servicios",
+      "description": null,
+      "dialog_node": "node_1_1500064356091",
+      "previous_sibling": "node_1_1499375861507"
+    },
+    {
+      "type": "response_condition",
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "Claro, apagaré la luz y la radio.",
+            "Estoy apagando la luz y la radio.",
+            "Apagaré la luz y la radio.",
+            "Enhorabuena, he apagado la luz y la radio.",
+            "Apagué la luz y la radio."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_8_1499361659850",
+      "context": null,
+      "created": "2017-07-06T17:36:52.677Z",
+      "updated": "2017-07-06T17:38:53.293Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "@dispositivos:Música && @dispositivos:Luz",
+      "description": null,
+      "dialog_node": "node_11_1499362612466",
+      "previous_sibling": null
+    },
+    {
+      "type": "response_condition",
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "Claro, apagaré la música.",
+            "Estoy apagando la música.",
+            "Apagué la música.",
+            "Enhorabuena, he logrado apagar la música.",
+            "Voy a apagar la música."
+          ],
+          "selection_policy": "random"
+        }
+      },
+      "parent": "node_8_1499361659850",
+      "context": null,
+      "created": "2017-07-06T17:30:30.838Z",
+      "updated": "2017-07-06T17:40:28.948Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "@dispositivos:Música && !@dispositivos:Luz",
+      "description": null,
+      "dialog_node": "node_9_1499362230592",
+      "previous_sibling": "node_4_1499355166424"
+    },
+    {
+      "type": "response_condition",
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "Claro, apagaré tu celular.",
+            "Apagué tu celular.",
+            "Estoy apagando tu celular.",
+            "Ya he apagado tu celular.",
+            "Listo, celular apagado."
+          ],
+          "selection_policy": "random"
+        }
+      },
+      "parent": "node_8_1499361659850",
+      "context": null,
+      "created": "2017-07-06T21:17:41.786Z",
+      "updated": "2017-07-06T21:18:24.339Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": " @dispositivos:Celular",
+      "description": null,
+      "dialog_node": "node_1_1499375861507",
+      "previous_sibling": "node_1_1499363609546"
+    },
+    {
+      "type": "response_condition",
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "Claro, voy a cancelar el servicio.",
+            "Apagaré el servicio.",
+            "Estoy apagando el servicio.",
+            "Servicio detenido exitosamente.",
+            "Se ha detenido el servicio pedido."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_8_1499361659850",
+      "context": null,
+      "created": "2017-07-06T17:53:29.859Z",
+      "updated": "2017-07-06T17:54:37.069Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": " @dispositivos:Servicios",
+      "description": null,
+      "dialog_node": "node_1_1499363609546",
+      "previous_sibling": "node_9_1499362230592"
+    },
+    {
+      "type": "response_condition",
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "Estoy apagando las luces.",
+            "Apagaré las luces.",
+            "Voy a apagar las luces.",
+            "Apagué las luces.",
+            "Enhorabuena, he apagado las luces.",
+            "Claro, apagaré la luz."
+          ],
+          "selection_policy": "random"
+        }
+      },
+      "parent": "node_8_1499361659850",
+      "context": null,
+      "created": "2017-07-06T15:32:46.630Z",
+      "updated": "2017-07-06T17:40:59.662Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "@dispositivos:Luz && !@dispositivos:Música",
+      "description": null,
+      "dialog_node": "node_4_1499355166424",
+      "previous_sibling": "node_11_1499362612466"
+    }
+  ],
+  "workspace_id": "7448074d-22ef-42e5-8dad-27082218f509",
+  "counterexamples": [],
+  "learning_opt_out": false
+}

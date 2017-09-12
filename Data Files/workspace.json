@@ -1,0 +1,90 @@
+{
+  "name": "Prueba CSV",
+  "created": "2017-09-06T12:59:32.177904Z",
+  "intents": [
+    {
+      "intent": "perro_que_es",
+      "created": "2017-09-06T12:59:32.177904Z",
+      "updated": "2017-09-06T12:59:32.177904Z",
+      "examples": [
+        {
+          "text": "perro_que_es",
+          "created": "2017-09-06T12:59:32.177904Z",
+          "updated": "2017-09-06T12:59:32.177904Z"
+        }
+      ],
+      "description": null
+    }
+  ],
+  "updated": "2017-09-06T12:59:32.177904Z",
+  "entities": [
+    {
+      "entity": "dog",
+      "values": [
+        {
+          "value": "dog",
+          "created": "2017-09-06T12:59:32.177904Z",
+          "updated": "2017-09-06T12:59:32.177904Z",
+          "metadata": null,
+          "synonyms": [
+            "domestic dog",
+            "Canis familiaris",
+            "frump",
+            "cad",
+            "bounder",
+            "blackguard",
+            "hound",
+            "heel",
+            "frank",
+            "frankfurter",
+            "hotdog",
+            "hot dog",
+            "wiener",
+            "wienerwurst",
+            "weenie",
+            "pawl",
+            "detent",
+            "click",
+            "andiron",
+            "firedog",
+            "dog-iron",
+            "blighter",
+            "canid",
+            "canine",
+            "catch",
+            "chap",
+            "cuss",
+            "disagreeable woman",
+            "fella",
+            "feller",
+            "fellow",
+            "gent",
+            "lad",
+            "sausage",
+            "scoundrel",
+            "stop",
+            "support",
+            "unpleasant woman",
+            "villain"
+          ]
+        }
+      ],
+      "created": "2017-09-06T12:59:32.177904Z",
+      "updated": "2017-09-06T12:59:32.177904Z",
+      "metadata": null,
+      "description": null
+    }
+  ],
+  "language": "en",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2017-9-6"
+    }
+  },
+  "description": "perros",
+  "dialog_nodes": [],
+  "workspace_id": "1234",
+  "counterexamples": [],
+  "learning_opt_out": false
+}
