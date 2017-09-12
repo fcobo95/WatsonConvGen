@@ -23,8 +23,8 @@ def getSynonyms(word):
     theJSON = theSynonyms.json()
     theSynonymsArray = theJSON['noun']['syn']
     theFinalSynonymsArray = []
-    for each in theSynonymsArray:
-        theWords = str(each)
+    for eachWord in theSynonymsArray:
+        theWords = str(eachWord)
         if theWords.__contains__("'"):
             theWords = theWords.replace("'", "")
         theFinalSynonymsArray.append(theWords)
@@ -121,6 +121,8 @@ class Workspace:
             "created": theCreatedDate,
             "updated": theUpdatedDate
         }
+        theIntenExamplesArray.append(theIntentExamples)
+
         theIntentName = ''
         theIntentsArray = []
         theIntents = {
@@ -130,9 +132,10 @@ class Workspace:
             "examples": theIntenExamplesArray,
             "description": None
         }
+        theIntentsArray.append(theIntents)
 
         theEntityValueName = ''
-        theEntityValueSynonyms = getSynonyms("dogo")  # just words. Like a regular array. ['a','b','c','d','e']
+        theEntityValueSynonyms = getSynonyms("dogo")
         theEntityValuesArray = []
         theEntityValues = {
             "value": theEntityValueName,
@@ -155,7 +158,9 @@ class Workspace:
         }
         theEntitiesArray.append(theEntities)
 
-        theLanguage = ''  # TODO: LANGUAGE
+        theLanguage = input("The options are:\n"
+                            "en\n"
+                            "es\n")
 
         theFormattedYear = datetime.today().year
         theYearAsNumber = int(theFormattedYear)
@@ -177,72 +182,75 @@ class Workspace:
 
         theWorkspaceDescription = ''
 
+        # TODO: DECOMPOSE INTO SMALLER PARTS. INVESTIGATE: http://mydevbits.blogspot.com/2016/08/automating-creation-of-chatbot-dialog.html
         theDialogNodesArray = [
-            {
-                "title": "prueba",
-                "output": {
-                    "text": {
-                        "values": [
-                            "Prueba 1"
-                        ],
-                        "selection_policy": "sequential"
-                    }
+            """
+                {
+                    "title": "prueba",
+                    "output": {
+                        "text": {
+                            "values": [
+                                "Prueba 1"
+                            ],
+                            "selection_policy": "sequential"
+                        }
+                    },
+                    "parent": None,
+                    "context": None,
+                    "created": "2017-09-11T16:55:42.021Z",
+                    "updated": "2017-09-11T16:56:20.851Z",
+                    "metadata": None,
+                    "next_step": None,
+                    "conditions": "#Prueba1 && @Prueba1",
+                    "description": None,
+                    "dialog_node": "node_1_1505145345622",
+                    "previous_sibling": "Welcome"
                 },
-                "parent": None,
-                "context": None,
-                "created": "2017-09-11T16:55:42.021Z",
-                "updated": "2017-09-11T16:56:20.851Z",
-                "metadata": None,
-                "next_step": None,
-                "conditions": "#Prueba1 && @Prueba1",
-                "description": None,
-                "dialog_node": "node_1_1505145345622",
-                "previous_sibling": "Welcome"
-            },
-            {
-                "title": None,
-                "output": {
-                    "text": {
-                        "values": [
-                            "I didn't understand. You can try rephrasing.",
-                            "Can you reword your statement? I'm not understanding.",
-                            "I didn't get your meaning."
-                        ],
-                        "selection_policy": "sequential"
-                    }
+                {
+                    "title": None,
+                    "output": {
+                        "text": {
+                            "values": [
+                                "I didn't understand. You can try rephrasing.",
+                                "Can you reword your statement? I'm not understanding.",
+                                "I didn't get your meaning."
+                            ],
+                            "selection_policy": "sequential"
+                        }
+                    },
+                    "parent": None,
+                    "context": None,
+                    "created": "2017-09-11T16:55:38.611Z",
+                    "updated": "2017-09-11T16:55:38.611Z",
+                    "metadata": None,
+                    "next_step": None,
+                    "conditions": "anything_else",
+                    "description": None,
+                    "dialog_node": "Anything else",
+                    "previous_sibling": "node_1_1505145345622"
                 },
-                "parent": None,
-                "context": None,
-                "created": "2017-09-11T16:55:38.611Z",
-                "updated": "2017-09-11T16:55:38.611Z",
-                "metadata": None,
-                "next_step": None,
-                "conditions": "anything_else",
-                "description": None,
-                "dialog_node": "Anything else",
-                "previous_sibling": "node_1_1505145345622"
-            },
-            {
-                "title": None,
-                "output": {
-                    "text": {
-                        "values": [
-                            "Hello. How can I help you?"
-                        ],
-                        "selection_policy": "sequential"
-                    }
-                },
-                "parent": None,
-                "context": None,
-                "created": "2017-09-11T16:55:38.611Z",
-                "updated": "2017-09-11T16:55:38.611Z",
-                "metadata": None,
-                "next_step": None,
-                "conditions": "welcome",
-                "description": None,
-                "dialog_node": "Welcome",
-                "previous_sibling": None
-            }
+                {
+                    "title": None,
+                    "output": {
+                        "text": {
+                            "values": [
+                                "Hello. How can I help you?"
+                            ],
+                            "selection_policy": "sequential"
+                        }
+                    },
+                    "parent": None,
+                    "context": None,
+                    "created": "2017-09-11T16:55:38.611Z",
+                    "updated": "2017-09-11T16:55:38.611Z",
+                    "metadata": None,
+                    "next_step": None,
+                    "conditions": "welcome",
+                    "description": None,
+                    "dialog_node": "Welcome",
+                    "previous_sibling": None
+                }
+            """
         ]
 
         theWorkspaceID = ''
@@ -267,7 +275,7 @@ class Workspace:
             "learning_opt_out": theWorkspaceLearningOptOut
         }
 
-        return theFinalWorkspace
+        return str(theFinalWorkspace)
 
 
 if __name__ == '__main__':
