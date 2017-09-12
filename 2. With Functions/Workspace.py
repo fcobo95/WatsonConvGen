@@ -114,7 +114,7 @@ class Workspace:
                                          theCreatedCurrentMicrosecond)
         theCreatedDate = theUpdatedDate = theCurrentCreatedDate.isoformat() + 'Z'
 
-        theIntentExampleText = ''
+        theIntentExampleText = self.readThe['Examples']
         theIntenExamplesArray = []
         theIntentExamples = {
             "text": theIntentExampleText,
@@ -123,7 +123,7 @@ class Workspace:
         }
         theIntenExamplesArray.append(theIntentExamples)
 
-        theIntentName = ''
+        theIntentName = self.readThe['Intents']
         theIntentsArray = []
         theIntents = {
             "intent": theIntentName,
@@ -134,29 +134,32 @@ class Workspace:
         }
         theIntentsArray.append(theIntents)
 
-        theEntityValueName = ''
-        theEntityValueSynonyms = getSynonyms("dogo")
+        theEntityData = self.readThe['Entity']
         theEntityValuesArray = []
-        theEntityValues = {
-            "value": theEntityValueName,
-            "created": theCreatedDate,
-            "updated": theUpdatedDate,
-            "metadata": None,
-            "synonyms": theEntityValueSynonyms
-        }
-        theEntityValuesArray.append(theEntityValues)
+        for each in theEntityData:
+            theEntityValueName = self.readThe['Entity'].get_value(self.theCounter)
+            theEntityValueSynonyms = getSynonyms("dogo")
+            theEntityValues = {
+                "value": theEntityValueName,
+                "created": theCreatedDate,
+                "updated": theUpdatedDate,
+                "metadata": None,
+                "synonyms": theEntityValueSynonyms
+            }
+            theEntityValuesArray.append(theEntityValues)
 
-        theEntityName = ''
         theEntitiesArray = []
-        theEntities = {
-            "entity": theEntityName,
-            "values": theEntityValuesArray,
-            "created": theCreatedDate,
-            "updated": theUpdatedDate,
-            "metadata": None,
-            "description": None
-        }
-        theEntitiesArray.append(theEntities)
+        for each in theEntityData:
+            theEntityName = self.readThe['Entity'].get_value(self.theCounter)
+            theEntities = {
+                "entity": theEntityName,
+                "values": theEntityValuesArray,
+                "created": theCreatedDate,
+                "updated": theUpdatedDate,
+                "metadata": None,
+                "description": None
+            }
+            theEntitiesArray.append(theEntities)
 
         theLanguage = input("The options are:\n"
                             "en\n"
@@ -180,9 +183,10 @@ class Workspace:
             "api_version": theWorkspaceMetaDataAPI_VERSION
         }
 
-        theWorkspaceDescription = ''
+        theWorkspaceDescription = self.readThe['Description']
 
-        # TODO: DECOMPOSE INTO SMALLER PARTS. INVESTIGATE: http://mydevbits.blogspot.com/2016/08/automating-creation-of-chatbot-dialog.html
+        # TODO: DECOMPOSE INTO SMALLER PARTS.
+        # TODO: INVESTIGATE: http://mydevbits.blogspot.com/2016/08/automating-creation-of-chatbot-dialog.html
         theDialogNodesArray = [
             """
                 {
@@ -253,7 +257,9 @@ class Workspace:
             """
         ]
 
-        theWorkspaceID = ''
+        # SALT = open('../Data Files/SALT.txt', 'r')
+
+        theWorkspaceID = '1234'
 
         theWorkspaceCounterExamples = []  # TODO: CHECK PURPOSE
 
