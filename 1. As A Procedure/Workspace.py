@@ -1,7 +1,7 @@
 from datetime import datetime
-import requests
-from flask import Flask, redirect, jsonify
+from flask import Flask, json, jsonify, redirect
 from Readers import ReaderCSV as CSV
+import requests
 import time
 
 app = Flask(__name__)
@@ -13,8 +13,7 @@ def hello_world():
     return redirect('/response')
 
 
-@app.route('/get-synonyms')
-def givemesynonyms(word):
+def getSynonyms(word):
     theDirectory = "../Data Files/"
     KEY = open(theDirectory + "key.txt", "r")
     theKey = KEY.read()
@@ -24,8 +23,8 @@ def givemesynonyms(word):
     theJSON = theSynonyms.json()
     theSynonymsArray = theJSON['noun']['syn']
     theFinalSynonymsArray = []
-    for each in theSynonymsArray:
-        theWords = str(each)
+    for eachWord in theSynonymsArray:
+        theWords = str(eachWord)
         if theWords.__contains__("'"):
             theWords = theWords.replace("'", "")
         theFinalSynonymsArray.append(theWords)
@@ -48,7 +47,7 @@ def returnTheWorkspace():
         theResponse = theResponse.replace("'", '"')
 
     if "None" in theResponse:
-        theResponse = theResponse.replace("None", "None")
+        theResponse = theResponse.replace("None", "null")
 
     if "False" in theResponse:
         theResponse = theResponse.replace("False", "false")
@@ -95,6 +94,7 @@ class Workspace:
         This block of code will generate a custom iso formatted date./////////////////////////// 
         ########################################################################################
         """
+
         theCreatedDay = datetime.today().day
         theCreatedCurrentDay = int(theCreatedDay)
         theCreatedMonth = datetime.today().month
@@ -112,112 +112,70 @@ class Workspace:
         theCurrentCreatedDate = datetime(theCreatedCurrentYear, theCreatedCurrentMonth, theCreatedCurrentDay,
                                          theCreatedCurrentHour, theCreatedCurrentMinute, theCreatedCurrentSecond,
                                          theCreatedCurrentMicrosecond)
-
-        """
-        ########################################################################################
-        The variables 'theCreatedDate' and 'theUpdatedDate' will be assigned the same value,they 
-        will call the same method.//////////////////////////////////////////////////////////////
-        ########################################################################################
-        """
         theCreatedDate = theUpdatedDate = theCurrentCreatedDate.isoformat() + 'Z'
 
-        theIntentName = "Something to read from"
-        theIntents = [
-            {
-                "intent": theIntentName,
-                "created": "2017-09-11T16:36:43.590Z",
-                "updated": "2017-09-11T16:37:01.199Z",
-                "examples": [
-                    {
-                        "text": "Prueba1.2",
-                        "created": "2017-09-11T16:36:51.571Z",
-                        "updated": "2017-09-11T16:36:51.571Z"
-                    },
-                    {
-                        "text": "Prueba1.1",
-                        "created": "2017-09-11T16:36:57.211Z",
-                        "updated": "2017-09-11T16:36:57.211Z"
-                    },
-                    {
-                        "text": "prueba1.3",
-                        "created": "2017-09-11T16:37:01.199Z",
-                        "updated": "2017-09-11T16:37:01.199Z"
-                    }
-                ],
-                "description": None
-            },
-            {
-                "intent": "Prueba2",
-                "created": "2017-09-11T16:37:11.922Z",
-                "updated": "2017-09-11T16:37:22.092Z",
-                "examples": [
-                    {
-                        "text": "Prueba2.1",
-                        "created": "2017-09-11T16:37:16.954Z",
-                        "updated": "2017-09-11T16:37:16.954Z"
-                    },
-                    {
-                        "text": "Prueba2.2",
-                        "created": "2017-09-11T16:37:19.447Z",
-                        "updated": "2017-09-11T16:37:19.447Z"
-                    },
-                    {
-                        "text": "Prueba2.3",
-                        "created": "2017-09-11T16:37:22.092Z",
-                        "updated": "2017-09-11T16:37:22.092Z"
-                    }
-                ],
-                "description": None
-            }
-        ]
-        theEntityValues = []
-        theEntities = []
-        theEntityName = self.readThe['Entity'].get_value(self.theCounter)
-        if self.theCounter is None:
-            pass
-        else:
-            theEntityName = self.readThe['Entity'].get_value(self.theCounter)
-            eachEntity = None
-            for each in theEntityName:
-                theEntityName = self.readThe['Entity'].get_value(self.theCounter)
-                theEntityValueSynonyms = givemesynonyms(theEntityName)
-                eachEntitySynonym = {
-                    "value": theEntityName,
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate,
-                    "metadata": None,
-                    "synonyms": theEntityValueSynonyms
-                }
-                theEntityValues.append(eachEntitySynonym)
-                print(theEntityValues)
+        theIntentExampleText = self.readThe['Examples'].get_value(0)
+        theIntenExamplesArray = []
+        theIntentExamples = {
+            "text": theIntentExampleText,
+            "created": theCreatedDate,
+            "updated": theUpdatedDate
+        }
+        theIntenExamplesArray.append(theIntentExamples)
 
-                self.theCounter = self.theCounter + 1
-        eachEntity = {
-            "entity": theEntityName,
-            "values": theEntityValues,
+        theIntentName = self.readThe['Intents'].get_value(0)
+        theIntentsArray = []
+        theIntents = {
+            "intent": theIntentName,
             "created": theCreatedDate,
             "updated": theUpdatedDate,
-            "metadata": None,
+            "examples": theIntenExamplesArray,
             "description": None
         }
-        theEntities.append(eachEntity)
+        theIntentsArray.append(theIntents)
 
-        theLanguage = 'en'
+        theEntityData = self.readThe['Entity']
+        theEntityValuesArray = []
+        theValuesCounter = 0
+        for each in theEntityData:
+            theEntityValueName = self.readThe['Entity'].get_value(theValuesCounter)
+            theEntityValueSynonyms = getSynonyms(theEntityValueName)
+            theEntityValues = {
+                "value": theEntityValueName,
+                "created": theCreatedDate,
+                "updated": theUpdatedDate,
+                "metadata": None,
+                "synonyms": theEntityValueSynonyms
+            }
+            theEntityValuesArray.append(theEntityValues)
+            theValuesCounter += 1
 
-        """
-        ########################################################################################
-        This block of code will generate a specifically formatted date for the metadata key.////
-        Format = YYYY-M-D | ==> Example: 2017-8-9.//////////////////////////////////////////////
-        ########################################################################################
-        """
+        theEntitiesArray = []
+        theEntitiesCounter = 0
+        for each in theEntityData:
+            theEntityName = self.readThe['Entity'].get_value(theEntitiesCounter)
+            theEntities = {
+                "entity": theEntityName,
+                "values": theEntityValuesArray,
+                "created": theCreatedDate,
+                "updated": theUpdatedDate,
+                "metadata": None,
+                "description": None
+            }
+            theEntitiesArray.append(theEntities)
+            theEntitiesCounter += 1
+
+        theLanguage = input("The options are:\n"
+                            "en\n"
+                            "es\n")
 
         theFormattedYear = datetime.today().year
-        theYearAsNumber = str(theFormattedYear)
+        theYearAsNumber = int(theFormattedYear)
         theFormattedMonth = datetime.today().month
-        theMonthAsNumber = str(theFormattedMonth)
+        theMonthAsNumber = int(theFormattedMonth)
         theFormattedDay = datetime.today().day
-        theDayAsNumber = str(theFormattedDay)
-        theCreatedDateFormatted = "{}-{}-{}".format(theYearAsNumber, theMonthAsNumber, theDayAsNumber)
+        theDayAsNumber = int(theFormattedDay)
+        theCreatedDateFormatted = str("{}-{}-{}").format(theYearAsNumber, theMonthAsNumber, theDayAsNumber)
 
         theMetaDataMajorVersion = 'v1'
         theMetaDataMinorVersion = theCreatedDateFormatted
@@ -225,27 +183,103 @@ class Workspace:
             "major_version": theMetaDataMajorVersion,
             "minor_version": theMetaDataMinorVersion
         }
-
         theWorkspaceMetaData = {
             "api_version": theWorkspaceMetaDataAPI_VERSION
         }
+
         theWorkspaceDescription = self.readThe['Description'].get_value(0)
-        theDialogNodes = []
+
+        # TODO: DECOMPOSE INTO SMALLER PARTS.
+        # TODO: INVESTIGATE: http://mydevbits.blogspot.com/2016/08/automating-creation-of-chatbot-dialog.html
+        theDialogNodesArray = [
+            # """
+            #     {
+            #         "title": "prueba",
+            #         "output": {
+            #             "text": {
+            #                 "values": [
+            #                     "Prueba 1"
+            #                 ],
+            #                 "selection_policy": "sequential"
+            #             }
+            #         },
+            #         "parent": None,
+            #         "context": None,
+            #         "created": "2017-09-11T16:55:42.021Z",
+            #         "updated": "2017-09-11T16:56:20.851Z",
+            #         "metadata": None,
+            #         "next_step": None,
+            #         "conditions": "#Prueba1 && @Prueba1",
+            #         "description": None,
+            #         "dialog_node": "node_1_1505145345622",
+            #         "previous_sibling": "Welcome"
+            #     },
+            #     {
+            #         "title": None,
+            #         "output": {
+            #             "text": {
+            #                 "values": [
+            #                     "I didn't understand. You can try rephrasing.",
+            #                     "Can you reword your statement? I'm not understanding.",
+            #                     "I didn't get your meaning."
+            #                 ],
+            #                 "selection_policy": "sequential"
+            #             }
+            #         },
+            #         "parent": None,
+            #         "context": None,
+            #         "created": "2017-09-11T16:55:38.611Z",
+            #         "updated": "2017-09-11T16:55:38.611Z",
+            #         "metadata": None,
+            #         "next_step": None,
+            #         "conditions": "anything_else",
+            #         "description": None,
+            #         "dialog_node": "Anything else",
+            #         "previous_sibling": "node_1_1505145345622"
+            #     },
+            #     {
+            #         "title": None,
+            #         "output": {
+            #             "text": {
+            #                 "values": [
+            #                     "Hello. How can I help you?"
+            #                 ],
+            #                 "selection_policy": "sequential"
+            #             }
+            #         },
+            #         "parent": None,
+            #         "context": None,
+            #         "created": "2017-09-11T16:55:38.611Z",
+            #         "updated": "2017-09-11T16:55:38.611Z",
+            #         "metadata": None,
+            #         "next_step": None,
+            #         "conditions": "welcome",
+            #         "description": None,
+            #         "dialog_node": "Welcome",
+            #         "previous_sibling": None
+            #     }
+            # """
+        ]
+
+        # SALT = open('../Data Files/SALT.txt', 'r')
+
         theWorkspaceID = '1234'
-        theWorkspaceCounterExamples = []
-        theWorkspaceLearningOptOut = False
+
+        theWorkspaceCounterExamples = []  # TODO: CHECK PURPOSE
+
+        theWorkspaceLearningOptOut = False  # TODO: CHECK PURPOSE
 
         # THE WORKSPACE GENERATED BY THE BACKEND. RETURN THIS WORKSPACE AS A .JSON FILE.
         theFinalWorkspace = {
             "name": theWorkspaceName,
             "created": theCreatedDate,
-            "intents": theIntents,
+            "intents": theIntentsArray,
             "updated": theUpdatedDate,
-            "entities": theEntities,
+            "entities": theEntitiesArray,
             "language": theLanguage,
             "metadata": theWorkspaceMetaData,
             "description": theWorkspaceDescription,
-            "dialog_nodes": theDialogNodes,
+            "dialog_nodes": theDialogNodesArray,
             "workspace_id": theWorkspaceID,
             "counterexamples": theWorkspaceCounterExamples,
             "learning_opt_out": theWorkspaceLearningOptOut
