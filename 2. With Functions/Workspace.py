@@ -27,7 +27,7 @@ def getSynonyms(word):
 
 
 def closeTheKey(KEY):
-    KEY.close()
+    return KEY.close()
 
 
 def readTheKey(KEY):
@@ -116,13 +116,18 @@ def returnTheWorkspace():
 
 
 class Workspace:
+    """
+    Class Workspace. This object will be the brain, to control and coordinate all other objects and their functionalities
+    in order to create the workspace.
+    """
+
     def __init__(self):
         self.readThe = CSV.reader().theFinalCSVData
         self.theCounter = 0
 
     def generateTheWorkspace(self):
         """
-        GENERATE THE WORKSPACE FUNCTION
+        This is a coordinator method that will eventually return theFinalWorkspace
         :return: theFinalWorkspace
         """
         """
@@ -148,32 +153,157 @@ class Workspace:
         theCurrentCreatedDate = datetime(theCreatedCurrentYear, theCreatedCurrentMonth, theCreatedCurrentDay,
                                          theCreatedCurrentHour, theCreatedCurrentMinute, theCreatedCurrentSecond,
                                          theCreatedCurrentMicrosecond)
-        theCreatedDate = theUpdatedDate = self.returnTheISODate(theCurrentCreatedDate)
+        theCreatedDate, theUpdatedDate = self.returnTheISODate(theCurrentCreatedDate)
 
-        theIntentExampleText = self.readThe['Examples'].get_value(0)
-        theIntenExamplesArray = []
-        theIntentExamples = {
-            "text": theIntentExampleText,
-            "created": theCreatedDate,
-            "updated": theUpdatedDate
-        }
-        theIntenExamplesArray.append(theIntentExamples)
+        """
+        ########################################################################################
+        This block of code will all the Intent Examples found in the CSV file provided by the/// 
+        customer./////////////////////////////////////////////////////////////////////////////// 
+        ########################################################################################
+        """
+        theIntentExamplesData = self.readThe['Examples']
+        theIntenExamplesArray = self.getTheIntentExamples(theCreatedDate, theIntentExamplesData, theUpdatedDate)
 
-        theIntentName = self.readThe['Intents'].get_value(0)
-        theIntentsArray = []
-        theIntents = {
-            "intent": theIntentName,
-            "created": theCreatedDate,
-            "updated": theUpdatedDate,
-            "examples": theIntenExamplesArray,
-            "description": None
-        }
-        theIntentsArray.append(theIntents)
+        """
+        ########################################################################################
+        This block of code will all the Intents found in the CSV and apply the procedures found/
+        in the corresponding functions.///////////////////////////////////////////////////////// 
+        ########################################################################################
+        """
+        theIntentNameData = self.readThe['Intents']
+        theIntentsArray = self.getTheIntentNames(theCreatedDate, theIntenExamplesArray, theIntentNameData,
+                                                 theUpdatedDate)
 
+        """
+        ########################################################################################
+        This piece of code will get all the entities found in the CSV file and then create the// 
+        JSON pieces that will be needed to create the final workspace. This will generate an////
+        array with all the values for each entity found.////////////////////////////////////////  
+        ########################################################################################
+        """
         theEntityData = self.readThe['Entity']
+        theEntityValuesArray = self.getTheEntityValues(theCreatedDate, theEntityData, theUpdatedDate)
+        theEntitiesArray = self.getTheEntities(theCreatedDate, theEntityData, theEntityValuesArray,
+                                               theUpdatedDate)  # TODO: CHECK SECOND PARAMETER. IT MAY NEED A CHANGE.
+
+        """
+        ########################################################################################
+        This method will ask the user for an input regarding the workspace native language./////
+        ////////////////////////////////////////////////////////////////////////////////////////
+        The options are:
+        - en
+        - es
+        ////////////////////////////////////////////////////////////////////////////////////////
+        This will return the user input and set it as the workspace language in the JSON output/
+        file./////////////////////////////////////////////////////////////////////////////////// 
+        ########################################################################################
+        """
+        theLanguage = self.getTheLanguage()
+
+        """
+        ########################################################################################
+        This block of code will generate a custom date format for the METADATA Minor Version./// 
+        ########################################################################################
+        """
+        theYearAsNumber = self.getTheFormattedYear()
+        theMonthAsNumber = self.getTheFormattedMonth()
+        theDayAsNumber = self.getTheFormattedDay()
+        theCreatedDateFormatted = self.getTheFormattedDate(theDayAsNumber, theMonthAsNumber, theYearAsNumber)
+        theMetaDataMinorVersion = self.returnTheMetaDataMinorVersion(theCreatedDateFormatted)
+
+        """
+        ########################################################################################
+        This will return the current version of the API, which is 'v1'./////////////////////////
+        ########################################################################################
+        """
+        theMetaDataMajorVersion = self.getTheMetaDataMajorVersion()
+
+        """
+        ########################################################################################
+        This just gets all the little parts and assembles them into the METADATA JSON key:value. 
+        ########################################################################################
+        """
+        theWorkspaceMetaDataAPI_VERSION = self.getTheMetaDataAPI_Version(theMetaDataMajorVersion,
+                                                                         theMetaDataMinorVersion)
+        theWorkspaceMetaData = self.getTheWorkspaceMetaData(theWorkspaceMetaDataAPI_VERSION)
+
+        """
+        ########################################################################################
+        This gets the description for the workspace being generated from the CSV file.////////// 
+        ########################################################################################
+        """
+        theWorkspaceDescription = self.getTheWorkspaceDescription()
+
+        """
+        ########################################################################################
+        TODO: INVESTIGATE: 
+        http://mydevbits.blogspot.com/2016/08/automating-creation-of-chatbot-dialog.html 
+        ########################################################################################
+        """
+        theDialogNodesArray = []
+
+        """
+        ########################################################################################
+        This generates a custom made workspace id, just for the sake of doing it, because Watson
+        actually assigns a new one when you upload the entire workspace JSON file.////////////// 
+        ########################################################################################
+        """
+        theWorkspaceID = self.getTheWorkspaceID()
+
+        """
+        ########################################################################################
+        Some settings. Will be explained and investigated later on.///////////////////////////// 
+        ########################################################################################
+        """
+        theWorkspaceCounterExamples = []
+        theWorkspaceLearningOptOut = False
+        """
+        ########################################################################################
+        THE WORKSPACE GENERATED BY THE BACKEND. RETURN THIS WORKSPACE AS A .JSON FILE. 
+        ########################################################################################
+        """
+        theFinalWorkspace = self.getTheFinalWorkspace(theCreatedDate, theDialogNodesArray, theEntitiesArray,
+                                                      theIntentsArray, theLanguage, theUpdatedDate,
+                                                      theWorkspaceCounterExamples, theWorkspaceDescription,
+                                                      theWorkspaceID, theWorkspaceLearningOptOut, theWorkspaceMetaData,
+                                                      theWorkspaceName)
+
+        return self.returnTheFinalWorkspace(theFinalWorkspace)
+
+    def getTheIntentExamples(self, theCreatedDate, theIntentExamplesData, theUpdatedDate):
+        theIntenExamplesArray = []
+        theExamplesCounter = 0
+        for _ in theIntentExamplesData:
+            theIntentExampleText = self.readThe['Examples'].get_value(theExamplesCounter)
+            theIntentExamples = {
+                "text": theIntentExampleText,
+                "created": theCreatedDate,
+                "updated": theUpdatedDate
+            }
+            theIntenExamplesArray.append(theIntentExamples)
+            theExamplesCounter += 1
+        return theIntenExamplesArray
+
+    def getTheIntentNames(self, theCreatedDate, theIntenExamplesArray, theIntentNameData, theUpdatedDate):
+        theIntentsArray = []
+        theNamesCounter = 0
+        for _ in theIntentNameData:
+            theIntentName = self.readThe['Intents'].get_value(theNamesCounter)
+            theIntents = {
+                "intent": theIntentName,
+                "created": theCreatedDate,
+                "updated": theUpdatedDate,
+                "examples": theIntenExamplesArray,
+                "description": None
+            }
+            theIntentsArray.append(theIntents)
+            theNamesCounter += 1
+        return theIntentsArray
+
+    def getTheEntityValues(self, theCreatedDate, theEntityData, theUpdatedDate):
         theEntityValuesArray = []
         theValuesCounter = 0
-        for each in theEntityData:
+        for _ in theEntityData:
             theEntityValueName = self.readThe['Entity'].get_value(theValuesCounter)
             theEntityValueSynonyms = getSynonyms(theEntityValueName)
             theEntityValues = {
@@ -185,10 +315,12 @@ class Workspace:
             }
             theEntityValuesArray.append(theEntityValues)
             theValuesCounter += 1
+        return theEntityValuesArray
 
+    def getTheEntities(self, theCreatedDate, theEntityData, theEntityValuesArray, theUpdatedDate):
         theEntitiesArray = []
         theEntitiesCounter = 0
-        for each in theEntityData:
+        for _ in theEntityData:
             theEntityName = self.readThe['Entity'].get_value(theEntitiesCounter)
             theEntities = {
                 "entity": theEntityName,
@@ -200,31 +332,7 @@ class Workspace:
             }
             theEntitiesArray.append(theEntities)
             theEntitiesCounter += 1
-
-        theLanguage = self.getTheLanguage()
-        theYearAsNumber = self.getTheFormattedYear()
-        theMonthAsNumber = self.getTheFormattedMonth()
-        theDayAsNumber = self.getTheFormattedDay()
-        theCreatedDateFormatted = self.getTheFormattedDate(theDayAsNumber, theMonthAsNumber, theYearAsNumber)
-        theMetaDataMajorVersion = self.getTheMetaDataMajorVersion()
-        theMetaDataMinorVersion = self.returnTheMetaDataMinorVersion(theCreatedDateFormatted)
-        theWorkspaceMetaDataAPI_VERSION = self.getTheMetaDataAPI_Version(theMetaDataMajorVersion,
-                                                                         theMetaDataMinorVersion)
-        theWorkspaceMetaData = self.getTheWorkspaceMetaData(theWorkspaceMetaDataAPI_VERSION)
-        theWorkspaceDescription = self.getTheWorkspaceDescription()
-        # TODO: INVESTIGATE: http://mydevbits.blogspot.com/2016/08/automating-creation-of-chatbot-dialog.html
-        theDialogNodesArray = []
-        theWorkspaceID = self.getTheWorkspaceID()
-        theWorkspaceCounterExamples = []
-        theWorkspaceLearningOptOut = False
-        # THE WORKSPACE GENERATED BY THE BACKEND. RETURN THIS WORKSPACE AS A .JSON FILE.
-        theFinalWorkspace = self.getTheFinalWorkspace(theCreatedDate, theDialogNodesArray, theEntitiesArray,
-                                                      theIntentsArray, theLanguage, theUpdatedDate,
-                                                      theWorkspaceCounterExamples, theWorkspaceDescription,
-                                                      theWorkspaceID, theWorkspaceLearningOptOut, theWorkspaceMetaData,
-                                                      theWorkspaceName)
-
-        return self.returnTheFinalWorkspace(theFinalWorkspace)
+        return theEntitiesArray
 
     def getTheDay(self):
         theCreatedDay = datetime.today().day
