@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask
+from flask import Flask, json, jsonify, redirect
 from Readers import ReaderCSV as CSV
 import requests
 import time
@@ -10,7 +10,7 @@ app = Flask(__name__)
 # DEFAULT ROUTE
 @app.route('/')
 def hello_world():
-    return 'Hello World!'
+    return redirect('/response')
 
 
 def getSynonyms(word):
@@ -47,7 +47,7 @@ def returnTheWorkspace():
         theResponse = theResponse.replace("'", '"')
 
     if "None" in theResponse:
-        theResponse = theResponse.replace("None", "None")
+        theResponse = theResponse.replace("None", "null")
 
     if "False" in theResponse:
         theResponse = theResponse.replace("False", "false")
@@ -114,7 +114,7 @@ class Workspace:
                                          theCreatedCurrentMicrosecond)
         theCreatedDate = theUpdatedDate = theCurrentCreatedDate.isoformat() + 'Z'
 
-        theIntentExampleText = self.readThe['Examples']
+        theIntentExampleText = self.readThe['Examples'].get_value(0)
         theIntenExamplesArray = []
         theIntentExamples = {
             "text": theIntentExampleText,
@@ -123,7 +123,7 @@ class Workspace:
         }
         theIntenExamplesArray.append(theIntentExamples)
 
-        theIntentName = self.readThe['Intents']
+        theIntentName = self.readThe['Intents'].get_value(0)
         theIntentsArray = []
         theIntents = {
             "intent": theIntentName,
@@ -134,11 +134,12 @@ class Workspace:
         }
         theIntentsArray.append(theIntents)
 
-        theEntityData = self.readThe['Entity']
+        theEntityData = self.readThe['Entity'].get_value(0)
         theEntityValuesArray = []
+        theValuesCounter = 0
         for each in theEntityData:
-            theEntityValueName = self.readThe['Entity'].get_value(self.theCounter)
-            theEntityValueSynonyms = getSynonyms("dogo")
+            theEntityValueName = self.readThe['Entity'].get_value(theValuesCounter)
+            theEntityValueSynonyms = getSynonyms(theEntityValueName)
             theEntityValues = {
                 "value": theEntityValueName,
                 "created": theCreatedDate,
@@ -147,10 +148,12 @@ class Workspace:
                 "synonyms": theEntityValueSynonyms
             }
             theEntityValuesArray.append(theEntityValues)
+            theValuesCounter += 1
 
         theEntitiesArray = []
+        theEntitiesCounter = 0
         for each in theEntityData:
-            theEntityName = self.readThe['Entity'].get_value(self.theCounter)
+            theEntityName = self.readThe['Entity'].get_value(theEntitiesCounter)
             theEntities = {
                 "entity": theEntityName,
                 "values": theEntityValuesArray,
@@ -160,6 +163,7 @@ class Workspace:
                 "description": None
             }
             theEntitiesArray.append(theEntities)
+            theEntitiesCounter += 1
 
         theLanguage = input("The options are:\n"
                             "en\n"
@@ -183,78 +187,78 @@ class Workspace:
             "api_version": theWorkspaceMetaDataAPI_VERSION
         }
 
-        theWorkspaceDescription = self.readThe['Description']
+        theWorkspaceDescription = self.readThe['Description'].get_value(0)
 
         # TODO: DECOMPOSE INTO SMALLER PARTS.
         # TODO: INVESTIGATE: http://mydevbits.blogspot.com/2016/08/automating-creation-of-chatbot-dialog.html
         theDialogNodesArray = [
-            """
-                {
-                    "title": "prueba",
-                    "output": {
-                        "text": {
-                            "values": [
-                                "Prueba 1"
-                            ],
-                            "selection_policy": "sequential"
-                        }
-                    },
-                    "parent": None,
-                    "context": None,
-                    "created": "2017-09-11T16:55:42.021Z",
-                    "updated": "2017-09-11T16:56:20.851Z",
-                    "metadata": None,
-                    "next_step": None,
-                    "conditions": "#Prueba1 && @Prueba1",
-                    "description": None,
-                    "dialog_node": "node_1_1505145345622",
-                    "previous_sibling": "Welcome"
-                },
-                {
-                    "title": None,
-                    "output": {
-                        "text": {
-                            "values": [
-                                "I didn't understand. You can try rephrasing.",
-                                "Can you reword your statement? I'm not understanding.",
-                                "I didn't get your meaning."
-                            ],
-                            "selection_policy": "sequential"
-                        }
-                    },
-                    "parent": None,
-                    "context": None,
-                    "created": "2017-09-11T16:55:38.611Z",
-                    "updated": "2017-09-11T16:55:38.611Z",
-                    "metadata": None,
-                    "next_step": None,
-                    "conditions": "anything_else",
-                    "description": None,
-                    "dialog_node": "Anything else",
-                    "previous_sibling": "node_1_1505145345622"
-                },
-                {
-                    "title": None,
-                    "output": {
-                        "text": {
-                            "values": [
-                                "Hello. How can I help you?"
-                            ],
-                            "selection_policy": "sequential"
-                        }
-                    },
-                    "parent": None,
-                    "context": None,
-                    "created": "2017-09-11T16:55:38.611Z",
-                    "updated": "2017-09-11T16:55:38.611Z",
-                    "metadata": None,
-                    "next_step": None,
-                    "conditions": "welcome",
-                    "description": None,
-                    "dialog_node": "Welcome",
-                    "previous_sibling": None
-                }
-            """
+            # """
+            #     {
+            #         "title": "prueba",
+            #         "output": {
+            #             "text": {
+            #                 "values": [
+            #                     "Prueba 1"
+            #                 ],
+            #                 "selection_policy": "sequential"
+            #             }
+            #         },
+            #         "parent": None,
+            #         "context": None,
+            #         "created": "2017-09-11T16:55:42.021Z",
+            #         "updated": "2017-09-11T16:56:20.851Z",
+            #         "metadata": None,
+            #         "next_step": None,
+            #         "conditions": "#Prueba1 && @Prueba1",
+            #         "description": None,
+            #         "dialog_node": "node_1_1505145345622",
+            #         "previous_sibling": "Welcome"
+            #     },
+            #     {
+            #         "title": None,
+            #         "output": {
+            #             "text": {
+            #                 "values": [
+            #                     "I didn't understand. You can try rephrasing.",
+            #                     "Can you reword your statement? I'm not understanding.",
+            #                     "I didn't get your meaning."
+            #                 ],
+            #                 "selection_policy": "sequential"
+            #             }
+            #         },
+            #         "parent": None,
+            #         "context": None,
+            #         "created": "2017-09-11T16:55:38.611Z",
+            #         "updated": "2017-09-11T16:55:38.611Z",
+            #         "metadata": None,
+            #         "next_step": None,
+            #         "conditions": "anything_else",
+            #         "description": None,
+            #         "dialog_node": "Anything else",
+            #         "previous_sibling": "node_1_1505145345622"
+            #     },
+            #     {
+            #         "title": None,
+            #         "output": {
+            #             "text": {
+            #                 "values": [
+            #                     "Hello. How can I help you?"
+            #                 ],
+            #                 "selection_policy": "sequential"
+            #             }
+            #         },
+            #         "parent": None,
+            #         "context": None,
+            #         "created": "2017-09-11T16:55:38.611Z",
+            #         "updated": "2017-09-11T16:55:38.611Z",
+            #         "metadata": None,
+            #         "next_step": None,
+            #         "conditions": "welcome",
+            #         "description": None,
+            #         "dialog_node": "Welcome",
+            #         "previous_sibling": None
+            #     }
+            # """
         ]
 
         # SALT = open('../Data Files/SALT.txt', 'r')
@@ -281,8 +285,8 @@ class Workspace:
             "learning_opt_out": theWorkspaceLearningOptOut
         }
 
-        return str(theFinalWorkspace)
+        return str(dict(theFinalWorkspace))
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
