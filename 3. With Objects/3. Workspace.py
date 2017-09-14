@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, json, jsonify, redirect, render_template
+from flask import Flask, json, jsonify, redirect, Response
 from Readers import ReaderCSV as CSV
 import requests
 import time
@@ -39,7 +39,7 @@ def getTheDirectory():
 
 
 def openTheKey(theDirectory):
-    return open(theDirectory + "key.txt", "r")
+    return open(theDirectory + "key.txt")
 
 
 def getTheRequest(theKey, word):
@@ -112,7 +112,7 @@ def returnTheWorkspace():
         print("Something went wrong.")
         returnTheWorkspace()
 
-    return theResponse
+    return Response(theResponse, mimetype='application/json')
 
 
 class Workspace:
@@ -123,7 +123,6 @@ class Workspace:
 
     def __init__(self):
         self.readThe = CSV.reader().theFinalCSVData
-        self.theCounter = 0
 
     def generateTheWorkspace(self):
         """
