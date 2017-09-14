@@ -192,73 +192,71 @@ class Workspace:
         # TODO: DECOMPOSE INTO SMALLER PARTS.
         # TODO: INVESTIGATE: http://mydevbits.blogspot.com/2016/08/automating-creation-of-chatbot-dialog.html
         theDialogNodesArray = [
-            # """
-            #     {
-            #         "title": "prueba",
-            #         "output": {
-            #             "text": {
-            #                 "values": [
-            #                     "Prueba 1"
-            #                 ],
-            #                 "selection_policy": "sequential"
-            #             }
-            #         },
-            #         "parent": None,
-            #         "context": None,
-            #         "created": "2017-09-11T16:55:42.021Z",
-            #         "updated": "2017-09-11T16:56:20.851Z",
-            #         "metadata": None,
-            #         "next_step": None,
-            #         "conditions": "#Prueba1 && @Prueba1",
-            #         "description": None,
-            #         "dialog_node": "node_1_1505145345622",
-            #         "previous_sibling": "Welcome"
-            #     },
-            #     {
-            #         "title": None,
-            #         "output": {
-            #             "text": {
-            #                 "values": [
-            #                     "I didn't understand. You can try rephrasing.",
-            #                     "Can you reword your statement? I'm not understanding.",
-            #                     "I didn't get your meaning."
-            #                 ],
-            #                 "selection_policy": "sequential"
-            #             }
-            #         },
-            #         "parent": None,
-            #         "context": None,
-            #         "created": "2017-09-11T16:55:38.611Z",
-            #         "updated": "2017-09-11T16:55:38.611Z",
-            #         "metadata": None,
-            #         "next_step": None,
-            #         "conditions": "anything_else",
-            #         "description": None,
-            #         "dialog_node": "Anything else",
-            #         "previous_sibling": "node_1_1505145345622"
-            #     },
-            #     {
-            #         "title": None,
-            #         "output": {
-            #             "text": {
-            #                 "values": [
-            #                     "Hello. How can I help you?"
-            #                 ],
-            #                 "selection_policy": "sequential"
-            #             }
-            #         },
-            #         "parent": None,
-            #         "context": None,
-            #         "created": "2017-09-11T16:55:38.611Z",
-            #         "updated": "2017-09-11T16:55:38.611Z",
-            #         "metadata": None,
-            #         "next_step": None,
-            #         "conditions": "welcome",
-            #         "description": None,
-            #         "dialog_node": "Welcome",
-            #         "previous_sibling": None
-            #     }
-            # """
+            {
+                "title": "prueba",
+                "output": {
+                    "text": {
+                        "values": [
+                            "Prueba 1"
+                        ],
+                        "selection_policy": "sequential"
+                    }
+                },
+                "parent": None,
+                "context": None,
+                "created": "2017-09-11T16:55:42.021Z",
+                "updated": "2017-09-11T16:56:20.851Z",
+                "metadata": None,
+                "next_step": None,
+                "conditions": "#Prueba1 && @Prueba1",
+                "description": None,
+                "dialog_node": "node_1_1505145345622",
+                "previous_sibling": "Welcome"
+            },
+            {
+                "title": None,
+                "output": {
+                    "text": {
+                        "values": [
+                            "I didn't understand. You can try rephrasing.",
+                            "Can you reword your statement? I'm not understanding.",
+                            "I didn't get your meaning."
+                        ],
+                        "selection_policy": "sequential"
+                    }
+                },
+                "parent": None,
+                "context": None,
+                "created": "2017-09-11T16:55:38.611Z",
+                "updated": "2017-09-11T16:55:38.611Z",
+                "metadata": None,
+                "next_step": None,
+                "conditions": "anything_else",
+                "description": None,
+                "dialog_node": "Anything else",
+                "previous_sibling": "node_1_1505145345622"
+            },
+            {
+                "title": None,
+                "output": {
+                    "text": {
+                        "values": [
+                            "Hello. How can I help you?"
+                        ],
+                        "selection_policy": "sequential"
+                    }
+                },
+                "parent": None,
+                "context": None,
+                "created": "2017-09-11T16:55:38.611Z",
+                "updated": "2017-09-11T16:55:38.611Z",
+                "metadata": None,
+                "next_step": None,
+                "conditions": "welcome",
+                "description": None,
+                "dialog_node": "Welcome",
+                "previous_sibling": None
+            }
         ]
 
         # SALT = open('../Data Files/SALT.txt', 'r')
