@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, json, jsonify, redirect
+from flask import Flask, json, jsonify, redirect, render_template
 from Readers import ReaderCSV as CSV
 import requests
 import time
@@ -14,22 +14,66 @@ def hello_world():
 
 
 def getSynonyms(word):
-    theDirectory = "../Data Files/"
-    KEY = open(theDirectory + "key.txt", "r")
-    theKey = KEY.read()
-    theSynonyms = requests.get(
-        "http://words.bighugelabs.com/api/2/" + str(theKey) + "/" + word + "/json")
+    theDirectory = getTheDirectory()
+    KEY = openTheKey(theDirectory)
+    theKey = readTheKey(KEY)
+    theSynonyms = getTheRequest(theKey, word)
+    closeTheKey(KEY)
+    theJSON = formatTheSynonymsToJSON(theSynonyms)
+    theSynonymsArray = readTheSynonymsJSONArray(theJSON)
+    theFinalSynonymsArray = formatTheSynonyms(theSynonymsArray)
+
+    return returnTheSynonyms(theFinalSynonymsArray)
+
+
+def closeTheKey(KEY):
     KEY.close()
-    theJSON = theSynonyms.json()
-    theSynonymsArray = theJSON['noun']['syn']
+
+
+def readTheKey(KEY):
+    return KEY.read()
+
+
+def getTheDirectory():
+    return "../Data Files/"
+
+
+def openTheKey(theDirectory):
+    return open(theDirectory + "key.txt", "r")
+
+
+def getTheRequest(theKey, word):
+    return requests.get(
+        "http://words.bighugelabs.com/api/2/" + str(theKey) + "/" + word + "/json")
+
+
+def formatTheSynonymsToJSON(theSynonyms):
+    return theSynonyms.json()
+
+
+def readTheSynonymsJSONArray(theJSON):
+    return theJSON['noun']['syn']
+
+
+def formatTheSynonyms(theSynonymsArray):
     theFinalSynonymsArray = []
     for eachWord in theSynonymsArray:
-        theWords = str(eachWord)
+        theWords = convertToString(eachWord)
         if theWords.__contains__("'"):
-            theWords = theWords.replace("'", "")
+            theWords = replaceQuotes(theWords)
         theFinalSynonymsArray.append(theWords)
-    print(theFinalSynonymsArray)
+    return theFinalSynonymsArray
 
+
+def convertToString(eachWord):
+    return str(eachWord)
+
+
+def replaceQuotes(theWords):
+    return theWords.replace("'", "")
+
+
+def returnTheSynonyms(theFinalSynonymsArray):
     return theFinalSynonymsArray
 
 
@@ -56,11 +100,10 @@ def returnTheWorkspace():
         theResponse = theResponse.replace("True", "true")
 
     try:
-        theDate = datetime.today().year + datetime.today().month + datetime.today().day
         theTime = str(time.time())
+        theDate = datetime.today().year + datetime.today().month + datetime.today().day
         theTemportalTimeStamp = "{}{}".format(theTime, theDate)
         theTimeStamp = theTemportalTimeStamp.replace(".", "")
-        print(theTimeStamp)
         theDirectory = "../Data Files/"
         theFile = open(theDirectory + "workspace" + str(theTimeStamp) + ".json", "w")
         theFile.write(theResponse)
@@ -95,24 +138,17 @@ class Workspace:
         ########################################################################################
         """
 
-        theCreatedDay = datetime.today().day
-        theCreatedCurrentDay = int(theCreatedDay)
-        theCreatedMonth = datetime.today().month
-        theCreatedCurrentMonth = int(theCreatedMonth)
-        theCreatedYear = datetime.today().year
-        theCreatedCurrentYear = int(theCreatedYear)
-        theCreatedHour = datetime.today().hour
-        theCreatedCurrentHour = int(theCreatedHour)
-        theCreatedMinute = datetime.today().minute
-        theCreatedCurrentMinute = int(theCreatedMinute)
-        theCreatedSecond = datetime.today().second
-        theCreatedCurrentSecond = int(theCreatedSecond)
-        theCreatedMicrosecond = datetime.today().microsecond
-        theCreatedCurrentMicrosecond = int(theCreatedMicrosecond)
+        theCreatedCurrentDay = self.getTheDay()
+        theCreatedCurrentMonth = self.getTheMonth()
+        theCreatedCurrentYear = self.getTheYear()
+        theCreatedCurrentHour = self.getTheHour()
+        theCreatedCurrentMinute = self.getTheMinutes()
+        theCreatedCurrentSecond = self.getTheSeconds()
+        theCreatedCurrentMicrosecond = self.getTheMicroseconds()
         theCurrentCreatedDate = datetime(theCreatedCurrentYear, theCreatedCurrentMonth, theCreatedCurrentDay,
                                          theCreatedCurrentHour, theCreatedCurrentMinute, theCreatedCurrentSecond,
                                          theCreatedCurrentMicrosecond)
-        theCreatedDate = theUpdatedDate = theCurrentCreatedDate.isoformat() + 'Z'
+        theCreatedDate = theUpdatedDate = self.returnTheISODate(theCurrentCreatedDate)
 
         theIntentExampleText = self.readThe['Examples'].get_value(0)
         theIntenExamplesArray = []
@@ -165,112 +201,109 @@ class Workspace:
             theEntitiesArray.append(theEntities)
             theEntitiesCounter += 1
 
-        theLanguage = input("The options are:\n"
-                            "en\n"
-                            "es\n")
+        theLanguage = self.getTheLanguage()
+        theYearAsNumber = self.getTheFormattedYear()
+        theMonthAsNumber = self.getTheFormattedMonth()
+        theDayAsNumber = self.getTheFormattedDay()
+        theCreatedDateFormatted = self.getTheFormattedDate(theDayAsNumber, theMonthAsNumber, theYearAsNumber)
+        theMetaDataMajorVersion = self.getTheMetaDataMajorVersion()
+        theMetaDataMinorVersion = self.returnTheMetaDataMinorVersion(theCreatedDateFormatted)
+        theWorkspaceMetaDataAPI_VERSION = self.getTheMetaDataAPI_Version(theMetaDataMajorVersion,
+                                                                         theMetaDataMinorVersion)
+        theWorkspaceMetaData = self.getTheWorkspaceMetaData(theWorkspaceMetaDataAPI_VERSION)
+        theWorkspaceDescription = self.getTheWorkspaceDescription()
+        # TODO: INVESTIGATE: http://mydevbits.blogspot.com/2016/08/automating-creation-of-chatbot-dialog.html
+        theDialogNodesArray = []
+        theWorkspaceID = self.getTheWorkspaceID()
+        theWorkspaceCounterExamples = []
+        theWorkspaceLearningOptOut = False
+        # THE WORKSPACE GENERATED BY THE BACKEND. RETURN THIS WORKSPACE AS A .JSON FILE.
+        theFinalWorkspace = self.getTheFinalWorkspace(theCreatedDate, theDialogNodesArray, theEntitiesArray,
+                                                      theIntentsArray, theLanguage, theUpdatedDate,
+                                                      theWorkspaceCounterExamples, theWorkspaceDescription,
+                                                      theWorkspaceID, theWorkspaceLearningOptOut, theWorkspaceMetaData,
+                                                      theWorkspaceName)
 
+        return self.returnTheFinalWorkspace(theFinalWorkspace)
+
+    def getTheDay(self):
+        theCreatedDay = datetime.today().day
+        return int(theCreatedDay)
+
+    def getTheMonth(self):
+        theCreatedMonth = datetime.today().month
+        return int(theCreatedMonth)
+
+    def getTheYear(self):
+        theCreatedYear = datetime.today().year
+        return int(theCreatedYear)
+
+    def getTheHour(self):
+        theCreatedHour = datetime.today().hour
+        return int(theCreatedHour)
+
+    def getTheMinutes(self):
+        theCreatedMinute = datetime.today().minute
+        return int(theCreatedMinute)
+
+    def getTheSeconds(self):
+        theCreatedSecond = datetime.today().second
+        return int(theCreatedSecond)
+
+    def getTheMicroseconds(self):
+        theCreatedMicrosecond = datetime.today().microsecond
+        return int(theCreatedMicrosecond)
+
+    def returnTheISODate(self, theCurrentCreatedDate):
+        return theCurrentCreatedDate.isoformat() + 'Z'
+
+    def getTheLanguage(self):
+        return input("The options are:\n"
+                     "en\n"
+                     "es\n")
+
+    def getTheFormattedYear(self):
         theFormattedYear = datetime.today().year
-        theYearAsNumber = int(theFormattedYear)
-        theFormattedMonth = datetime.today().month
-        theMonthAsNumber = int(theFormattedMonth)
-        theFormattedDay = datetime.today().day
-        theDayAsNumber = int(theFormattedDay)
-        theCreatedDateFormatted = str("{}-{}-{}").format(theYearAsNumber, theMonthAsNumber, theDayAsNumber)
+        return str(theFormattedYear)
 
-        theMetaDataMajorVersion = 'v1'
-        theMetaDataMinorVersion = theCreatedDateFormatted
-        theWorkspaceMetaDataAPI_VERSION = {
+    def getTheFormattedMonth(self):
+        theFormattedMonth = datetime.today().month
+        return str(theFormattedMonth)
+
+    def getTheFormattedDay(self):
+        theFormattedDay = datetime.today().day
+        return str(theFormattedDay)
+
+    def getTheFormattedDate(self, theDayAsString, theMonthAsString, theYearAsString):
+        return "{}-{}-{}".format(theYearAsString, theMonthAsString, theDayAsString)
+
+    def getTheMetaDataMajorVersion(self):
+        return 'v1'
+
+    def returnTheMetaDataMinorVersion(self, theCreatedDateFormatted):
+        return theCreatedDateFormatted
+
+    def getTheMetaDataAPI_Version(self, theMetaDataMajorVersion, theMetaDataMinorVersion):
+        return {
             "major_version": theMetaDataMajorVersion,
             "minor_version": theMetaDataMinorVersion
         }
-        theWorkspaceMetaData = {
+
+    def getTheWorkspaceMetaData(self, theWorkspaceMetaDataAPI_VERSION):
+        return {
             "api_version": theWorkspaceMetaDataAPI_VERSION
         }
 
-        theWorkspaceDescription = self.readThe['Description'].get_value(0)
+    def getTheWorkspaceDescription(self):
+        return self.readThe['Description'].get_value(0)
 
-        # TODO: DECOMPOSE INTO SMALLER PARTS.
-        # TODO: INVESTIGATE: http://mydevbits.blogspot.com/2016/08/automating-creation-of-chatbot-dialog.html
-        theDialogNodesArray = [
-            # """
-            #     {
-            #         "title": "prueba",
-            #         "output": {
-            #             "text": {
-            #                 "values": [
-            #                     "Prueba 1"
-            #                 ],
-            #                 "selection_policy": "sequential"
-            #             }
-            #         },
-            #         "parent": None,
-            #         "context": None,
-            #         "created": "2017-09-11T16:55:42.021Z",
-            #         "updated": "2017-09-11T16:56:20.851Z",
-            #         "metadata": None,
-            #         "next_step": None,
-            #         "conditions": "#Prueba1 && @Prueba1",
-            #         "description": None,
-            #         "dialog_node": "node_1_1505145345622",
-            #         "previous_sibling": "Welcome"
-            #     },
-            #     {
-            #         "title": None,
-            #         "output": {
-            #             "text": {
-            #                 "values": [
-            #                     "I didn't understand. You can try rephrasing.",
-            #                     "Can you reword your statement? I'm not understanding.",
-            #                     "I didn't get your meaning."
-            #                 ],
-            #                 "selection_policy": "sequential"
-            #             }
-            #         },
-            #         "parent": None,
-            #         "context": None,
-            #         "created": "2017-09-11T16:55:38.611Z",
-            #         "updated": "2017-09-11T16:55:38.611Z",
-            #         "metadata": None,
-            #         "next_step": None,
-            #         "conditions": "anything_else",
-            #         "description": None,
-            #         "dialog_node": "Anything else",
-            #         "previous_sibling": "node_1_1505145345622"
-            #     },
-            #     {
-            #         "title": None,
-            #         "output": {
-            #             "text": {
-            #                 "values": [
-            #                     "Hello. How can I help you?"
-            #                 ],
-            #                 "selection_policy": "sequential"
-            #             }
-            #         },
-            #         "parent": None,
-            #         "context": None,
-            #         "created": "2017-09-11T16:55:38.611Z",
-            #         "updated": "2017-09-11T16:55:38.611Z",
-            #         "metadata": None,
-            #         "next_step": None,
-            #         "conditions": "welcome",
-            #         "description": None,
-            #         "dialog_node": "Welcome",
-            #         "previous_sibling": None
-            #     }
-            # """
-        ]
+    def getTheWorkspaceID(self):
+        return '1234'
 
-        # SALT = open('../Data Files/SALT.txt', 'r')
-
-        theWorkspaceID = '1234'
-
-        theWorkspaceCounterExamples = []  # TODO: CHECK PURPOSE
-
-        theWorkspaceLearningOptOut = False  # TODO: CHECK PURPOSE
-
-        # THE WORKSPACE GENERATED BY THE BACKEND. RETURN THIS WORKSPACE AS A .JSON FILE.
-        theFinalWorkspace = {
+    def getTheFinalWorkspace(self, theCreatedDate, theDialogNodesArray, theEntitiesArray, theIntentsArray, theLanguage,
+                             theUpdatedDate, theWorkspaceCounterExamples, theWorkspaceDescription, theWorkspaceID,
+                             theWorkspaceLearningOptOut, theWorkspaceMetaData, theWorkspaceName):
+        return {
             "name": theWorkspaceName,
             "created": theCreatedDate,
             "intents": theIntentsArray,
@@ -285,6 +318,7 @@ class Workspace:
             "learning_opt_out": theWorkspaceLearningOptOut
         }
 
+    def returnTheFinalWorkspace(self, theFinalWorkspace):
         return str(dict(theFinalWorkspace))
 
 
