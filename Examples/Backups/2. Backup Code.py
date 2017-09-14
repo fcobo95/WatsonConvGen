@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, json, jsonify, redirect, render_template
+from flask import Flask, redirect
 from Readers import ReaderCSV as CSV
 import requests
 import time
