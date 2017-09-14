@@ -15,7 +15,7 @@ def hello_world():
 
 def getSynonyms(word):
     theDirectory = "../Data Files/"
-    KEY = open(theDirectory + "key.txt", "r")
+    KEY = open(theDirectory + "key.txt")
     theKey = KEY.read()
     theSynonyms = requests.get(
         "http://words.bighugelabs.com/api/2/" + str(theKey) + "/" + word + "/json")

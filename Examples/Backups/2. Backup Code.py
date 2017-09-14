@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, redirect
+from flask import Flask, json, jsonify, redirect, render_template
 from Readers import ReaderCSV as CSV
 import requests
 import time
@@ -205,10 +205,10 @@ class Workspace:
         This block of code will generate a custom date format for the METADATA Minor Version./// 
         ########################################################################################
         """
-        theYearAsNumber = self.getTheFormattedYear()
-        theMonthAsNumber = self.getTheFormattedMonth()
-        theDayAsNumber = self.getTheFormattedDay()
-        theCreatedDateFormatted = self.getTheFormattedDate(theDayAsNumber, theMonthAsNumber, theYearAsNumber)
+        theYearAsString = self.getTheFormattedYear()
+        theMonthAsString = self.getTheFormattedMonth()
+        theDayAsString = self.getTheFormattedDay()
+        theCreatedDateFormatted = self.getTheFormattedDate(theDayAsString, theMonthAsString, theYearAsString)
         theMetaDataMinorVersion = self.returnTheMetaDataMinorVersion(theCreatedDateFormatted)
 
         """
@@ -335,32 +335,46 @@ class Workspace:
         return theEntitiesArray
 
     def getTheDay(self):
-        theCreatedDay = datetime.today().day
-        return int(theCreatedDay)
+        return self.obtainTheDay()
+
+    def obtainTheDay(self):
+        return int(datetime.today().day)
 
     def getTheMonth(self):
-        theCreatedMonth = datetime.today().month
-        return int(theCreatedMonth)
+        return self.obtainTheMonth()
+
+    def obtainTheMonth(self):
+        return int(datetime.today().month)
 
     def getTheYear(self):
-        theCreatedYear = datetime.today().year
-        return int(theCreatedYear)
+        return self.obtainTheYear()
+
+    def obtainTheYear(self):
+        return int(datetime.today().year)
 
     def getTheHour(self):
-        theCreatedHour = datetime.today().hour
-        return int(theCreatedHour)
+        return self.obtainTheHour()
+
+    def obtainTheHour(self):
+        return int(datetime.today().hour)
 
     def getTheMinutes(self):
-        theCreatedMinute = datetime.today().minute
-        return int(theCreatedMinute)
+        return self.obtainTheMinutes()
+
+    def obtainTheMinutes(self):
+        return int(datetime.today().minute)
 
     def getTheSeconds(self):
-        theCreatedSecond = datetime.today().second
-        return int(theCreatedSecond)
+        return self.obtainTheSeconds()
+
+    def obtainTheSeconds(self):
+        return int(datetime.today().second)
 
     def getTheMicroseconds(self):
-        theCreatedMicrosecond = datetime.today().microsecond
-        return int(theCreatedMicrosecond)
+        return self.obtainTheMicroseconds()
+
+    def obtainTheMicroseconds(self):
+        return int(datetime.today().microsecond)
 
     def returnTheISODate(self, theCurrentCreatedDate):
         return theCurrentCreatedDate.isoformat() + 'Z'
@@ -371,16 +385,22 @@ class Workspace:
                      "es\n")
 
     def getTheFormattedYear(self):
-        theFormattedYear = datetime.today().year
-        return str(theFormattedYear)
+        return self.obtainTheFormattedYear()
+
+    def obtainTheFormattedYear(self):
+        return str(datetime.today().year)
 
     def getTheFormattedMonth(self):
-        theFormattedMonth = datetime.today().month
-        return str(theFormattedMonth)
+        return self.obtainTheFormattedMonth()
+
+    def obtainTheFormattedMonth(self):
+        return str(datetime.today().month)
 
     def getTheFormattedDay(self):
-        theFormattedDay = datetime.today().day
-        return str(theFormattedDay)
+        return self.obtainTheFormattedDay()
+
+    def obtainTheFormattedDay(self):
+        return str(datetime.today().day)
 
     def getTheFormattedDate(self, theDayAsString, theMonthAsString, theYearAsString):
         return "{}-{}-{}".format(theYearAsString, theMonthAsString, theDayAsString)
