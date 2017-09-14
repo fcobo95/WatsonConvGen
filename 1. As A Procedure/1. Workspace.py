@@ -170,12 +170,12 @@ class Workspace:
                             "es\n")
 
         theFormattedYear = datetime.today().year
-        theYearAsNumber = int(theFormattedYear)
+        theYearAsNumber = str(theFormattedYear)
         theFormattedMonth = datetime.today().month
-        theMonthAsNumber = int(theFormattedMonth)
+        theMonthAsNumber = str(theFormattedMonth)
         theFormattedDay = datetime.today().day
-        theDayAsNumber = int(theFormattedDay)
-        theCreatedDateFormatted = str("{}-{}-{}").format(theYearAsNumber, theMonthAsNumber, theDayAsNumber)
+        theDayAsNumber = str(theFormattedDay)
+        theCreatedDateFormatted = "{}-{}-{}".format(theYearAsNumber, theMonthAsNumber, theDayAsNumber)
 
         theMetaDataMajorVersion = 'v1'
         theMetaDataMinorVersion = theCreatedDateFormatted
