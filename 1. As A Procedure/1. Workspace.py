@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, json, jsonify, redirect
+from flask import Flask, redirect
 from Readers import ReaderCSV as CSV
 import requests
 import time
@@ -74,7 +74,7 @@ def returnTheWorkspace():
 
 class Workspace:
     def __init__(self):
-        self.readThe = CSV.reader().theFinalCSVData
+        self.readThe = CSV.Reader().theFinalCSVData
         self.theCounter = 0
 
     def generateTheWorkspace(self):

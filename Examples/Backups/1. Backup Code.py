@@ -74,7 +74,7 @@ def returnTheWorkspace():
 
 class Workspace:
     def __init__(self):
-        self.readThe = CSV.reader().theFinalCSVData
+        self.readThe = CSV.Reader().theFinalCSVData
         self.theCounter = 0
 
     def generateTheWorkspace(self):
