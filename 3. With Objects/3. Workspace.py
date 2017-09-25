@@ -181,8 +181,7 @@ class Workspace:
         ########################################################################################
         """
         theEntityData = self.readThe['Entity']
-        theEntityValuesArray = self.getTheEntityValues(theCreatedDate, theEntityData, theUpdatedDate)
-        theEntitiesArray = self.getTheEntities(theCreatedDate, theEntityData, theEntityValuesArray,
+        theEntitiesArray = self.getTheEntities(theCreatedDate, theEntityData,
                                                theUpdatedDate)  # TODO: CHECK SECOND PARAMETER. IT MAY NEED A CHANGE.
 
         """
@@ -299,31 +298,22 @@ class Workspace:
             theNamesCounter += 1
         return theIntentsArray
 
-    def getTheEntityValues(self, theCreatedDate, theEntityData, theUpdatedDate):
-        theEntityValuesArray = []
-        theValuesCounter = 0
-        for _ in theEntityData:
-            theEntityValueName = self.readThe['Entity'].get_value(theValuesCounter)
-            theEntityValueSynonyms = getSynonyms(theEntityValueName)
-            theEntityValues = {
-                "value": theEntityValueName,
-                "created": theCreatedDate,
-                "updated": theUpdatedDate,
-                "metadata": None,
-                "synonyms": theEntityValueSynonyms
-            }
-            theEntityValuesArray.append(theEntityValues)
-            theValuesCounter += 1
-        return theEntityValuesArray
-
-    def getTheEntities(self, theCreatedDate, theEntityData, theEntityValuesArray, theUpdatedDate):
+    def getTheEntities(self, theCreatedDate, theEntityData, theUpdatedDate):
         theEntitiesArray = []
         theEntitiesCounter = 0
         for _ in theEntityData:
             theEntityName = self.readThe['Entity'].get_value(theEntitiesCounter)
+            theEntityValueSynonyms = getSynonyms(theEntityName)
             theEntities = {
                 "entity": theEntityName,
-                "values": theEntityValuesArray,
+                "values":
+                    {
+                        "value": theEntityName,
+                        "created": theCreatedDate,
+                        "updated": theUpdatedDate,
+                        "metadata": None,
+                        "synonyms": theEntityValueSynonyms
+                    },
                 "created": theCreatedDate,
                 "updated": theUpdatedDate,
                 "metadata": None,

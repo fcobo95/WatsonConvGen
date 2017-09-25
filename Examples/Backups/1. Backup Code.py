@@ -134,7 +134,7 @@ class Workspace:
         }
         theIntentsArray.append(theIntents)
 
-        theEntityData = self.readThe['Entity']
+        theEntityData = self.readThe['Entity'].count()
         theEntityValuesArray = []
         theValuesCounter = 0
         for each in theEntityData:

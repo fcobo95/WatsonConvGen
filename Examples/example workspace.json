@@ -1,0 +1,199 @@
+{
+  "name": "Test workspace name",
+  "created": "2017-09-25T15:30:13.902Z",
+  "intents": [
+    {
+      "intent": "perro_que_es",
+      "created": "2017-09-25T15:30:28.667Z",
+      "updated": "2017-09-25T15:31:13.379Z",
+      "examples": [
+        {
+          "text": "¿Qué es un perro?",
+          "created": "2017-09-25T15:30:55.145Z",
+          "updated": "2017-09-25T15:30:55.145Z"
+        },
+        {
+          "text": "¿Eso es un perro?",
+          "created": "2017-09-25T15:31:13.379Z",
+          "updated": "2017-09-25T15:31:13.379Z"
+        }
+      ],
+      "description": null
+    },
+    {
+      "intent": "perro_como_es",
+      "created": "2017-09-25T15:31:28.327Z",
+      "updated": "2017-09-25T15:31:44.559Z",
+      "examples": [
+        {
+          "text": "¿Cómo es un perro?",
+          "created": "2017-09-25T15:31:34.642Z",
+          "updated": "2017-09-25T15:31:34.642Z"
+        },
+        {
+          "text": "¿Así se ve un perro?",
+          "created": "2017-09-25T15:31:44.559Z",
+          "updated": "2017-09-25T15:31:44.559Z"
+        }
+      ],
+      "description": null
+    }
+  ],
+  "updated": "2017-09-25T15:34:49.821Z",
+  "entities": [
+    {
+      "entity": "perro",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "perro",
+          "created": "2017-09-25T15:32:02.119Z",
+          "updated": "2017-09-25T15:32:46.730Z",
+          "metadata": null,
+          "synonyms": [
+            "can",
+            "perra",
+            "perrito",
+            "sagüate",
+            "perrote"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "can",
+          "created": "2017-09-25T15:32:50.014Z",
+          "updated": "2017-09-25T15:32:59.367Z",
+          "metadata": null,
+          "synonyms": [
+            "perro",
+            "canino",
+            "canes"
+          ]
+        }
+      ],
+      "created": "2017-09-25T15:31:59.133Z",
+      "updated": "2017-09-25T15:32:59.367Z",
+      "metadata": null,
+      "description": null
+    },
+    {
+      "entity": "colores",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Blanco",
+          "created": "2017-09-25T15:33:39.050Z",
+          "updated": "2017-09-25T15:33:39.050Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Negro",
+          "created": "2017-09-25T15:33:36.536Z",
+          "updated": "2017-09-25T15:33:36.536Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Café",
+          "created": "2017-09-25T15:33:25.790Z",
+          "updated": "2017-09-25T15:33:27.546Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Beige",
+          "created": "2017-09-25T15:33:42.078Z",
+          "updated": "2017-09-25T15:33:42.078Z",
+          "metadata": null,
+          "synonyms": []
+        }
+      ],
+      "created": "2017-09-25T15:33:20.156Z",
+      "updated": "2017-09-25T15:33:42.078Z",
+      "metadata": null,
+      "description": null
+    }
+  ],
+  "language": "es",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2017-05-26"
+    }
+  },
+  "description": "Test workspace description",
+  "dialog_nodes": [
+    {
+      "title": "que es un perro",
+      "output": {
+        "text": {
+          "values": [
+            "Un perro es un animal, el cual por grandes cantidades de años, ha sido considerado como el mejor amigo del hombre."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-09-25T15:33:56.181Z",
+      "updated": "2017-09-25T15:34:49.821Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "#perro_que_es && @perro",
+      "description": null,
+      "dialog_node": "node_1_1506353635897",
+      "previous_sibling": "Bienvenido"
+    },
+    {
+      "title": "En otras cosas",
+      "output": {
+        "text": {
+          "values": [
+            "No le he entendido. Intente reformular la consulta.",
+            "¿Puede expresarse con otras palabras? No le he entendido.",
+            "No entendí el significado."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-09-25T15:33:53.558Z",
+      "updated": "2017-09-25T15:33:53.558Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "anything_else",
+      "description": null,
+      "dialog_node": "En otras cosas",
+      "previous_sibling": "node_1_1506353635897"
+    },
+    {
+      "title": "Bienvenido",
+      "output": {
+        "text": {
+          "values": [
+            "Hola. ¿Cómo puedo ayudarle?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-09-25T15:33:53.558Z",
+      "updated": "2017-09-25T15:33:53.558Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "welcome",
+      "description": null,
+      "dialog_node": "Bienvenido",
+      "previous_sibling": null
+    }
+  ],
+  "workspace_id": "70de299d-1bf2-48cb-86ca-f19a7901b6c2",
+  "counterexamples": [],
+  "learning_opt_out": false
+}
