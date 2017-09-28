@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, json, jsonify, redirect
+from flask import Flask, redirect, Response
 from Readers import ReaderCSV as CSV
 import requests
 import time
@@ -15,7 +15,7 @@ def hello_world():
 
 def getSynonyms(word):
     theDirectory = "../Data Files/"
-    KEY = open(theDirectory + "key.txt", "r")
+    KEY = open(theDirectory + "key.txt")
     theKey = KEY.read()
     theSynonyms = requests.get(
         "http://words.bighugelabs.com/api/2/" + str(theKey) + "/" + word + "/json")
@@ -69,7 +69,7 @@ def returnTheWorkspace():
         print("Something went wrong.")
         returnTheWorkspace()
 
-    return theResponse
+    return Response(theResponse, mimetype='application/json')
 
 
 class Workspace:
@@ -134,48 +134,45 @@ class Workspace:
         }
         theIntentsArray.append(theIntents)
 
-        theEntityData = self.readThe['Entity'].count()
-        theEntityValuesArray = []
-        theValuesCounter = 0
-        for each in theEntityData:
-            theEntityValueName = self.readThe['Entity'].get_value(theValuesCounter)
-            theEntityValueSynonyms = getSynonyms(theEntityValueName)
-            theEntityValues = {
-                "value": theEntityValueName,
+        theEntityColumn = self.readThe['Entity']
+        theCounter = 0
+        theEntitiesArray = []
+
+        for each in theEntityColumn:
+            theValuesArray = []
+            each = str(each)
+            theValues = {
+                "type": "synonyms",
+                "value": each,
                 "created": theCreatedDate,
                 "updated": theUpdatedDate,
                 "metadata": None,
-                "synonyms": theEntityValueSynonyms
+                "synonyms": getSynonyms(each)
             }
-            theEntityValuesArray.append(theEntityValues)
-            theValuesCounter += 1
+            theValuesArray.append(theValues)
 
-        theEntitiesArray = []
-        theEntitiesCounter = 0
-        for each in theEntityData:
-            theEntityName = self.readThe['Entity'].get_value(theEntitiesCounter)
             theEntities = {
-                "entity": theEntityName,
-                "values": theEntityValuesArray,
+                "entity": each,
+                "values": theValuesArray,
                 "created": theCreatedDate,
                 "updated": theUpdatedDate,
                 "metadata": None,
                 "description": None
             }
+            theCounter += 1
             theEntitiesArray.append(theEntities)
-            theEntitiesCounter += 1
 
         theLanguage = input("The options are:\n"
                             "en\n"
                             "es\n")
 
         theFormattedYear = datetime.today().year
-        theYearAsNumber = int(theFormattedYear)
+        theYearAsNumber = str(theFormattedYear)
         theFormattedMonth = datetime.today().month
-        theMonthAsNumber = int(theFormattedMonth)
+        theMonthAsNumber = str(theFormattedMonth)
         theFormattedDay = datetime.today().day
-        theDayAsNumber = int(theFormattedDay)
-        theCreatedDateFormatted = str("{}-{}-{}").format(theYearAsNumber, theMonthAsNumber, theDayAsNumber)
+        theDayAsNumber = str(theFormattedDay)
+        theCreatedDateFormatted = "{}-{}-{}".format(theYearAsNumber, theMonthAsNumber, theDayAsNumber)
 
         theMetaDataMajorVersion = 'v1'
         theMetaDataMinorVersion = theCreatedDateFormatted
@@ -191,77 +188,7 @@ class Workspace:
 
         # TODO: DECOMPOSE INTO SMALLER PARTS.
         # TODO: INVESTIGATE: http://mydevbits.blogspot.com/2016/08/automating-creation-of-chatbot-dialog.html
-        theDialogNodesArray = [
-            # """
-            #     {
-            #         "title": "prueba",
-            #         "output": {
-            #             "text": {
-            #                 "values": [
-            #                     "Prueba 1"
-            #                 ],
-            #                 "selection_policy": "sequential"
-            #             }
-            #         },
-            #         "parent": None,
-            #         "context": None,
-            #         "created": "2017-09-11T16:55:42.021Z",
-            #         "updated": "2017-09-11T16:56:20.851Z",
-            #         "metadata": None,
-            #         "next_step": None,
-            #         "conditions": "#Prueba1 && @Prueba1",
-            #         "description": None,
-            #         "dialog_node": "node_1_1505145345622",
-            #         "previous_sibling": "Welcome"
-            #     },
-            #     {
-            #         "title": None,
-            #         "output": {
-            #             "text": {
-            #                 "values": [
-            #                     "I didn't understand. You can try rephrasing.",
-            #                     "Can you reword your statement? I'm not understanding.",
-            #                     "I didn't get your meaning."
-            #                 ],
-            #                 "selection_policy": "sequential"
-            #             }
-            #         },
-            #         "parent": None,
-            #         "context": None,
-            #         "created": "2017-09-11T16:55:38.611Z",
-            #         "updated": "2017-09-11T16:55:38.611Z",
-            #         "metadata": None,
-            #         "next_step": None,
-            #         "conditions": "anything_else",
-            #         "description": None,
-            #         "dialog_node": "Anything else",
-            #         "previous_sibling": "node_1_1505145345622"
-            #     },
-            #     {
-            #         "title": None,
-            #         "output": {
-            #             "text": {
-            #                 "values": [
-            #                     "Hello. How can I help you?"
-            #                 ],
-            #                 "selection_policy": "sequential"
-            #             }
-            #         },
-            #         "parent": None,
-            #         "context": None,
-            #         "created": "2017-09-11T16:55:38.611Z",
-            #         "updated": "2017-09-11T16:55:38.611Z",
-            #         "metadata": None,
-            #         "next_step": None,
-            #         "conditions": "welcome",
-            #         "description": None,
-            #         "dialog_node": "Welcome",
-            #         "previous_sibling": None
-            #     }
-            # """
-        ]
-
-        # SALT = open('../Data Files/SALT.txt', 'r')
+        theDialogNodesArray = []
 
         theWorkspaceID = '1234'
 
@@ -286,6 +213,8 @@ class Workspace:
         }
 
         return str(dict(theFinalWorkspace))
+
+    Manager_Approval = False  # CHANGE THIS LINE OF CODE AFTER MANAGER APPROVAL OR FEEDBACK. FALSE FOR NOT FINISHED OR TRUE FOR FINISHED.
 
 
 if __name__ == '__main__':
