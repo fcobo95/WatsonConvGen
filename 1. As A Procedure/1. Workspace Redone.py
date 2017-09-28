@@ -80,7 +80,7 @@ def returnTheSynonyms(theFinalSynonymsArray):
 @app.route('/response')
 def returnTheWorkspace():
     theWorkspace = workspace()
-    theResponse = theWorkspace.generateTheIntents()
+    theResponse = theWorkspace.generateTheEntities()
 
     """
     ########################################################################################
