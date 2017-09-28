@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, redirect
+from flask import Flask, redirect, Response
 from Readers import ReaderCSV as CSV
 import requests
 import time
@@ -69,7 +69,7 @@ def returnTheWorkspace():
         print("Something went wrong.")
         returnTheWorkspace()
 
-    return theResponse
+    return Response(theResponse, mimetype='application/json')
 
 
 class Workspace:
@@ -134,36 +134,33 @@ class Workspace:
         }
         theIntentsArray.append(theIntents)
 
-        theEntityData = self.readThe['Entity']
-        theEntityValuesArray = []
-        theValuesCounter = 0
-        for each in theEntityData:
-            theEntityValueName = self.readThe['Entity'].get_value(theValuesCounter)
-            theEntityValueSynonyms = getSynonyms(theEntityValueName)
-            theEntityValues = {
-                "value": theEntityValueName,
+        theEntityColumn = self.readThe['Entity']
+        theCounter = 0
+        theEntitiesArray = []
+
+        for each in theEntityColumn:
+            theValuesArray = []
+            each = str(each)
+            theValues = {
+                "type": "synonyms",
+                "value": each,
                 "created": theCreatedDate,
                 "updated": theUpdatedDate,
                 "metadata": None,
-                "synonyms": theEntityValueSynonyms
+                "synonyms": getSynonyms(each)
             }
-            theEntityValuesArray.append(theEntityValues)
-            theValuesCounter += 1
+            theValuesArray.append(theValues)
 
-        theEntitiesArray = []
-        theEntitiesCounter = 0
-        for each in theEntityData:
-            theEntityName = self.readThe['Entity'].get_value(theEntitiesCounter)
             theEntities = {
-                "entity": theEntityName,
-                "values": theEntityValuesArray,
+                "entity": each,
+                "values": theValuesArray,
                 "created": theCreatedDate,
                 "updated": theUpdatedDate,
                 "metadata": None,
                 "description": None
             }
+            theCounter += 1
             theEntitiesArray.append(theEntities)
-            theEntitiesCounter += 1
 
         theLanguage = input("The options are:\n"
                             "en\n"
@@ -193,8 +190,6 @@ class Workspace:
         # TODO: INVESTIGATE: http://mydevbits.blogspot.com/2016/08/automating-creation-of-chatbot-dialog.html
         theDialogNodesArray = []
 
-        # SALT = open('../Data Files/SALT.txt', 'r')
-
         theWorkspaceID = '1234'
 
         theWorkspaceCounterExamples = []  # TODO: CHECK PURPOSE
@@ -219,6 +214,7 @@ class Workspace:
 
         return str(dict(theFinalWorkspace))
 
+    Manager_Approval = False # CHANGE THIS LINE OF CODE AFTER MANAGER APPROVAL OR FEEDBACK. FALSE FOR NOT FINISHED OR TRUE FOR FINISHED.
 
 if __name__ == '__main__':
     app.run(debug=True)

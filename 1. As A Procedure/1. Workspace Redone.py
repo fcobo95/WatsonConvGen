@@ -80,7 +80,7 @@ def returnTheSynonyms(theFinalSynonymsArray):
 @app.route('/response')
 def returnTheWorkspace():
     theWorkspace = workspace()
-    theResponse = theWorkspace.generateTheEntities()
+    theResponse = theWorkspace.generateTheIntents()
 
     """
     ########################################################################################
@@ -120,36 +120,59 @@ class workspace:
         self.readThe = CSV.Reader().theFinalCSVData
 
     def generateTheEntities(self):
-        theName = "perro"
-        obtainTheSynonyms = getSynonyms(theName)
         theData = self.readThe['Entity']
-        theValuesArray = []
-        theValues = {
-            "type": "synonyms",
-            "value": theName,
-            "created": "2017-09-25T15:32:02.119Z",
-            "updated": "2017-09-25T15:32:46.730Z",
-            "metadata": None,
-            "synonyms": obtainTheSynonyms
-        }
-        theValuesArray.append(theValues)
-
+        theCounter = 0
         theEntitiesArray = []
-        theEntities = {
-            "entity": theName,
-            "values": theValuesArray,
-            "created": "2017-09-25T15:33:20.156Z",
-            "updated": "2017-09-25T15:33:42.078Z",
-            "metadata": None,
-            "description": None
-        }
-        theEntitiesArray.append(theEntities)
+
+        for each in theData:
+            theValuesArray = []
+            each = str(each)
+            theValues = {
+                "type": "synonyms",
+                "value": each,
+                "created": "2017-09-25T15:32:02.119Z",
+                "updated": "2017-09-25T15:32:46.730Z",
+                "metadata": None,
+                "synonyms": getSynonyms(each)
+            }
+            theValuesArray.append(theValues)
+
+            theEntities = {
+                "entity": each,
+                "values": theValuesArray,
+                "created": "2017-09-25T15:33:20.156Z",
+                "updated": "2017-09-25T15:33:42.078Z",
+                "metadata": None,
+                "description": None
+            }
+            theCounter += 1
+            theEntitiesArray.append(theEntities)
 
         theWorkspace = {
             "entities": theEntitiesArray
         }
 
         return str(dict(theWorkspace))
+
+    def generateTheIntents(self):
+        theIntentColumn = self.readThe['Intents']
+        theIntents = {
+            "intents": [
+                {
+                    "intent": "perro_que_es",
+                    "created": "2017-09-06T12:59:32.177904Z",
+                    "updated": "2017-09-06T12:59:32.177904Z",
+                    "examples": [
+                        {
+                            "text": "perro_que_es",
+                            "created": "2017-09-06T12:59:32.177904Z",
+                            "updated": "2017-09-06T12:59:32.177904Z"
+                        }
+                    ],
+                    "description": None
+                }
+            ]
+        }
 
 
 if __name__ == '__main__':
