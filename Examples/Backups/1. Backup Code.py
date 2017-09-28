@@ -162,9 +162,7 @@ class Workspace:
             theCounter += 1
             theEntitiesArray.append(theEntities)
 
-        theLanguage = input("The options are:\n"
-                            "en\n"
-                            "es\n")
+        theLanguage = self.readThe['Language'].get_value(0)
 
         theFormattedYear = datetime.today().year
         theYearAsNumber = str(theFormattedYear)
@@ -214,7 +212,9 @@ class Workspace:
 
         return str(dict(theFinalWorkspace))
 
-    Manager_Approval = False  # CHANGE THIS LINE OF CODE AFTER MANAGER APPROVAL OR FEEDBACK. FALSE FOR NOT FINISHED OR TRUE FOR FINISHED.
+    # CHANGE THIS LINE OF CODE AFTER SUPERVISOR APPROVAL OR FEEDBACK.
+    # FALSE FOR NOT FINISHED OR TRUE FOR FINISHED.
+    Supervisor_Approval = False
 
 
 if __name__ == '__main__':
