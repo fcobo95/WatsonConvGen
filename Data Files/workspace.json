@@ -1,76 +1,74 @@
 {
-  "name": "Prueba CSV",
-  "created": "2017-09-06T12:59:32.177904Z",
+  "name": "Test Workspace",
+  "created": "2017-09-30T03:33:04.002Z",
   "intents": [
     {
-      "intent": "perro_que_es",
-      "created": "2017-09-06T12:59:32.177904Z",
-      "updated": "2017-09-06T12:59:32.177904Z",
+      "intent": "gato_que_es",
+      "created": "2017-09-30T03:34:12.676Z",
+      "updated": "2017-09-30T03:34:32.192Z",
       "examples": [
         {
-          "text": "perro_que_es",
-          "created": "2017-09-06T12:59:32.177904Z",
-          "updated": "2017-09-06T12:59:32.177904Z"
+          "text": "¿Gato?",
+          "created": "2017-09-30T03:34:19.140Z",
+          "updated": "2017-09-30T03:34:19.140Z"
+        },
+        {
+          "text": "¿Qué es un gato?",
+          "created": "2017-09-30T03:34:25.680Z",
+          "updated": "2017-09-30T03:34:25.680Z"
+        },
+        {
+          "text": "Gato, ¿qué es?",
+          "created": "2017-09-30T03:34:32.192Z",
+          "updated": "2017-09-30T03:34:32.192Z"
+        }
+      ],
+      "description": null
+    },
+    {
+      "intent": "perro_que_es",
+      "created": "2017-09-30T03:33:13.826Z",
+      "updated": "2017-09-30T03:33:40.775Z",
+      "examples": [
+        {
+          "text": "¿Qué es un perro?",
+          "created": "2017-09-30T03:33:24.338Z",
+          "updated": "2017-09-30T03:33:24.338Z"
+        },
+        {
+          "text": "Perro, ¿qué es?",
+          "created": "2017-09-30T03:33:32.693Z",
+          "updated": "2017-09-30T03:33:32.693Z"
+        },
+        {
+          "text": "¿Perro?",
+          "created": "2017-09-30T03:33:40.775Z",
+          "updated": "2017-09-30T03:33:40.775Z"
         }
       ],
       "description": null
     }
   ],
-  "updated": "2017-09-06T12:59:32.177904Z",
+  "updated": "2017-09-30T03:35:19.308Z",
   "entities": [
     {
-      "entity": "dog",
+      "entity": "gato",
       "values": [
         {
-          "value": "dog",
-          "created": "2017-09-06T12:59:32.177904Z",
-          "updated": "2017-09-06T12:59:32.177904Z",
+          "type": "synonyms",
+          "value": "gato",
+          "created": "2017-09-30T03:34:49.087Z",
+          "updated": "2017-09-30T03:34:58.813Z",
           "metadata": null,
           "synonyms": [
-            "domestic dog",
-            "Canis familiaris",
-            "frump",
-            "cad",
-            "bounder",
-            "blackguard",
-            "hound",
-            "heel",
-            "frank",
-            "frankfurter",
-            "hotdog",
-            "hot dog",
-            "wiener",
-            "wienerwurst",
-            "weenie",
-            "pawl",
-            "detent",
-            "click",
-            "andiron",
-            "firedog",
-            "dog-iron",
-            "blighter",
-            "canid",
-            "canine",
-            "catch",
-            "chap",
-            "cuss",
-            "disagreeable woman",
-            "fella",
-            "feller",
-            "fellow",
-            "gent",
-            "lad",
-            "sausage",
-            "scoundrel",
-            "stop",
-            "support",
-            "unpleasant woman",
-            "villain"
+            "felino",
+            "gatito",
+            "gatos"
           ]
         }
       ],
-      "created": "2017-09-06T12:59:32.177904Z",
-      "updated": "2017-09-06T12:59:32.177904Z",
+      "created": "2017-09-30T03:34:45.751Z",
+      "updated": "2017-09-30T03:34:58.813Z",
       "metadata": null,
       "description": null
     }
@@ -79,12 +77,57 @@
   "metadata": {
     "api_version": {
       "major_version": "v1",
-      "minor_version": "2017-9-6"
+      "minor_version": "2017-05-26"
     }
   },
-  "description": "perros",
-  "dialog_nodes": [],
-  "workspace_id": "1234",
+  "description": "Tests Workspace",
+  "dialog_nodes": [
+    {
+      "title": "Anything else",
+      "output": {
+        "text": {
+          "values": [
+            "I didn't understand. You can try rephrasing.",
+            "Can you reword your statement? I'm not understanding.",
+            "I didn't get your meaning."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-09-30T03:35:19.308Z",
+      "updated": "2017-09-30T03:35:19.308Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "anything_else",
+      "description": null,
+      "dialog_node": "Anything else",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "title": "Welcome",
+      "output": {
+        "text": {
+          "values": [
+            "Hello. How can I help you?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-09-30T03:35:19.308Z",
+      "updated": "2017-09-30T03:35:19.308Z",
+      "metadata": null,
+      "next_step": null,
+      "conditions": "welcome",
+      "description": null,
+      "dialog_node": "Welcome",
+      "previous_sibling": null
+    }
+  ],
+  "workspace_id": "45cc4dfa-5263-4850-8adb-0d7f6fad3390",
   "counterexamples": [],
   "learning_opt_out": false
 }
