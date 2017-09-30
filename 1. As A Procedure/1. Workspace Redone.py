@@ -91,7 +91,7 @@ def returnTheWorkspace():
         theResponse = theResponse.replace("'", '"')
 
     if "None" in theResponse:
-        theResponse = theResponse.replace("None", "null")
+        theResponse = theResponse.replace("None", "None")
 
     if "False" in theResponse:
         theResponse = theResponse.replace("False", "false")
@@ -121,7 +121,6 @@ class workspace:
 
     def generateTheEntities(self):
         theData = self.readThe['Entity']
-        theCounter = 0
         theEntitiesArray = []
 
         for each in theData:
@@ -145,7 +144,6 @@ class workspace:
                 "metadata": None,
                 "description": None
             }
-            theCounter += 1
             theEntitiesArray.append(theEntities)
 
         theWorkspace = {
@@ -156,22 +154,35 @@ class workspace:
 
     def generateTheIntents(self):
         theIntentColumn = self.readThe['Intents']
-        theIntents = {
-            "intents": [
+        theIntentsArray = []
+        theIntentExamples = []
+
+        theIntentValues = {
+            "intent": "gato_que_es",
+            "created": "2017-09-30T03:34:12.676Z",
+            "updated": "2017-09-30T03:34:32.192Z",
+            "examples": [
                 {
-                    "intent": "perro_que_es",
-                    "created": "2017-09-06T12:59:32.177904Z",
-                    "updated": "2017-09-06T12:59:32.177904Z",
-                    "examples": [
-                        {
-                            "text": "perro_que_es",
-                            "created": "2017-09-06T12:59:32.177904Z",
-                            "updated": "2017-09-06T12:59:32.177904Z"
-                        }
-                    ],
-                    "description": None
+                    "text": "¿Gato?",
+                    "created": "2017-09-30T03:34:19.140Z",
+                    "updated": "2017-09-30T03:34:19.140Z"
+                },
+                {
+                    "text": "¿Qué es un gato?",
+                    "created": "2017-09-30T03:34:25.680Z",
+                    "updated": "2017-09-30T03:34:25.680Z"
+                },
+                {
+                    "text": "Gato, ¿qué es?",
+                    "created": "2017-09-30T03:34:32.192Z",
+                    "updated": "2017-09-30T03:34:32.192Z"
                 }
-            ]
+            ],
+            "description": None
+        }
+
+        theIntents = {
+            "intents": theIntentsArray
         }
 
 
