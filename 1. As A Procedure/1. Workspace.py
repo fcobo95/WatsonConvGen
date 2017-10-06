@@ -126,34 +126,34 @@ class Workspace:
 
             example1 = {
                 "text": "¿" + theIntentName + "?",
-                "created" : theCreatedDate,
-                "updated" : theCreatedDate
+                "created": theCreatedDate,
+                "updated": theCreatedDate
             }
 
             example2 = {
                 "text": "" + theIntentName + "?",
-                "created" : theCreatedDate,
-                "updated" : theUpdatedDate
+                "created": theCreatedDate,
+                "updated": theUpdatedDate
             }
             example3 = {
                 "text": "¿Qué es un " + theIntentName + "?",
-                "created" : theCreatedDate,
-                "updated" : theUpdatedDate
+                "created": theCreatedDate,
+                "updated": theUpdatedDate
             }
             example4 = {
                 "text": "¿Que es un " + theIntentName + "?",
-                "created" : theCreatedDate,
-                "updated" : theUpdatedDate
+                "created": theCreatedDate,
+                "updated": theUpdatedDate
             }
             example5 = {
                 "text": "Qué es un " + theIntentName + "?",
-                "created" : theCreatedDate,
-                "updated" : theUpdatedDate
+                "created": theCreatedDate,
+                "updated": theUpdatedDate
             }
             example6 = {
                 "text": "Que es un " + theIntentName + "?",
-                "created" : theCreatedDate,
-                "updated" : theUpdatedDate
+                "created": theCreatedDate,
+                "updated": theUpdatedDate
             }
 
             example7 = {
