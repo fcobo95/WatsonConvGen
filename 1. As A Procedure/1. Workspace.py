@@ -170,6 +170,25 @@ class Workspace:
             theIntentExamplesArray.append(example6)
             theIntentExamplesArray.append(example7)
 
+            theClientExamples = self.readThe['Examples']
+            if theClientExamples.count() > 0:
+                theCustomExamples = theClientExamples.get_value(theCounter)
+                each_custom_intent = str(theCustomExamples)
+                print(each_custom_intent)
+                if not each_custom_intent == "nan":
+                    theQuestionsArray = each_custom_intent.split(";")
+                    for each_example in theQuestionsArray:
+                        theCustomExampleIntent = {
+                            "text": each_example,
+                            "created": theCreatedDate,
+                            "updated": theUpdatedDate
+                        }
+                        print(theCustomExampleIntent)
+                        theIntentExamplesArray.append(theCustomExampleIntent)
+                else:
+                    print("There are NO client custom examples for this intent {}.".format(theIntentName))
+            else:
+                print("Well, there are some that have, others don't.")
             theIntents = {
                 "intent": each,
                 "created": theCreatedDate,

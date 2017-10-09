@@ -1,6 +1,6 @@
 WorkspaceName,Examples,Intents,Entity,Language,Description,Dialog Nodes,WorkspaceID,Counter Examples
 Prueba CSV,que es un perro?,dog_que_es,dog,en,Perros y Gatos y Otros,,123456789,
-,,cat_que_es,cat,es,,,,
+,fuck;me;in the ass,cat_que_es,cat,es,,,,
 ,,building_que_es,building,es,,,,
 ,,gender_que_es,gender,es,,,,
 ,,guitar_que_es,guitar,es,,,,
