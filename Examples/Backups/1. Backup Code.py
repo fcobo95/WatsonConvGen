@@ -62,7 +62,7 @@ def returnTheWorkspace():
         theTimeStamp = theTemportalTimeStamp.replace(".", "")
         print(theTimeStamp)
         theDirectory = "../Data Files/"
-        theFile = open(theDirectory + "workspace" + str(theTimeStamp) + ".json", "w")
+        theFile = open(theDirectory + "workspace" + str(theTimeStamp) + ".json", "w", encoding='utf-8')
         theFile.write(theResponse)
         theFile.close()
     except FileExistsError:
@@ -114,28 +114,88 @@ class Workspace:
                                          theCreatedCurrentMicrosecond)
         theCreatedDate = theUpdatedDate = theCurrentCreatedDate.isoformat() + 'Z'
 
-        theIntentExampleText = self.readThe['Examples'].get_value(0)
-        theIntenExamplesArray = []
-        theIntentExamples = {
-            "text": theIntentExampleText,
-            "created": theCreatedDate,
-            "updated": theUpdatedDate
-        }
-        theIntenExamplesArray.append(theIntentExamples)
-
-        theIntentName = self.readThe['Intents'].get_value(0)
+        theIntentColumn = self.readThe['Intents']
         theIntentsArray = []
-        theIntents = {
-            "intent": theIntentName,
-            "created": theCreatedDate,
-            "updated": theUpdatedDate,
-            "examples": theIntenExamplesArray,
-            "description": None
-        }
-        theIntentsArray.append(theIntents)
+        theCounter = 0
+        for each in theIntentColumn:
+            theIntentExamplesArray = []
+            theIntentName = self.readThe['Entity'].get(theCounter)
+
+            example1 = {
+                "text": "¿" + theIntentName + "?",
+                "created": theCreatedDate,
+                "updated": theCreatedDate
+            }
+
+            example2 = {
+                "text": "" + theIntentName + "?",
+                "created": theCreatedDate,
+                "updated": theUpdatedDate
+            }
+            example3 = {
+                "text": "¿Qué es un " + theIntentName + "?",
+                "created": theCreatedDate,
+                "updated": theUpdatedDate
+            }
+            example4 = {
+                "text": "¿Que es un " + theIntentName + "?",
+                "created": theCreatedDate,
+                "updated": theUpdatedDate
+            }
+            example5 = {
+                "text": "Qué es un " + theIntentName + "?",
+                "created": theCreatedDate,
+                "updated": theUpdatedDate
+            }
+            example6 = {
+                "text": "Que es un " + theIntentName + "?",
+                "created": theCreatedDate,
+                "updated": theUpdatedDate
+            }
+
+            example7 = {
+                "text": theIntentName + ", ¿qué es?",
+                "created": theCreatedDate,
+                "updated": theUpdatedDate
+            }
+
+            theIntentExamplesArray.append(example1)
+            theIntentExamplesArray.append(example2)
+            theIntentExamplesArray.append(example3)
+            theIntentExamplesArray.append(example4)
+            theIntentExamplesArray.append(example5)
+            theIntentExamplesArray.append(example6)
+            theIntentExamplesArray.append(example7)
+
+            theClientExamples = self.readThe['Examples']
+            if theClientExamples.count() > 0:
+                theCustomExamples = theClientExamples.get_value(theCounter)
+                each_custom_intent = str(theCustomExamples)
+                if not each_custom_intent == "nan":
+                    theQuestionsArray = each_custom_intent.split(";")
+                    for each_example in theQuestionsArray:
+                        theCustomExampleIntent = {
+                            "text": each_example,
+                            "created": theCreatedDate,
+                            "updated": theUpdatedDate
+                        }
+                        theIntentExamplesArray.append(theCustomExampleIntent)
+                else:
+                    print("There are NO client custom examples for this intent {}.".format(theIntentName))
+            else:
+                print("Well, there are some that have, others don't.")
+            theIntents = {
+                "intent": each,
+                "created": theCreatedDate,
+                "updated": theUpdatedDate,
+                "examples": theIntentExamplesArray,
+                "description": None
+            }
+
+            theIntentsArray.append(theIntents)
+            theCounter += 1
 
         theEntityColumn = self.readThe['Entity']
-        theCounter = 0
         theEntitiesArray = []
 
         for each in theEntityColumn:
@@ -159,7 +219,6 @@ class Workspace:
                 "metadata": None,
                 "description": None
             }
-            theCounter += 1
             theEntitiesArray.append(theEntities)
 
         theLanguage = self.readThe['Language'].get_value(0)
@@ -214,9 +273,9 @@ class Workspace:
 
     # CHANGE THIS LINE OF CODE AFTER SUPERVISOR APPROVAL OR FEEDBACK.
     # FALSE FOR NOT FINISHED OR TRUE FOR FINISHED.
-    Supervisor_Approval = True
+    Supervisor_Approval = False
 
 
 if __name__ == '__main__':
     # app.run(host='0.0.0.0', port=3000, debug=True) #ACCESIBLE POR TODOS
-    app.run(debug=True) # LOCAL HOST
+    app.run(debug=True)  # LOCAL HOST

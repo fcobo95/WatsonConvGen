@@ -171,7 +171,6 @@ class Workspace:
             if theClientExamples.count() > 0:
                 theCustomExamples = theClientExamples.get_value(theCounter)
                 each_custom_intent = str(theCustomExamples)
-                print(each_custom_intent)
                 if not each_custom_intent == "nan":
                     theQuestionsArray = each_custom_intent.split(";")
                     for each_example in theQuestionsArray:
@@ -180,7 +179,6 @@ class Workspace:
                             "created": theCreatedDate,
                             "updated": theUpdatedDate
                         }
-                        print(theCustomExampleIntent)
                         theIntentExamplesArray.append(theCustomExampleIntent)
                 else:
                     print("There are NO client custom examples for this intent {}.".format(theIntentName))
