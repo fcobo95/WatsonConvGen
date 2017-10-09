@@ -62,7 +62,7 @@ def returnTheWorkspace():
         theTimeStamp = theTemportalTimeStamp.replace(".", "")
         print(theTimeStamp)
         theDirectory = "../Data Files/"
-        theFile = open(theDirectory + "workspace" + str(theTimeStamp) + ".json", "w")
+        theFile = open(theDirectory + "workspace" + str(theTimeStamp) + ".json", "w", encoding='utf-8')
         theFile.write(theResponse)
         theFile.close()
     except FileExistsError:
@@ -114,9 +114,6 @@ class Workspace:
                                          theCreatedCurrentMicrosecond)
         theCreatedDate = theUpdatedDate = theCurrentCreatedDate.isoformat() + 'Z'
 
-        ################################################################################################################
-        # INTENTS INTENTS INTENTS INTENTS INTENTS INTENTS INTENTS INTENTS INTENTS INTENTS INTENTS INTENTS INTENTS //////
-        ################################################################################################################
         theIntentColumn = self.readThe['Intents']
         theIntentsArray = []
         theCounter = 0
@@ -199,9 +196,6 @@ class Workspace:
 
             theIntentsArray.append(theIntents)
             theCounter += 1
-        ################################################################################################################
-        # INTENTS INTENTS INTENTS INTENTS INTENTS INTENTS INTENTS INTENTS INTENTS INTENTS INTENTS INTENTS INTENTS //////
-        ################################################################################################################
 
         theEntityColumn = self.readThe['Entity']
         theEntitiesArray = []
