@@ -114,13 +114,14 @@ class Workspace:
                                          theCreatedCurrentMicrosecond)
         theCreatedDate = theUpdatedDate = theCurrentCreatedDate.isoformat() + 'Z'
 
+        # TODO: AGREGAR QUE, COMO Y CUANDO
         theIntentColumn = self.readThe['Intents']
         theIntentsArray = []
         theCounter = 0
         for each in theIntentColumn:
             theIntentExamplesArray = []
             theIntentName = self.readThe['Entity'].get(theCounter)
-
+            # TODO: AGREGAR IF PARA QUE, COMO, CUANDO CON OPCIONES EN EL DICCIONARIO
             example1 = {
                 "text": "¿" + theIntentName + "?",
                 "created": theCreatedDate,
@@ -132,21 +133,25 @@ class Workspace:
                 "created": theCreatedDate,
                 "updated": theUpdatedDate
             }
+
             example3 = {
                 "text": "¿Qué es un " + theIntentName + "?",
                 "created": theCreatedDate,
                 "updated": theUpdatedDate
             }
+
             example4 = {
                 "text": "¿Que es un " + theIntentName + "?",
                 "created": theCreatedDate,
                 "updated": theUpdatedDate
             }
+
             example5 = {
                 "text": "Qué es un " + theIntentName + "?",
                 "created": theCreatedDate,
                 "updated": theUpdatedDate
             }
+
             example6 = {
                 "text": "Que es un " + theIntentName + "?",
                 "created": theCreatedDate,
@@ -197,7 +202,7 @@ class Workspace:
 
         theEntityColumn = self.readThe['Entity']
         theEntitiesArray = []
-
+        # TODO: CUSTOM ENTITIES
         for each in theEntityColumn:
             theValuesArray = []
             each = str(each)
@@ -273,7 +278,11 @@ class Workspace:
 
     # CHANGE THIS LINE OF CODE AFTER SUPERVISOR APPROVAL OR FEEDBACK.
     # FALSE FOR NOT FINISHED OR TRUE FOR FINISHED.
-    Supervisor_Approval = False
+    Supervisor_Approval = True
+
+    # TODO: TERMINAR DE COSTRUIR EL CSV
+    # TODO: PASO FINAL ==> CREAR INTERFAZ
+    # TODO: NOMBRAR LA APLICACION
 
 
 if __name__ == '__main__':
