@@ -28,7 +28,6 @@ def getSynonyms(word):
         if theWords.__contains__("'"):
             theWords = theWords.replace("'", "")
         theFinalSynonymsArray.append(theWords)
-    print(theFinalSynonymsArray)
 
     return theFinalSynonymsArray
 
@@ -60,7 +59,6 @@ def returnTheWorkspace():
         theTime = str(time.time())
         theTemportalTimeStamp = "{}{}".format(theTime, theDate)
         theTimeStamp = theTemportalTimeStamp.replace(".", "")
-        print(theTimeStamp)
         theDirectory = "../Data Files/"
         theFile = open(theDirectory + "workspace" + str(theTimeStamp) + ".json", "w", encoding='utf-8')
         theFile.write(theResponse)
