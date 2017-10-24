@@ -116,59 +116,167 @@ class Workspace:
         theIntentColumn = self.readThe['Intents']
         theIntentsArray = []
         theCounter = 0
+        queFlag = False
+        comoFlag = False
+        cuandoFlag = False
         for each in theIntentColumn:
+
             theIntentExamplesArray = []
+
             theIntentName = self.readThe['Entity'].get(theCounter)
-            # TODO: AGREGAR IF PARA QUE, COMO, CUANDO CON OPCIONES EN EL DICCIONARIO
-            example1 = {
-                "text": "¿" + theIntentName + "?",
-                "created": theCreatedDate,
-                "updated": theCreatedDate
-            }
 
-            example2 = {
-                "text": "" + theIntentName + "?",
-                "created": theCreatedDate,
-                "updated": theUpdatedDate
-            }
+            if queFlag == True:
+                example1 = {
+                    "text": "¿" + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theCreatedDate
+                }
 
-            example3 = {
-                "text": "¿Qué es un " + theIntentName + "?",
-                "created": theCreatedDate,
-                "updated": theUpdatedDate
-            }
+                example2 = {
+                    "text": "" + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
 
-            example4 = {
-                "text": "¿Que es un " + theIntentName + "?",
-                "created": theCreatedDate,
-                "updated": theUpdatedDate
-            }
+                example3 = {
+                    "text": "¿Qué es un " + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
 
-            example5 = {
-                "text": "Qué es un " + theIntentName + "?",
-                "created": theCreatedDate,
-                "updated": theUpdatedDate
-            }
+                example4 = {
+                    "text": "¿Que es un " + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
 
-            example6 = {
-                "text": "Que es un " + theIntentName + "?",
-                "created": theCreatedDate,
-                "updated": theUpdatedDate
-            }
+                example5 = {
+                    "text": "Qué es un " + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
 
-            example7 = {
-                "text": theIntentName + ", ¿qué es?",
-                "created": theCreatedDate,
-                "updated": theUpdatedDate
-            }
+                example6 = {
+                    "text": "Que es un " + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
 
-            theIntentExamplesArray.append(example1)
-            theIntentExamplesArray.append(example2)
-            theIntentExamplesArray.append(example3)
-            theIntentExamplesArray.append(example4)
-            theIntentExamplesArray.append(example5)
-            theIntentExamplesArray.append(example6)
-            theIntentExamplesArray.append(example7)
+                example7 = {
+                    "text": theIntentName + ", ¿qué es?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
+
+                theIntentExamplesArray.append(example1)
+                theIntentExamplesArray.append(example2)
+                theIntentExamplesArray.append(example3)
+                theIntentExamplesArray.append(example4)
+                theIntentExamplesArray.append(example5)
+                theIntentExamplesArray.append(example6)
+                theIntentExamplesArray.append(example7)
+
+            if comoFlag == True:
+                example1 = {
+                    "text": "¿" + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theCreatedDate
+                }
+
+                example2 = {
+                    "text": "" + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
+
+                example3 = {
+                    "text": "¿Cómo es un " + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
+
+                example4 = {
+                    "text": "¿Como es un " + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
+
+                example5 = {
+                    "text": "Cómo es un " + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
+
+                example6 = {
+                    "text": "Como es un " + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
+
+                example7 = {
+                    "text": theIntentName + ", ¿cómo es?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
+
+                theIntentExamplesArray.append(example1)
+                theIntentExamplesArray.append(example2)
+                theIntentExamplesArray.append(example3)
+                theIntentExamplesArray.append(example4)
+                theIntentExamplesArray.append(example5)
+                theIntentExamplesArray.append(example6)
+                theIntentExamplesArray.append(example7)
+
+            if cuandoFlag == True:
+                example1 = {
+                    "text": "¿" + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theCreatedDate
+                }
+
+                example2 = {
+                    "text": "" + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
+
+                example3 = {
+                    "text": "¿Cuándo es un " + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
+
+                example4 = {
+                    "text": "¿Cuando es un " + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
+
+                example5 = {
+                    "text": "Cuándo es un " + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
+
+                example6 = {
+                    "text": "Cuando es un " + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
+
+                example7 = {
+                    "text": theIntentName + ", ¿cuándo es?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
+
+                theIntentExamplesArray.append(example1)
+                theIntentExamplesArray.append(example2)
+                theIntentExamplesArray.append(example3)
+                theIntentExamplesArray.append(example4)
+                theIntentExamplesArray.append(example5)
+                theIntentExamplesArray.append(example6)
+                theIntentExamplesArray.append(example7)
 
             theClientExamples = self.readThe['Examples']
             if theClientExamples.count() > 0:
@@ -187,6 +295,7 @@ class Workspace:
                     print("There are NO client custom examples for this intent {}.".format(theIntentName))
             else:
                 print("Well, there are some that have, others don't.")
+
             theIntents = {
                 "intent": each,
                 "created": theCreatedDate,
