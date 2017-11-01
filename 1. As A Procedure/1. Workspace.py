@@ -5,6 +5,7 @@ import requests
 import time
 
 app = Flask(__name__)
+__APPNAME__ = "Watson Chatbot Automator"
 
 
 # DEFAULT ROUTE
@@ -116,10 +117,11 @@ class Workspace:
         theIntentColumn = self.readThe['Intents']
         theIntentsArray = []
         theCounter = 0
-        queFlag = False
-        comoFlag = False
-        cuandoFlag = False
+
         for each in theIntentColumn:
+            queFlag = self.readThe['queFlag'].get(theCounter)
+            comoFlag = self.readThe['queFlag'].get(theCounter)
+            cuandoFlag = self.readThe['queFlag'].get(theCounter)
 
             theIntentExamplesArray = []
 
@@ -389,9 +391,9 @@ class Workspace:
 
     # TODO: TERMINAR DE COSTRUIR EL CSV
     # TODO: PASO FINAL ==> CREAR INTERFAZ
-    # TODO: NOMBRAR LA APLICACION
 
 
 if __name__ == '__main__':
-    # app.run(host='0.0.0.0', port=3000, debug=True) #ACCESIBLE POR TODOS
-    app.run(debug=True)  # LOCAL HOST
+    print("Welcome to {}".format(__APPNAME__))
+    app.run(host='0.0.0.0', port=3000)  # ACCESIBLE POR TODOS Y NO DEBUG
+    # app.run(debug=True)  # LOCAL HOST Y DEBUG
