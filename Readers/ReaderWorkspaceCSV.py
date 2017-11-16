@@ -1,7 +1,7 @@
 import pandas
 
 
-class Reader:
+class CSVReader:
     """
     :returns: a reader
     """

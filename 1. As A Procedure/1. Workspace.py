@@ -1,6 +1,7 @@
 from datetime import datetime
 from flask import Flask, redirect, Response
-from Readers import ReaderCSV as CSV
+from Readers import ReaderWorkspaceCSV as CSV
+from Readers import ReaderDialogCSV as Dialog
 import requests
 import time
 
@@ -73,7 +74,8 @@ def returnTheWorkspace():
 
 class Workspace:
     def __init__(self):
-        self.readThe = CSV.Reader().theFinalCSVData
+        self.readTheCSV = CSV.CSVReader().theFinalCSVData
+        self.readTheDialog = Dialog.DialogReader().theFinalCSVData
         self.theCounter = 0
 
     def generateTheWorkspace(self):
@@ -86,7 +88,7 @@ class Workspace:
         This line of code will obtain the name of the Workspace.////////////////////////////////
         ########################################################################################
         """
-        theWorkspaceName = self.readThe['WorkspaceName'].get_value(0)
+        theWorkspaceName = self.readTheCSV['WorkspaceName'].get_value(0)
 
         """
         ########################################################################################
@@ -114,18 +116,18 @@ class Workspace:
         theCreatedDate = theUpdatedDate = theCurrentCreatedDate.isoformat() + 'Z'
 
         # TODO: AGREGAR QUE, COMO Y CUANDO
-        theIntentColumn = self.readThe['Intents']
+        theIntentColumn = self.readTheCSV['Intents']
         theIntentsArray = []
         theCounter = 0
 
         for each in theIntentColumn:
-            queFlag = self.readThe['queFlag'].get(theCounter)
-            comoFlag = self.readThe['queFlag'].get(theCounter)
-            cuandoFlag = self.readThe['queFlag'].get(theCounter)
+            queFlag = self.readTheCSV['queFlag'].get(theCounter)
+            comoFlag = self.readTheCSV['queFlag'].get(theCounter)
+            cuandoFlag = self.readTheCSV['queFlag'].get(theCounter)
 
             theIntentExamplesArray = []
 
-            theIntentName = self.readThe['Entity'].get(theCounter)
+            theIntentName = self.readTheCSV['Entity'].get(theCounter)
 
             if queFlag == True:
                 example1 = {
@@ -280,7 +282,7 @@ class Workspace:
                 theIntentExamplesArray.append(example6)
                 theIntentExamplesArray.append(example7)
 
-            theClientExamples = self.readThe['Examples']
+            theClientExamples = self.readTheCSV['Examples']
             if theClientExamples.count() > 0:
                 theCustomExamples = theClientExamples.get_value(theCounter)
                 each_custom_intent = str(theCustomExamples)
@@ -309,7 +311,7 @@ class Workspace:
             theIntentsArray.append(theIntents)
             theCounter += 1
 
-        theEntityColumn = self.readThe['Entity']
+        theEntityColumn = self.readTheCSV['Entity']
         theEntitiesArray = []
         # TODO: CUSTOM ENTITIES
         for each in theEntityColumn:
@@ -335,7 +337,7 @@ class Workspace:
             }
             theEntitiesArray.append(theEntities)
 
-        theLanguage = self.readThe['Language'].get_value(0)
+        theLanguage = self.readTheCSV['Language'].get_value(0)
 
         theFormattedYear = datetime.today().year
         theYearAsNumber = str(theFormattedYear)
@@ -355,11 +357,33 @@ class Workspace:
             "api_version": theWorkspaceMetaDataAPI_VERSION
         }
 
-        theWorkspaceDescription = self.readThe['Description'].get_value(0)
+        theWorkspaceDescription = self.readTheCSV['Description'].get_value(0)
 
         # TODO: DECOMPOSE INTO SMALLER PARTS.
         # TODO: INVESTIGATE: http://mydevbits.blogspot.com/2016/08/automating-creation-of-chatbot-dialog.html
-        theDialogNodesArray = []
+        theDialogNodesArray = [
+            {
+                "title": self.readTheDialog['Title'].get_value(0),
+                "output": {
+                    "text": {
+                        "values": [
+                            self.readTheDialog['Response'].get_value(0)
+                        ],
+                        "selection_policy": self.readTheDialog['Selection policy'].get_value(0)
+                    }
+                },
+                "parent": self.readTheDialog['Parent'].get_value(0),
+                "context": self.readTheDialog['Context'].get_value(0),
+                "created": theCreatedDate,
+                "updated": theUpdatedDate,
+                "metadata": None,
+                "next_step": self.readTheDialog['Next Step'].get_value(0),
+                "conditions": self.readTheDialog['Conditions'].get_value(0),
+                "description": self.readTheDialog['Description'].get_value(0),
+                "dialog_node": self.readTheDialog['Dialog Node #'].get_value(0),
+                "previous_sibling": self.readTheDialog['Previous Sibling'].get_value(0)
+            }
+        ]
 
         theWorkspaceID = '1234'
 

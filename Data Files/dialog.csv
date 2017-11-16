@@ -1,2 +1,2 @@
-Conditions,Response,Parent,Context,Next Step,Description,Dialog Node #,Previous Sibling
-dog_que_es-dog,Un perro es un animal muy bonito.,None,None,None,Dogs,1_1,Welcome
+Conditions,Response,Parent,Context,Next Step,Description,Dialog Node #,Previous Sibling,Title,Selection policy
+#dog_que_es,Un perro es un animal muy bonito.,None,None,None,Dogs,1_1,Welcome,Node 2,random
