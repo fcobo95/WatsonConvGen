@@ -1,11 +1,11 @@
-#!/usr/bin/python
+# !/usr/bin/python
 # coding=utf-8
 
 import json
 import watson_developer_cloud
 
 
-class Watson:
+class Workspace:
     """
     DOCSTRING
     """
@@ -42,6 +42,7 @@ class Watson:
         self.conversation.delete_workspace(
             workspace_id=workspace_id
         )
+        print("[!]Deleted workspace {}[!]".format(workspace_id))
 
     def getWorkspace(self, workspace_id):
         response = self.conversation.get_workspace(
