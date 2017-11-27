@@ -15,25 +15,6 @@ def hello_world():
     return redirect('/response')
 
 
-def getSynonyms(word):
-    theDirectory = "../Data Files/"
-    KEY = open(theDirectory + "key.txt")
-    theKey = KEY.read()
-    theSynonyms = requests.get(
-        "http://words.bighugelabs.com/api/2/" + str(theKey) + "/" + word + "/json")
-    KEY.close()
-    theJSON = theSynonyms.json()
-    theSynonymsArray = theJSON['noun']['syn']
-    theFinalSynonymsArray = []
-    for eachWord in theSynonymsArray:
-        theWords = str(eachWord)
-        if theWords.__contains__("'"):
-            theWords = theWords.replace("'", "")
-        theFinalSynonymsArray.append(theWords)
-
-    return theFinalSynonymsArray
-
-
 @app.route('/response')
 def returnTheWorkspace():
     theWorkspace = Workspace()
@@ -57,7 +38,8 @@ def returnTheWorkspace():
         theResponse = theResponse.replace("True", "true")
 
     try:
-        theDate = datetime.today().year + datetime.today().month + datetime.today().day
+        theDate = "{}{}{}".format(str(datetime.date.today().year), str(datetime.date.today().month),
+                                  str(datetime.date.today().day))
         theTime = str(time.time())
         theTemportalTimeStamp = "{}{}".format(theTime, theDate)
         theTimeStamp = theTemportalTimeStamp.replace(".", "")
@@ -73,10 +55,32 @@ def returnTheWorkspace():
 
 
 class Workspace:
+    """
+    Workspace class.
+    """
+
     def __init__(self):
         self.readTheCSV = CSV.CSVReader().theFinalCSVData
         self.readTheDialog = Dialog.DialogReader().theFinalCSVData
         self.theCounter = 0
+
+    def getSynonyms(self, word):
+        theDirectory = "../Data Files/"
+        KEY = open(theDirectory + "key.txt")
+        theKey = KEY.read()
+        theSynonyms = requests.get(
+            "http://words.bighugelabs.com/api/2/" + str(theKey) + "/" + word + "/json")
+        KEY.close()
+        theJSON = theSynonyms.json()
+        theSynonymsArray = theJSON['noun']['syn']
+        theFinalSynonymsArray = []
+        for eachWord in theSynonymsArray:
+            theWords = str(eachWord)
+            if theWords.__contains__("'"):
+                theWords = theWords.replace("'", "")
+            theFinalSynonymsArray.append(theWords)
+
+        return theFinalSynonymsArray
 
     def generateTheWorkspace(self):
         """
@@ -96,23 +100,16 @@ class Workspace:
         ########################################################################################
         """
 
-        theCreatedDay = datetime.today().day
-        theCreatedCurrentDay = int(theCreatedDay)
-        theCreatedMonth = datetime.today().month
-        theCreatedCurrentMonth = int(theCreatedMonth)
-        theCreatedYear = datetime.today().year
-        theCreatedCurrentYear = int(theCreatedYear)
-        theCreatedHour = datetime.today().hour
-        theCreatedCurrentHour = int(theCreatedHour)
-        theCreatedMinute = datetime.today().minute
-        theCreatedCurrentMinute = int(theCreatedMinute)
-        theCreatedSecond = datetime.today().second
-        theCreatedCurrentSecond = int(theCreatedSecond)
-        theCreatedMicrosecond = datetime.today().microsecond
-        theCreatedCurrentMicrosecond = int(theCreatedMicrosecond)
-        theCurrentCreatedDate = datetime(theCreatedCurrentYear, theCreatedCurrentMonth, theCreatedCurrentDay,
-                                         theCreatedCurrentHour, theCreatedCurrentMinute, theCreatedCurrentSecond,
-                                         theCreatedCurrentMicrosecond)
+        theCreatedDay = datetime.date.today().day
+        theCreatedMonth = datetime.date.today().month
+        theCreatedYear = datetime.date.today().year
+        theCreatedHour = datetime.datetime.today().hour
+        theCreatedMinute = datetime.datetime.today().minute
+        theCreatedSecond = datetime.datetime.today().second
+        theCreatedMicrosecond = datetime.datetime.today().microsecond
+        theCurrentCreatedDate = datetime.datetime(theCreatedYear, theCreatedMonth, theCreatedDay,
+                                                  theCreatedHour, theCreatedMinute, theCreatedSecond,
+                                                  theCreatedMicrosecond)
         theCreatedDate = theUpdatedDate = theCurrentCreatedDate.isoformat() + 'Z'
 
         # TODO: AGREGAR QUE, COMO Y CUANDO
@@ -323,7 +320,7 @@ class Workspace:
                 "created": theCreatedDate,
                 "updated": theUpdatedDate,
                 "metadata": None,
-                "synonyms": getSynonyms(each)
+                "synonyms": self.getSynonyms(each)
             }
             theValuesArray.append(theValues)
 
@@ -339,11 +336,11 @@ class Workspace:
 
         theLanguage = self.readTheCSV['Language'].get_value(0)
 
-        theFormattedYear = datetime.today().year
+        theFormattedYear = datetime.date.today().year
         theYearAsNumber = str(theFormattedYear)
-        theFormattedMonth = datetime.today().month
+        theFormattedMonth = datetime.date.today().month
         theMonthAsNumber = str(theFormattedMonth)
-        theFormattedDay = datetime.today().day
+        theFormattedDay = datetime.date.today().day
         theDayAsNumber = str(theFormattedDay)
         theCreatedDateFormatted = "{}-{}-{}".format(theYearAsNumber, theMonthAsNumber, theDayAsNumber)
 
