@@ -1,8 +1,8 @@
-from datetime import datetime
 from flask import Flask, redirect, Response
 from Readers import ReaderWorkspaceCSV as CSV
 from Readers import ReaderDialogCSV as Dialog
 import requests
+import datetime
 import time
 
 app = Flask(__name__)
