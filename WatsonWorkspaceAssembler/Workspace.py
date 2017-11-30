@@ -3,11 +3,6 @@
 
 import json
 import watson_developer_cloud
-from Readers import ReaderWorkspaceCSV as CSV
-from Readers import ReaderDialogCSV as Dialog
-import requests
-import datetime
-import time
 
 
 class Workspace:
@@ -26,23 +21,20 @@ class Workspace:
         response = self.conversation.list_workspaces()
         print(json.dumps(response, indent=2))
 
-    def createWorkspace(self):
+    def createWorkspace(self, name=None, description=None, language=None, intents=None, entities=None,
+                        dialog_nodes=None, counterexamples=None, metadata=None):
         response = self.conversation.create_workspace(
-            name='Test Workspace From Python',
-            description='This is a test workspace, trying out the Watson Python SDK.',
-            language='en'
-                     """
-                     FOLLOWING PARAMETERS WILL BE ADDED LATER
-                     intents
-                     entities
-                     dialog_nodes
-                     counterexamples
-                     metadata
-                     """
+            name=name,
+            description=description,
+            language=language,
+            intents=intents,
+            entities=entities,
+            dialog_nodes=dialog_nodes,
+            counterexamples=counterexamples,
+            metadata=metadata
         )
         print(json.dumps(response, indent=2))
 
-    # THIS METHODS RETURNS NO VALUE AT ALL, NOT EVEN A JSON RESPONSE
     def deleteWorkspace(self, workspace_id):
         self.conversation.delete_workspace(
             workspace_id=workspace_id

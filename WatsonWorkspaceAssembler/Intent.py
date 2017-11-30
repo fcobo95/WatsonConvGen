@@ -4,7 +4,11 @@ import json
 import watson_developer_cloud
 
 
-class Entity:
+class Intents:
+    """
+    DOCSTRING
+    """
+
     def __init__(self, username=None, password=None, version=None):
         self.conversation = watson_developer_cloud.ConversationV1(
             username=username,  # '46b3dba5-3f3e-4b04-b8f2-38e65eaefe1a',
@@ -24,7 +28,7 @@ class Entity:
         )
         print(json.dumps(response, indent=2))
 
-    def createEntity(self, workspace_id=None, intent=None, description=None, examples=None):
+    def createIntent(self, workspace_id=None, intent=None, description=None, examples=None):
         response = self.conversation.create_intent(
             workspace_id=workspace_id,
             intent=intent,
