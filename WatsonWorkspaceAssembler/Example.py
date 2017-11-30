@@ -4,7 +4,7 @@ import json
 import watson_developer_cloud
 
 
-class Examples:
+class Example:
     """
     DOCSTRING
     """

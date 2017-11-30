@@ -1,6 +1,5 @@
 # !/usr/bin/python
 # coding=utf-8
-
 import json
 import watson_developer_cloud
 
