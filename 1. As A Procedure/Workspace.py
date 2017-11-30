@@ -3,6 +3,11 @@
 
 import json
 import watson_developer_cloud
+from Readers import ReaderWorkspaceCSV as CSV
+from Readers import ReaderDialogCSV as Dialog
+import requests
+import datetime
+import time
 
 
 class Workspace:
