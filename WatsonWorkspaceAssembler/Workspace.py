@@ -34,24 +34,32 @@ class Workspace:
         )
         print(json.dumps(response, indent=2))
 
-    def deleteWorkspace(self, workspace_id):
+    def deleteWorkspace(self, workspace_id=None):
         self.conversation.delete_workspace(
             workspace_id=workspace_id
         )
         print("[!]Deleted workspace {}[!]".format(workspace_id))
 
-    def getWorkspace(self, workspace_id):
+    def getWorkspace(self, workspace_id=None):
         response = self.conversation.get_workspace(
             workspace_id=workspace_id,
             export=False or False
         )
         print(json.dumps(response, indent=2))
 
-    def updateWorkspace(self, workspace_id, name, description):
+    def updateWorkspace(self, workspace_id=None, name=None, description=None, language=None, intents=None, entities=None
+                        , dialog_nodes=None, counterexamples=None, metadata=None
+                        ):
         response = self.conversation.update_workspace(
             workspace_id=workspace_id,
             name=name,
-            description=description
+            description=description,
+            language=language,
+            intents=intents,
+            entities=entities,
+            dialog_nodes=dialog_nodes,
+            counterexamples=counterexamples,
+            metadata=metadata
         )
         print(json.dumps(response, indent=2))
 
