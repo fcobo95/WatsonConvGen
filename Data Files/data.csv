@@ -1,9 +1,8 @@
 WorkspaceName,Examples,Intents,Entity,Language,Description,Dialog Nodes,WorkspaceID,Counter Examples, cuandoFlag, queFlag, cuandoFlag
-Prueba CSV,que es un perro?,dog_que_es,dog,en,Perros y Gatos y Otros,,123456789, True,True,True
+Python SDK,que es un perro?,dog_que_es,dog,en,Perros y Gatos y Otros,,123456789, False,False,False
 ,this;is a test; for the examples,cat_que_es,cat,es,,,,True,True,True
 ,if we see; this separated; then it works,building_que_es,building,es,,,,True,True,True
 ,,gender_que_es,gender,es,,,,True,True,True
 ,,guitar_que_es,guitar,es,,,,True,True,True
 ,,money_que_es,money,es,,,,True,True,True
-,,sailor_que_es,sailor,es,,,,True,True,True
 ,,sailor_que_es,sailor,es,,,,True,True,True

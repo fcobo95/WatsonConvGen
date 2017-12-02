@@ -4,8 +4,9 @@ from WatsonWorkspaceAssembler import Entity, Example, Intent
 from Readers import ReaderJSON as JSONReader
 import requests
 import datetime
-from Readers import ReaderDialogCSV as CSV
+from Readers import ReaderWorkspaceCSV as CSV
 from Readers import ReaderDialogCSV as Dialog
+import time
 
 
 class WorkspaceBuilder:
@@ -17,9 +18,9 @@ class WorkspaceBuilder:
         self.readTheCSV = CSV.CSVReader().theFinalCSVData
         self.readTheDialog = Dialog.DialogReader().theFinalCSVData
         self.theCounter = 0
-        self.theEntities = Entity.Entity()
-        self.theIntents = Intent.Intent()
-        self.theExamples = Example.Example()
+        # self.theEntities = Entity.Entity()
+        # self.theIntents = Intent.Intent()
+        # self.theExamples = Example.Example()
         theDirectory = '../Data Files/app_settings'
         readThe = JSONReader.JSONReader(theDirectory).theFinalJSONData
         self.theConversation = watson_developer_cloud.ConversationV1(
@@ -89,19 +90,7 @@ class WorkspaceBuilder:
 
             theIntentName = self.readTheCSV['Entity'].get(theCounter)
 
-            if queFlag == True:
-                example1 = {
-                    "text": "¿" + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theCreatedDate
-                }
-
-                example2 = {
-                    "text": "" + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
-                }
-
+            if queFlag:
                 example3 = {
                     "text": "¿Qué es un " + theIntentName + "?",
                     "created": theCreatedDate,
@@ -132,27 +121,13 @@ class WorkspaceBuilder:
                     "updated": theUpdatedDate
                 }
 
-                theIntentExamplesArray.append(example1)
-                theIntentExamplesArray.append(example2)
                 theIntentExamplesArray.append(example3)
                 theIntentExamplesArray.append(example4)
                 theIntentExamplesArray.append(example5)
                 theIntentExamplesArray.append(example6)
                 theIntentExamplesArray.append(example7)
 
-            if comoFlag == True:
-                example1 = {
-                    "text": "¿" + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theCreatedDate
-                }
-
-                example2 = {
-                    "text": "" + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
-                }
-
+            if comoFlag:
                 example3 = {
                     "text": "¿Cómo es un " + theIntentName + "?",
                     "created": theCreatedDate,
@@ -183,27 +158,13 @@ class WorkspaceBuilder:
                     "updated": theUpdatedDate
                 }
 
-                theIntentExamplesArray.append(example1)
-                theIntentExamplesArray.append(example2)
                 theIntentExamplesArray.append(example3)
                 theIntentExamplesArray.append(example4)
                 theIntentExamplesArray.append(example5)
                 theIntentExamplesArray.append(example6)
                 theIntentExamplesArray.append(example7)
 
-            if cuandoFlag == True:
-                example1 = {
-                    "text": "¿" + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theCreatedDate
-                }
-
-                example2 = {
-                    "text": "" + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
-                }
-
+            if cuandoFlag:
                 example3 = {
                     "text": "¿Cuándo es un " + theIntentName + "?",
                     "created": theCreatedDate,
@@ -234,8 +195,6 @@ class WorkspaceBuilder:
                     "updated": theUpdatedDate
                 }
 
-                theIntentExamplesArray.append(example1)
-                theIntentExamplesArray.append(example2)
                 theIntentExamplesArray.append(example3)
                 theIntentExamplesArray.append(example4)
                 theIntentExamplesArray.append(example5)
@@ -359,5 +318,16 @@ class WorkspaceBuilder:
             "counterexamples": [],
             "learning_opt_out": False
         }
+        # print(json.dumps(theFinalWorkspace))
+        #
+        # time.sleep(50)
+        response = self.theConversation.create_workspace(theWorkspaceName, theWorkspaceDescription, theLanguage,
+                                                         theIntentsArray,
+                                                         theEntitiesArray)
+        print(response)
+        return response
 
-        return json.dumps(theFinalWorkspace, indent=2)
+
+if __name__ == '__main__':
+    theWorkspace = WorkspaceBuilder()
+    theWorkspace.generateTheWorkspace()

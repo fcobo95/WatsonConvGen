@@ -1,120 +1,1263 @@
 {
-  "counterexamples": [],
-  "created": "2017-08-18T11:10:58.839933Z",
-  "description": "Hi",
-  "dialog_nodes": [],
-  "entities": [
+  "created": "2017-12-01T13:58:29.695995Z",
+  "dialog_nodes": [
     {
-      "created": "2017-08-18T11:10:58.839933Z",
-      "description": null,
-      "entity": "hi",
-      "metadata": null,
-      "updated": "2017-08-18T11:10:58.840016Z",
-      "values": [
-        {
-          "created": "2017-08-18T11:10:58.839933Z",
-          "metadata": null,
-          "synonyms": [
-            "hola",
-            "prueba"
+      "created": "2017-12-01T13:58:29.695995Z",
+      "parent": "None",
+      "dialog_node": "1_1",
+      "previous_sibling": "Welcome",
+      "conditions": "#dog_que_es",
+      "title": "Node 2",
+      "description": "Dogs",
+      "updated": "2017-12-01T13:58:29.695995Z",
+      "next_step": "None",
+      "output": {
+        "text": {
+          "values": [
+            "Un perro es un animal muy bonito."
           ],
-          "updated": "2017-08-18T11:10:58.840016Z",
-          "value": "hi"
+          "selection_policy": "random"
         }
-      ]
-    },
-    {
-      "created": "2017-08-18T11:10:58.839933Z",
-      "description": null,
-      "entity": "bye",
-      "metadata": null,
-      "updated": "2017-08-18T11:10:58.840016Z",
-      "values": [
-        {
-          "created": "2017-08-18T11:10:58.839933Z",
-          "metadata": null,
-          "synonyms": [
-            "bye",
-            "chao",
-            "adios",
-            "goodbye"
-          ],
-          "updated": "2017-08-18T11:10:58.840016Z",
-          "value": "bye"
-        }
-      ]
+      },
+      "context": "None",
+      "metadata": null
     }
   ],
+  "learning_opt_out": false,
   "intents": [
     {
-      "created": "2017-08-18T11:10:58.839933Z",
-      "description": null,
+      "created": "2017-12-01T13:58:29.695995Z",
+      "updated": "2017-12-01T13:58:29.695995Z",
       "examples": [
         {
-          "created": "2017-08-18T11:10:58.839933Z",
-          "text": "hi",
-          "updated": "2017-08-18T11:10:58.840016Z"
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfdog?"
         },
         {
-          "created": "2017-08-18T11:10:58.839933Z",
-          "text": "hello",
-          "updated": "2017-08-18T11:10:58.840016Z"
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "dog?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfQu\u00e9 es un dog?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfQue es un dog?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Qu\u00e9 es un dog?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Que es un dog?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "dog, \u00bfqu\u00e9 es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfdog?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "dog?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfC\u00f3mo es un dog?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfComo es un dog?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "C\u00f3mo es un dog?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Como es un dog?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "dog, \u00bfc\u00f3mo es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfdog?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "dog?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfCu\u00e1ndo es un dog?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfCuando es un dog?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Cu\u00e1ndo es un dog?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Cuando es un dog?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "dog, \u00bfcu\u00e1ndo es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "que es un perro?"
         }
       ],
-      "intent": "hi",
-      "updated": "2017-08-18T11:10:58.840016Z"
+      "intent": "dog_que_es",
+      "description": null
     },
     {
-      "created": "2017-08-18T11:10:58.839933Z",
-      "description": null,
+      "created": "2017-12-01T13:58:29.695995Z",
+      "updated": "2017-12-01T13:58:29.695995Z",
       "examples": [
         {
-          "created": "2017-08-18T11:10:58.839933Z",
-          "text": "bye",
-          "updated": "2017-08-18T11:10:58.840016Z"
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfcat?"
         },
         {
-          "created": "2017-08-18T11:10:58.839933Z",
-          "text": "goodbye",
-          "updated": "2017-08-18T11:10:58.840016Z"
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "cat?"
         },
         {
-          "created": "2017-08-18T11:10:58.839933Z",
-          "text": "ciao",
-          "updated": "2017-08-18T11:10:58.840016Z"
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfQu\u00e9 es un cat?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfQue es un cat?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Qu\u00e9 es un cat?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Que es un cat?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "cat, \u00bfqu\u00e9 es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfcat?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "cat?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfC\u00f3mo es un cat?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfComo es un cat?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "C\u00f3mo es un cat?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Como es un cat?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "cat, \u00bfc\u00f3mo es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfcat?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "cat?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfCu\u00e1ndo es un cat?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfCuando es un cat?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Cu\u00e1ndo es un cat?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Cuando es un cat?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "cat, \u00bfcu\u00e1ndo es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "this"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "is a test"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": " for the examples"
         }
       ],
-      "intent": "bye",
-      "updated": "2017-08-18T11:10:58.840016Z"
+      "intent": "cat_que_es",
+      "description": null
     },
     {
-      "created": "2017-08-18T11:10:58.839933Z",
-      "description": null,
+      "created": "2017-12-01T13:58:29.695995Z",
+      "updated": "2017-12-01T13:58:29.695995Z",
       "examples": [
         {
-          "created": "2017-08-18T11:10:58.839933Z",
-          "text": "maybe",
-          "updated": "2017-08-18T11:10:58.840016Z"
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfbuilding?"
         },
         {
-          "created": "2017-08-18T11:10:58.839933Z",
-          "text": "perhaps",
-          "updated": "2017-08-18T11:10:58.840016Z"
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "building?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfQu\u00e9 es un building?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfQue es un building?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Qu\u00e9 es un building?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Que es un building?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "building, \u00bfqu\u00e9 es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfbuilding?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "building?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfC\u00f3mo es un building?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfComo es un building?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "C\u00f3mo es un building?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Como es un building?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "building, \u00bfc\u00f3mo es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfbuilding?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "building?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfCu\u00e1ndo es un building?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfCuando es un building?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Cu\u00e1ndo es un building?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Cuando es un building?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "building, \u00bfcu\u00e1ndo es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "if we see"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": " this separated"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": " then it works"
         }
       ],
-      "intent": "maybe",
-      "updated": "2017-08-18T11:10:58.840016Z"
+      "intent": "building_que_es",
+      "description": null
+    },
+    {
+      "created": "2017-12-01T13:58:29.695995Z",
+      "updated": "2017-12-01T13:58:29.695995Z",
+      "examples": [
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfgender?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "gender?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfQu\u00e9 es un gender?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfQue es un gender?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Qu\u00e9 es un gender?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Que es un gender?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "gender, \u00bfqu\u00e9 es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfgender?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "gender?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfC\u00f3mo es un gender?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfComo es un gender?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "C\u00f3mo es un gender?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Como es un gender?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "gender, \u00bfc\u00f3mo es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfgender?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "gender?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfCu\u00e1ndo es un gender?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfCuando es un gender?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Cu\u00e1ndo es un gender?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Cuando es un gender?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "gender, \u00bfcu\u00e1ndo es?"
+        }
+      ],
+      "intent": "gender_que_es",
+      "description": null
+    },
+    {
+      "created": "2017-12-01T13:58:29.695995Z",
+      "updated": "2017-12-01T13:58:29.695995Z",
+      "examples": [
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfguitar?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "guitar?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfQu\u00e9 es un guitar?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfQue es un guitar?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Qu\u00e9 es un guitar?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Que es un guitar?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "guitar, \u00bfqu\u00e9 es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfguitar?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "guitar?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfC\u00f3mo es un guitar?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfComo es un guitar?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "C\u00f3mo es un guitar?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Como es un guitar?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "guitar, \u00bfc\u00f3mo es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfguitar?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "guitar?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfCu\u00e1ndo es un guitar?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfCuando es un guitar?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Cu\u00e1ndo es un guitar?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Cuando es un guitar?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "guitar, \u00bfcu\u00e1ndo es?"
+        }
+      ],
+      "intent": "guitar_que_es",
+      "description": null
+    },
+    {
+      "created": "2017-12-01T13:58:29.695995Z",
+      "updated": "2017-12-01T13:58:29.695995Z",
+      "examples": [
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfmoney?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "money?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfQu\u00e9 es un money?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfQue es un money?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Qu\u00e9 es un money?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Que es un money?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "money, \u00bfqu\u00e9 es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfmoney?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "money?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfC\u00f3mo es un money?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfComo es un money?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "C\u00f3mo es un money?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Como es un money?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "money, \u00bfc\u00f3mo es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfmoney?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "money?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfCu\u00e1ndo es un money?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfCuando es un money?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Cu\u00e1ndo es un money?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Cuando es un money?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "money, \u00bfcu\u00e1ndo es?"
+        }
+      ],
+      "intent": "money_que_es",
+      "description": null
+    },
+    {
+      "created": "2017-12-01T13:58:29.695995Z",
+      "updated": "2017-12-01T13:58:29.695995Z",
+      "examples": [
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfsailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfQu\u00e9 es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfQue es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Qu\u00e9 es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Que es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "sailor, \u00bfqu\u00e9 es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfsailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfC\u00f3mo es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfComo es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "C\u00f3mo es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Como es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "sailor, \u00bfc\u00f3mo es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfsailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfCu\u00e1ndo es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfCuando es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Cu\u00e1ndo es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Cuando es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "sailor, \u00bfcu\u00e1ndo es?"
+        }
+      ],
+      "intent": "sailor_que_es",
+      "description": null
+    },
+    {
+      "created": "2017-12-01T13:58:29.695995Z",
+      "updated": "2017-12-01T13:58:29.695995Z",
+      "examples": [
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfsailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfQu\u00e9 es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfQue es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Qu\u00e9 es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Que es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "sailor, \u00bfqu\u00e9 es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfsailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfC\u00f3mo es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfComo es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "C\u00f3mo es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Como es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "sailor, \u00bfc\u00f3mo es?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfsailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfCu\u00e1ndo es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "\u00bfCuando es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Cu\u00e1ndo es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "Cuando es un sailor?"
+        },
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "text": "sailor, \u00bfcu\u00e1ndo es?"
+        }
+      ],
+      "intent": "sailor_que_es",
+      "description": null
     }
   ],
+  "workspace_id": "1234",
   "language": "en",
-  "learning_opt_out": false,
   "metadata": {
     "api_version": {
       "major_version": "v1",
-      "minor_version": "2017-8-18"
+      "minor_version": "2017-12-1"
     }
   },
-  "name": "Hi",
-  "updated": "2017-08-18T11:10:58.840016Z",
-  "workspace_id": "2a14843b-f067-4c2a-b490-7163883cb84d"
+  "entities": [
+    {
+      "created": "2017-12-01T13:58:29.695995Z",
+      "updated": "2017-12-01T13:58:29.695995Z",
+      "values": [
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "synonyms": [
+            "domestic dog",
+            "Canis familiaris",
+            "frump",
+            "cad",
+            "bounder",
+            "blackguard",
+            "hound",
+            "heel",
+            "frank",
+            "frankfurter",
+            "hotdog",
+            "hot dog",
+            "wiener",
+            "wienerwurst",
+            "weenie",
+            "pawl",
+            "detent",
+            "click",
+            "andiron",
+            "firedog",
+            "dog-iron",
+            "blighter",
+            "canid",
+            "canine",
+            "catch",
+            "chap",
+            "cuss",
+            "disagreeable woman",
+            "fella",
+            "feller",
+            "fellow",
+            "gent",
+            "lad",
+            "sausage",
+            "scoundrel",
+            "stop",
+            "support",
+            "unpleasant woman",
+            "villain"
+          ],
+          "type": "synonyms",
+          "metadata": null,
+          "value": "dog"
+        }
+      ],
+      "metadata": null,
+      "entity": "dog",
+      "description": null
+    },
+    {
+      "created": "2017-12-01T13:58:29.695995Z",
+      "updated": "2017-12-01T13:58:29.695995Z",
+      "values": [
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "synonyms": [
+            "true cat",
+            "guy",
+            "hombre",
+            "bozo",
+            "kat",
+            "khat",
+            "qat",
+            "quat",
+            "Arabian tea",
+            "African tea",
+            "cat-o-nine-tails",
+            "Caterpillar",
+            "big cat",
+            "computerized tomography",
+            "computed tomography",
+            "CT",
+            "computerized axial tomography",
+            "computed axial tomography",
+            "CAT",
+            "adult female",
+            "adult male",
+            "excitant",
+            "felid",
+            "feline",
+            "gossip",
+            "gossiper",
+            "gossipmonger",
+            "man",
+            "newsmonger",
+            "rumormonger",
+            "rumourmonger",
+            "stimulant",
+            "stimulant drug",
+            "tracked vehicle",
+            "whip",
+            "woman",
+            "X-radiation",
+            "X-raying"
+          ],
+          "type": "synonyms",
+          "metadata": null,
+          "value": "cat"
+        }
+      ],
+      "metadata": null,
+      "entity": "cat",
+      "description": null
+    },
+    {
+      "created": "2017-12-01T13:58:29.695995Z",
+      "updated": "2017-12-01T13:58:29.695995Z",
+      "values": [
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "synonyms": [
+            "edifice",
+            "construction",
+            "assemblage",
+            "business",
+            "business enterprise",
+            "commercial enterprise",
+            "creating from raw materials",
+            "gathering",
+            "structure"
+          ],
+          "type": "synonyms",
+          "metadata": null,
+          "value": "building"
+        }
+      ],
+      "metadata": null,
+      "entity": "building",
+      "description": null
+    },
+    {
+      "created": "2017-12-01T13:58:29.695995Z",
+      "updated": "2017-12-01T13:58:29.695995Z",
+      "values": [
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "synonyms": [
+            "grammatical gender",
+            "sex",
+            "sexuality",
+            "grammatical category",
+            "physiological property",
+            "syntactic category"
+          ],
+          "type": "synonyms",
+          "metadata": null,
+          "value": "gender"
+        }
+      ],
+      "metadata": null,
+      "entity": "gender",
+      "description": null
+    },
+    {
+      "created": "2017-12-01T13:58:29.695995Z",
+      "updated": "2017-12-01T13:58:29.695995Z",
+      "values": [
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "synonyms": [
+            "stringed instrument"
+          ],
+          "type": "synonyms",
+          "metadata": null,
+          "value": "guitar"
+        }
+      ],
+      "metadata": null,
+      "entity": "guitar",
+      "description": null
+    },
+    {
+      "created": "2017-12-01T13:58:29.695995Z",
+      "updated": "2017-12-01T13:58:29.695995Z",
+      "values": [
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "synonyms": [
+            "currency",
+            "medium of exchange",
+            "monetary system",
+            "wealth"
+          ],
+          "type": "synonyms",
+          "metadata": null,
+          "value": "money"
+        }
+      ],
+      "metadata": null,
+      "entity": "money",
+      "description": null
+    },
+    {
+      "created": "2017-12-01T13:58:29.695995Z",
+      "updated": "2017-12-01T13:58:29.695995Z",
+      "values": [
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "synonyms": [
+            "crewman",
+            "bluejacket",
+            "navy man",
+            "sailor boy",
+            "boater",
+            "leghorn",
+            "Panama",
+            "Panama hat",
+            "skimmer",
+            "straw hat",
+            "chapeau",
+            "hat",
+            "lid",
+            "man",
+            "military man",
+            "military personnel",
+            "serviceman",
+            "skilled worker",
+            "skilled workman",
+            "trained worker"
+          ],
+          "type": "synonyms",
+          "metadata": null,
+          "value": "sailor"
+        }
+      ],
+      "metadata": null,
+      "entity": "sailor",
+      "description": null
+    },
+    {
+      "created": "2017-12-01T13:58:29.695995Z",
+      "updated": "2017-12-01T13:58:29.695995Z",
+      "values": [
+        {
+          "created": "2017-12-01T13:58:29.695995Z",
+          "updated": "2017-12-01T13:58:29.695995Z",
+          "synonyms": [
+            "crewman",
+            "bluejacket",
+            "navy man",
+            "sailor boy",
+            "boater",
+            "leghorn",
+            "Panama",
+            "Panama hat",
+            "skimmer",
+            "straw hat",
+            "chapeau",
+            "hat",
+            "lid",
+            "man",
+            "military man",
+            "military personnel",
+            "serviceman",
+            "skilled worker",
+            "skilled workman",
+            "trained worker"
+          ],
+          "type": "synonyms",
+          "metadata": null,
+          "value": "sailor"
+        }
+      ],
+      "metadata": null,
+      "entity": "sailor",
+      "description": null
+    }
+  ],
+  "description": "Perros y Gatos y Otros",
+  "updated": "2017-12-01T13:58:29.695995Z",
+  "name": "Python SDK",
+  "counterexamples": []
 }
