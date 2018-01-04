@@ -1,52 +1,82 @@
-import json
-import watson_developer_cloud
-from WatsonWorkspaceAssembler import Entity, Example, Intent
-from Readers import ReaderJSON as JSONReader
-import requests
-import datetime
+from flask import Flask, redirect, Response
 from Readers import ReaderWorkspaceCSV as CSV
 from Readers import ReaderDialogCSV as Dialog
+import requests
+import datetime
 import time
 
+app = Flask(__name__)
+__APPNAME__ = "Watson Chatbot Automator"
 
-class WorkspaceBuilder:
-    """
-    DOCSTRING
-    """
 
+# DEFAULT ROUTE
+@app.route('/')
+def hello_world():
+    return redirect('/response')
+
+
+def getSynonyms(word):
+    theDirectory = "../Data Files/"
+    KEY = open(theDirectory + "key.txt")
+    theKey = KEY.read()
+    theSynonyms = requests.get(
+        "http://words.bighugelabs.com/api/2/" + str(theKey) + "/" + word + "/json")
+    KEY.close()
+    theJSON = theSynonyms.json()
+    theSynonymsArray = theJSON['noun']['syn']
+    theFinalSynonymsArray = []
+    for eachWord in theSynonymsArray:
+        theWords = str(eachWord)
+        if theWords.__contains__("'"):
+            theWords = theWords.replace("'", "")
+        theFinalSynonymsArray.append(theWords)
+
+    return theFinalSynonymsArray
+
+
+@app.route('/response')
+def returnTheWorkspace():
+    theWorkspace = Workspace()
+    theResponse = theWorkspace.generateTheWorkspace()
+
+    """
+    ########################################################################################
+    These lines of code will format theResponse into a valid JSON response./////////////////
+    ########################################################################################
+    """
+    if "'" in theResponse:
+        theResponse = theResponse.replace("'", '"')
+
+    if "None" in theResponse:
+        theResponse = theResponse.replace("None", "null")
+
+    if "False" in theResponse:
+        theResponse = theResponse.replace("False", "false")
+
+    if "True" in theResponse:
+        theResponse = theResponse.replace("True", "true")
+
+    try:
+        theDate = datetime.today().year + datetime.today().month + datetime.today().day
+        theTime = str(time.time())
+        theTemportalTimeStamp = "{}{}".format(theTime, theDate)
+        theTimeStamp = theTemportalTimeStamp.replace(".", "")
+        theDirectory = "../Data Files/"
+        theFile = open(theDirectory + "workspace" + str(theTimeStamp) + ".json", "w", encoding='utf-8')
+        theFile.write(theResponse)
+        theFile.close()
+    except FileExistsError:
+        print("Something went wrong.")
+        returnTheWorkspace()
+
+    return Response(theResponse, mimetype='application/json')
+
+
+class Workspace:
     def __init__(self):
         self.readTheCSV = CSV.CSVReader().theFinalCSVData
         self.readTheDialog = Dialog.DialogReader().theFinalCSVData
         self.theCounter = 0
-        # self.theEntities = Entity.Entity()
-        # self.theIntents = Intent.Intent()
-        # self.theExamples = Example.Example()
-        theDirectory = '../Data Files/app_settings'
-        readThe = JSONReader.JSONReader(theDirectory).theFinalJSONData
-        self.theConversation = watson_developer_cloud.ConversationV1(
-            username=readThe['username'],
-            password=readThe['password'],
-            version=readThe['version']
-        )
-        self.theWorkspace = readThe['workspace_id']
-
-    def getSynonyms(self, word):
-        theDirectory = "../Data Files/"
-        KEY = open(theDirectory + "key.txt")
-        theKey = KEY.read()
-        theSynonyms = requests.get(
-            "http://words.bighugelabs.com/api/2/" + str(theKey) + "/" + word + "/json")
-        KEY.close()
-        theJSON = theSynonyms.json()
-        theSynonymsArray = theJSON['noun']['syn']
-        theFinalSynonymsArray = []
-        for eachWord in theSynonymsArray:
-            theWords = str(eachWord)
-            if theWords.__contains__("'"):
-                theWords = theWords.replace("'", "")
-            theFinalSynonymsArray.append(theWords)
-
-        return theFinalSynonymsArray
 
     def generateTheWorkspace(self):
         """
@@ -66,17 +96,26 @@ class WorkspaceBuilder:
         ########################################################################################
         """
 
-        theCreatedDay = datetime.date.today().day
-        theCreatedMonth = datetime.date.today().month
-        theCreatedYear = datetime.date.today().year
-        theCreatedHour = datetime.datetime.today().hour
-        theCreatedMinute = datetime.datetime.today().minute
-        theCreatedSecond = datetime.datetime.today().second
-        theCreatedMicrosecond = datetime.datetime.today().microsecond
-        theCurrentCreatedDate = datetime.datetime(theCreatedYear, theCreatedMonth, theCreatedDay, theCreatedHour,
-                                                  theCreatedMinute, theCreatedSecond, theCreatedMicrosecond)
+        theCreatedDay = datetime.today().day
+        theCreatedCurrentDay = int(theCreatedDay)
+        theCreatedMonth = datetime.today().month
+        theCreatedCurrentMonth = int(theCreatedMonth)
+        theCreatedYear = datetime.today().year
+        theCreatedCurrentYear = int(theCreatedYear)
+        theCreatedHour = datetime.today().hour
+        theCreatedCurrentHour = int(theCreatedHour)
+        theCreatedMinute = datetime.today().minute
+        theCreatedCurrentMinute = int(theCreatedMinute)
+        theCreatedSecond = datetime.today().second
+        theCreatedCurrentSecond = int(theCreatedSecond)
+        theCreatedMicrosecond = datetime.today().microsecond
+        theCreatedCurrentMicrosecond = int(theCreatedMicrosecond)
+        theCurrentCreatedDate = datetime(theCreatedCurrentYear, theCreatedCurrentMonth, theCreatedCurrentDay,
+                                         theCreatedCurrentHour, theCreatedCurrentMinute, theCreatedCurrentSecond,
+                                         theCreatedCurrentMicrosecond)
         theCreatedDate = theUpdatedDate = theCurrentCreatedDate.isoformat() + 'Z'
 
+        # TODO: AGREGAR QUE, COMO Y CUANDO
         theIntentColumn = self.readTheCSV['Intents']
         theIntentsArray = []
         theCounter = 0
@@ -90,7 +129,19 @@ class WorkspaceBuilder:
 
             theIntentName = self.readTheCSV['Entity'].get(theCounter)
 
-            if queFlag:
+            if queFlag == True:
+                example1 = {
+                    "text": "¿" + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theCreatedDate
+                }
+
+                example2 = {
+                    "text": "" + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
+
                 example3 = {
                     "text": "¿Qué es un " + theIntentName + "?",
                     "created": theCreatedDate,
@@ -121,13 +172,27 @@ class WorkspaceBuilder:
                     "updated": theUpdatedDate
                 }
 
+                theIntentExamplesArray.append(example1)
+                theIntentExamplesArray.append(example2)
                 theIntentExamplesArray.append(example3)
                 theIntentExamplesArray.append(example4)
                 theIntentExamplesArray.append(example5)
                 theIntentExamplesArray.append(example6)
                 theIntentExamplesArray.append(example7)
 
-            if comoFlag:
+            if comoFlag == True:
+                example1 = {
+                    "text": "¿" + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theCreatedDate
+                }
+
+                example2 = {
+                    "text": "" + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
+
                 example3 = {
                     "text": "¿Cómo es un " + theIntentName + "?",
                     "created": theCreatedDate,
@@ -158,13 +223,27 @@ class WorkspaceBuilder:
                     "updated": theUpdatedDate
                 }
 
+                theIntentExamplesArray.append(example1)
+                theIntentExamplesArray.append(example2)
                 theIntentExamplesArray.append(example3)
                 theIntentExamplesArray.append(example4)
                 theIntentExamplesArray.append(example5)
                 theIntentExamplesArray.append(example6)
                 theIntentExamplesArray.append(example7)
 
-            if cuandoFlag:
+            if cuandoFlag == True:
+                example1 = {
+                    "text": "¿" + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theCreatedDate
+                }
+
+                example2 = {
+                    "text": "" + theIntentName + "?",
+                    "created": theCreatedDate,
+                    "updated": theUpdatedDate
+                }
+
                 example3 = {
                     "text": "¿Cuándo es un " + theIntentName + "?",
                     "created": theCreatedDate,
@@ -195,6 +274,8 @@ class WorkspaceBuilder:
                     "updated": theUpdatedDate
                 }
 
+                theIntentExamplesArray.append(example1)
+                theIntentExamplesArray.append(example2)
                 theIntentExamplesArray.append(example3)
                 theIntentExamplesArray.append(example4)
                 theIntentExamplesArray.append(example5)
@@ -232,6 +313,7 @@ class WorkspaceBuilder:
 
         theEntityColumn = self.readTheCSV['Entity']
         theEntitiesArray = []
+        # TODO: CUSTOM ENTITIES
         for each in theEntityColumn:
             theValuesArray = []
             each = str(each)
@@ -241,7 +323,7 @@ class WorkspaceBuilder:
                 "created": theCreatedDate,
                 "updated": theUpdatedDate,
                 "metadata": None,
-                "synonyms": self.getSynonyms(each)
+                "synonyms": getSynonyms(each)
             }
             theValuesArray.append(theValues)
 
@@ -257,11 +339,11 @@ class WorkspaceBuilder:
 
         theLanguage = self.readTheCSV['Language'].get_value(0)
 
-        theFormattedYear = datetime.date.today().year
+        theFormattedYear = datetime.today().year
         theYearAsNumber = str(theFormattedYear)
-        theFormattedMonth = datetime.date.today().month
+        theFormattedMonth = datetime.today().month
         theMonthAsNumber = str(theFormattedMonth)
-        theFormattedDay = datetime.date.today().day
+        theFormattedDay = datetime.today().day
         theDayAsNumber = str(theFormattedDay)
         theCreatedDateFormatted = "{}-{}-{}".format(theYearAsNumber, theMonthAsNumber, theDayAsNumber)
 
@@ -277,6 +359,8 @@ class WorkspaceBuilder:
 
         theWorkspaceDescription = self.readTheCSV['Description'].get_value(0)
 
+        # TODO: DECOMPOSE INTO SMALLER PARTS.
+        # TODO: INVESTIGATE: http://mydevbits.blogspot.com/2016/08/automating-creation-of-chatbot-dialog.html
         theDialogNodesArray = [
             {
                 "title": self.readTheDialog['Title'].get_value(0),
@@ -303,6 +387,10 @@ class WorkspaceBuilder:
 
         theWorkspaceID = '1234'
 
+        theWorkspaceCounterExamples = []  # TODO: CHECK PURPOSE
+
+        theWorkspaceLearningOptOut = False  # TODO: CHECK PURPOSE
+
         # THE WORKSPACE GENERATED BY THE BACKEND. RETURN THIS WORKSPACE AS A .JSON FILE.
         theFinalWorkspace = {
             "name": theWorkspaceName,
@@ -315,19 +403,21 @@ class WorkspaceBuilder:
             "description": theWorkspaceDescription,
             "dialog_nodes": theDialogNodesArray,
             "workspace_id": theWorkspaceID,
-            "counterexamples": [],
-            "learning_opt_out": False
+            "counterexamples": theWorkspaceCounterExamples,
+            "learning_opt_out": theWorkspaceLearningOptOut
         }
-        # print(json.dumps(theFinalWorkspace))
-        #
-        # time.sleep(50)
-        response = self.theConversation.create_workspace(theWorkspaceName, theWorkspaceDescription, theLanguage,
-                                                         theIntentsArray,
-                                                         theEntitiesArray)
-        print(response)
-        return response
+
+        return str(dict(theFinalWorkspace))
+
+    # CHANGE THIS LINE OF CODE AFTER SUPERVISOR APPROVAL OR FEEDBACK.
+    # FALSE FOR NOT FINISHED OR TRUE FOR FINISHED.
+    Supervisor_Approval = True
+
+    # TODO: TERMINAR DE COSTRUIR EL CSV
+    # TODO: PASO FINAL ==> CREAR INTERFAZ
 
 
 if __name__ == '__main__':
-    theWorkspace = WorkspaceBuilder()
-    theWorkspace.generateTheWorkspace()
+    print("Welcome to {}".format(__APPNAME__))
+    app.run(host='0.0.0.0', port=3000)  # ACCESIBLE POR TODOS Y NO DEBUG
+    # app.run(debug=True)  # LOCAL HOST Y DEBUG
