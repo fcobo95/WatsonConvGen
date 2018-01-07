@@ -1,0 +1,357 @@
+{
+  "name": "Python SDK",
+  "created": "2017-12-02T23:10:14.105Z",
+  "intents": [
+    {
+      "intent": "prueba_vacia",
+      "created": "2017-12-26T23:06:54.642Z",
+      "updated": "2017-12-26T23:06:54.642Z",
+      "examples": [],
+      "description": ""
+    },
+    {
+      "intent": "manzana_qué_es",
+      "created": "2017-12-26T23:05:19.272Z",
+      "updated": "2017-12-26T23:05:33.947Z",
+      "examples": [
+        {
+          "text": "¿Qué es una manzana?",
+          "created": "2017-12-26T23:05:27.216Z",
+          "updated": "2017-12-26T23:05:27.216Z"
+        },
+        {
+          "text": "¿Manzana?",
+          "created": "2017-12-26T23:05:33.947Z",
+          "updated": "2017-12-26T23:05:33.947Z"
+        }
+      ],
+      "description": "Pregunta general sobre que son manzanas."
+    },
+    {
+      "intent": "manzana_cómo_es",
+      "created": "2017-12-26T23:06:20.297Z",
+      "updated": "2017-12-26T23:06:41.248Z",
+      "examples": [
+        {
+          "text": "¿Cómo es una manzana?",
+          "created": "2017-12-26T23:06:29.237Z",
+          "updated": "2017-12-26T23:06:29.237Z"
+        },
+        {
+          "text": "Una manzana, ¿cómo es?",
+          "created": "2017-12-26T23:06:41.248Z",
+          "updated": "2017-12-26T23:06:41.248Z"
+        }
+      ],
+      "description": "Pregunta general sobre cómo son las manzanas"
+    }
+  ],
+  "updated": "2017-12-26T23:13:29.850Z",
+  "entities": [
+    {
+      "entity": "con_datos",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "con data",
+          "created": "2017-12-26T23:07:28.165Z",
+          "updated": "2017-12-26T23:07:28.165Z",
+          "metadata": null,
+          "synonyms": [
+            "sinónimo"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "sin data",
+          "created": "2017-12-26T23:07:44.450Z",
+          "updated": "2017-12-26T23:07:44.450Z",
+          "metadata": null,
+          "synonyms": []
+        }
+      ],
+      "created": "2017-12-26T23:07:13.040Z",
+      "updated": "2017-12-26T23:07:44.450Z",
+      "metadata": null,
+      "description": null
+    }
+  ],
+  "language": "en",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2017-05-26"
+    }
+  },
+  "description": "Perros y Gatos y Otros",
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Nieto",
+      "output": {},
+      "parent": "node_7_1514327118251",
+      "context": null,
+      "created": "2017-12-26T23:10:37.292Z",
+      "updated": "2017-12-26T23:11:23.083Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": null,
+      "description": null,
+      "dialog_node": "node_10_1514327128691",
+      "previous_sibling": null
+    },
+    {
+      "type": "standard",
+      "title": "HijoNodoConPisosN_HijoSolo",
+      "output": {},
+      "parent": "node_5_1514327090853",
+      "context": null,
+      "created": "2017-12-26T23:10:30.913Z",
+      "updated": "2017-12-26T23:11:40.663Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": null,
+      "description": null,
+      "dialog_node": "node_8_1514327122188",
+      "previous_sibling": "node_6_1514327115000"
+    },
+    {
+      "type": "standard",
+      "title": "HijoNodoConPisosN_ConJumpTo",
+      "output": {
+        "text": {
+          "values": [
+            "Hola,"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_5_1514327090853",
+      "context": null,
+      "created": "2017-12-26T23:12:37.520Z",
+      "updated": "2017-12-26T23:13:23.206Z",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_13_1514327263626"
+      },
+      "conditions": null,
+      "description": null,
+      "dialog_node": "node_12_1514327248361",
+      "previous_sibling": "node_8_1514327122188"
+    },
+    {
+      "type": "standard",
+      "title": "HijoNodoConPisosN_TieneUnHijoYUnNieto",
+      "output": {},
+      "parent": "node_5_1514327090853",
+      "context": null,
+      "created": "2017-12-26T23:10:23.597Z",
+      "updated": "2017-12-26T23:11:15.646Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": null,
+      "description": null,
+      "dialog_node": "node_6_1514327115000",
+      "previous_sibling": null
+    },
+    {
+      "type": "standard",
+      "title": "HijoNodoConUnPiso",
+      "output": {
+        "text": {
+          "values": [
+            "Y se puede comer."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_3_1514327036049",
+      "context": null,
+      "created": "2017-12-26T23:09:31.189Z",
+      "updated": "2017-12-26T23:09:56.128Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": "#manzana_qué_es",
+      "description": null,
+      "dialog_node": "node_4_1514327062585",
+      "previous_sibling": null
+    },
+    {
+      "type": "standard",
+      "title": "Hijo",
+      "output": {},
+      "parent": "node_6_1514327115000",
+      "context": null,
+      "created": "2017-12-26T23:10:26.854Z",
+      "updated": "2017-12-26T23:11:19.253Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": null,
+      "description": null,
+      "dialog_node": "node_7_1514327118251",
+      "previous_sibling": null
+    },
+    {
+      "type": "standard",
+      "title": "Hijo_JumpToPivot",
+      "output": {
+        "text": {
+          "values": [
+            "amigo"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_12_1514327248361",
+      "context": null,
+      "created": "2017-12-26T23:12:52.230Z",
+      "updated": "2017-12-26T23:13:29.850Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": null,
+      "description": null,
+      "dialog_node": "node_13_1514327263626",
+      "previous_sibling": null
+    },
+    {
+      "type": "standard",
+      "title": "Hijo",
+      "output": {},
+      "parent": "node_8_1514327122188",
+      "context": null,
+      "created": "2017-12-26T23:10:34.344Z",
+      "updated": "2017-12-26T23:11:43.273Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": null,
+      "description": null,
+      "dialog_node": "node_9_1514327125744",
+      "previous_sibling": null
+    },
+    {
+      "type": "standard",
+      "title": "NodoSolo",
+      "output": {
+        "text": {
+          "values": [
+            "Una manzana es como una figura ovalada semiesférica, generalmente de color rojo, verde o amarillo."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-12-26T23:07:58.903Z",
+      "updated": "2017-12-26T23:08:50.110Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": "#manzana_cómo_es",
+      "description": null,
+      "dialog_node": "node_1_1514326970290",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "NodoVacio",
+      "output": {},
+      "parent": null,
+      "context": null,
+      "created": "2017-12-26T23:08:55.985Z",
+      "updated": "2017-12-26T23:09:02.333Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": null,
+      "description": null,
+      "dialog_node": "node_2_1514327027376",
+      "previous_sibling": "node_1_1514326970290"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "text": {
+          "values": [
+            "I didn't understand. You can try rephrasing.",
+            "Can you reword your statement? I'm not understanding.",
+            "I didn't get your meaning."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-12-02T23:10:42.194Z",
+      "updated": "2017-12-02T23:10:42.194Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": "anything_else",
+      "description": null,
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_5_1514327090853"
+    },
+    {
+      "type": "standard",
+      "title": "NodoConPisosN",
+      "output": {},
+      "parent": null,
+      "context": null,
+      "created": "2017-12-26T23:09:59.468Z",
+      "updated": "2017-12-26T23:10:14.863Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": "#manzana_qué_es",
+      "description": null,
+      "dialog_node": "node_5_1514327090853",
+      "previous_sibling": "node_3_1514327036049"
+    },
+    {
+      "type": "standard",
+      "title": "NodoConUnPiso",
+      "output": {
+        "text": {
+          "values": [
+            "Una manzana es una fruta."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-12-26T23:09:04.658Z",
+      "updated": "2017-12-26T23:09:26.004Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": "#manzana_qué_es",
+      "description": null,
+      "dialog_node": "node_3_1514327036049",
+      "previous_sibling": "node_2_1514327027376"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "text": {
+          "values": [
+            "Hello. How can I help you?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-12-02T23:10:42.194Z",
+      "updated": "2017-12-02T23:10:42.194Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": "welcome",
+      "description": null,
+      "dialog_node": "Welcome",
+      "previous_sibling": null
+    }
+  ],
+  "workspace_id": "2bdbcf79-d59a-4d30-90e0-af2b62f6b37a",
+  "counterexamples": [],
+  "learning_opt_out": false
+}
