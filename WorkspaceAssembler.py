@@ -2,8 +2,8 @@ from flask import Flask, redirect, Response
 from Readers import ReaderWorkspaceCSV as CSV
 from Readers import ReaderDialogCSV as Dialog
 import requests
-import datetime
 import time
+import calendar
 
 app = Flask(__name__)
 __APPNAME__ = "Watson Chatbot Automator"
@@ -12,12 +12,18 @@ __APPNAME__ = "Watson Chatbot Automator"
 # DEFAULT ROUTE
 @app.route('/')
 def hello_world():
+    """
+    DOCSTRING
+    """
     return redirect('/response')
 
 
-def getSynonyms(word):
-    theDirectory = "../Data Files/"
-    KEY = open(theDirectory + "key.txt")
+def atSynonyms(word):
+    """
+    DOCSTRING
+    """
+    theDirectory = "key.txt"
+    KEY = open(theDirectory)
     theKey = KEY.read()
     theSynonyms = requests.get(
         "http://words.bighugelabs.com/api/2/" + str(theKey) + "/" + word + "/json")
@@ -36,6 +42,9 @@ def getSynonyms(word):
 
 @app.route('/response')
 def returnTheWorkspace():
+    """
+    DOCSTRING
+    """
     theWorkspace = Workspace()
     theResponse = theWorkspace.generateTheWorkspace()
 
@@ -48,7 +57,7 @@ def returnTheWorkspace():
         theResponse = theResponse.replace("'", '"')
 
     if "None" in theResponse:
-        theResponse = theResponse.replace("None", "null")
+        theResponse = theResponse.replace("None", "None")
 
     if "False" in theResponse:
         theResponse = theResponse.replace("False", "false")
@@ -57,12 +66,7 @@ def returnTheWorkspace():
         theResponse = theResponse.replace("True", "true")
 
     try:
-        theDate = datetime.today().year + datetime.today().month + datetime.today().day
-        theTime = str(time.time())
-        theTemportalTimeStamp = "{}{}".format(theTime, theDate)
-        theTimeStamp = theTemportalTimeStamp.replace(".", "")
-        theDirectory = "../Data Files/"
-        theFile = open(theDirectory + "workspace" + str(theTimeStamp) + ".json", "w", encoding='utf-8')
+        theFile = open("workspace.json", "w", encoding='utf-8')
         theFile.write(theResponse)
         theFile.close()
     except FileExistsError:
@@ -73,6 +77,10 @@ def returnTheWorkspace():
 
 
 class Workspace:
+    """
+    DOCSTRING
+    """
+
     def __init__(self):
         self.readTheCSV = CSV.CSVReader().theFinalCSVData
         self.readTheDialog = Dialog.DialogReader().theFinalCSVData
@@ -88,194 +96,96 @@ class Workspace:
         This line of code will obtain the name of the Workspace.////////////////////////////////
         ########################################################################################
         """
-        theWorkspaceName = self.readTheCSV['WorkspaceName'].get_value(0)
+        theWorkspaceName = self.readTheCSV['WorkspaceName'].iat[0]
 
-        """
-        ########################################################################################
-        This block of code will generate a custom iso formatted date./////////////////////////// 
-        ########################################################################################
-        """
-
-        theCreatedDay = datetime.today().day
-        theCreatedCurrentDay = int(theCreatedDay)
-        theCreatedMonth = datetime.today().month
-        theCreatedCurrentMonth = int(theCreatedMonth)
-        theCreatedYear = datetime.today().year
-        theCreatedCurrentYear = int(theCreatedYear)
-        theCreatedHour = datetime.today().hour
-        theCreatedCurrentHour = int(theCreatedHour)
-        theCreatedMinute = datetime.today().minute
-        theCreatedCurrentMinute = int(theCreatedMinute)
-        theCreatedSecond = datetime.today().second
-        theCreatedCurrentSecond = int(theCreatedSecond)
-        theCreatedMicrosecond = datetime.today().microsecond
-        theCreatedCurrentMicrosecond = int(theCreatedMicrosecond)
-        theCurrentCreatedDate = datetime(theCreatedCurrentYear, theCreatedCurrentMonth, theCreatedCurrentDay,
-                                         theCreatedCurrentHour, theCreatedCurrentMinute, theCreatedCurrentSecond,
-                                         theCreatedCurrentMicrosecond)
-        theCreatedDate = theUpdatedDate = theCurrentCreatedDate.isoformat() + 'Z'
-
-        # TODO: AGREGAR QUE, COMO Y CUANDO
         theIntentColumn = self.readTheCSV['Intents']
         theIntentsArray = []
         theCounter = 0
 
         for each in theIntentColumn:
-            queFlag = self.readTheCSV['queFlag'].get(theCounter)
-            comoFlag = self.readTheCSV['queFlag'].get(theCounter)
-            cuandoFlag = self.readTheCSV['queFlag'].get(theCounter)
+            queFlag = self.readTheCSV['queFlag'].at[theCounter]
+            comoFlag = self.readTheCSV['queFlag'].at[theCounter]
+            cuandoFlag = self.readTheCSV['queFlag'].at[theCounter]
 
             theIntentExamplesArray = []
 
-            theIntentName = self.readTheCSV['Entity'].get(theCounter)
+            theIntentName = self.readTheCSV['Entity'].at[theCounter]
 
-            if queFlag == True:
-                example1 = {
-                    "text": "¿" + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theCreatedDate
-                }
-
-                example2 = {
-                    "text": "" + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
-                }
-
+            if queFlag:
                 example3 = {
                     "text": "¿Qué es un " + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
                 }
 
                 example4 = {
                     "text": "¿Que es un " + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
                 }
 
                 example5 = {
                     "text": "Qué es un " + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
                 }
 
                 example6 = {
                     "text": "Que es un " + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
                 }
 
                 example7 = {
                     "text": theIntentName + ", ¿qué es?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
                 }
 
-                theIntentExamplesArray.append(example1)
-                theIntentExamplesArray.append(example2)
                 theIntentExamplesArray.append(example3)
                 theIntentExamplesArray.append(example4)
                 theIntentExamplesArray.append(example5)
                 theIntentExamplesArray.append(example6)
                 theIntentExamplesArray.append(example7)
 
-            if comoFlag == True:
-                example1 = {
-                    "text": "¿" + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theCreatedDate
-                }
-
-                example2 = {
-                    "text": "" + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
-                }
-
+            if comoFlag:
                 example3 = {
                     "text": "¿Cómo es un " + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
                 }
 
                 example4 = {
                     "text": "¿Como es un " + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
                 }
 
                 example5 = {
                     "text": "Cómo es un " + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
                 }
 
                 example6 = {
                     "text": "Como es un " + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
                 }
 
                 example7 = {
                     "text": theIntentName + ", ¿cómo es?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
                 }
 
-                theIntentExamplesArray.append(example1)
-                theIntentExamplesArray.append(example2)
                 theIntentExamplesArray.append(example3)
                 theIntentExamplesArray.append(example4)
                 theIntentExamplesArray.append(example5)
                 theIntentExamplesArray.append(example6)
                 theIntentExamplesArray.append(example7)
 
-            if cuandoFlag == True:
-                example1 = {
-                    "text": "¿" + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theCreatedDate
-                }
-
-                example2 = {
-                    "text": "" + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
-                }
-
+            if cuandoFlag:
                 example3 = {
                     "text": "¿Cuándo es un " + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
                 }
 
                 example4 = {
                     "text": "¿Cuando es un " + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
                 }
 
                 example5 = {
                     "text": "Cuándo es un " + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
                 }
 
                 example6 = {
                     "text": "Cuando es un " + theIntentName + "?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
                 }
 
                 example7 = {
                     "text": theIntentName + ", ¿cuándo es?",
-                    "created": theCreatedDate,
-                    "updated": theUpdatedDate
                 }
 
-                theIntentExamplesArray.append(example1)
-                theIntentExamplesArray.append(example2)
                 theIntentExamplesArray.append(example3)
                 theIntentExamplesArray.append(example4)
                 theIntentExamplesArray.append(example5)
@@ -284,15 +194,13 @@ class Workspace:
 
             theClientExamples = self.readTheCSV['Examples']
             if theClientExamples.count() > 0:
-                theCustomExamples = theClientExamples.get_value(theCounter)
+                theCustomExamples = theClientExamples.iat[theCounter]
                 each_custom_intent = str(theCustomExamples)
                 if not each_custom_intent == "nan":
                     theQuestionsArray = each_custom_intent.split(";")
                     for each_example in theQuestionsArray:
                         theCustomExampleIntent = {
                             "text": each_example,
-                            "created": theCreatedDate,
-                            "updated": theUpdatedDate
                         }
                         theIntentExamplesArray.append(theCustomExampleIntent)
                 else:
@@ -302,8 +210,6 @@ class Workspace:
 
             theIntents = {
                 "intent": each,
-                "created": theCreatedDate,
-                "updated": theUpdatedDate,
                 "examples": theIntentExamplesArray,
                 "description": None
             }
@@ -313,42 +219,29 @@ class Workspace:
 
         theEntityColumn = self.readTheCSV['Entity']
         theEntitiesArray = []
-        # TODO: CUSTOM ENTITIES
         for each in theEntityColumn:
             theValuesArray = []
             each = str(each)
             theValues = {
                 "type": "synonyms",
                 "value": each,
-                "created": theCreatedDate,
-                "updated": theUpdatedDate,
                 "metadata": None,
-                "synonyms": getSynonyms(each)
+                "synonyms": atSynonyms(each)
             }
             theValuesArray.append(theValues)
 
             theEntities = {
                 "entity": each,
                 "values": theValuesArray,
-                "created": theCreatedDate,
-                "updated": theUpdatedDate,
                 "metadata": None,
                 "description": None
             }
             theEntitiesArray.append(theEntities)
 
-        theLanguage = self.readTheCSV['Language'].get_value(0)
-
-        theFormattedYear = datetime.today().year
-        theYearAsNumber = str(theFormattedYear)
-        theFormattedMonth = datetime.today().month
-        theMonthAsNumber = str(theFormattedMonth)
-        theFormattedDay = datetime.today().day
-        theDayAsNumber = str(theFormattedDay)
-        theCreatedDateFormatted = "{}-{}-{}".format(theYearAsNumber, theMonthAsNumber, theDayAsNumber)
+        theLanguage = self.readTheCSV['Language'].iat[0]
 
         theMetaDataMajorVersion = 'v1'
-        theMetaDataMinorVersion = theCreatedDateFormatted
+        theMetaDataMinorVersion = "2017-05-26"
         theWorkspaceMetaDataAPI_VERSION = {
             "major_version": theMetaDataMajorVersion,
             "minor_version": theMetaDataMinorVersion
@@ -357,46 +250,71 @@ class Workspace:
             "api_version": theWorkspaceMetaDataAPI_VERSION
         }
 
-        theWorkspaceDescription = self.readTheCSV['Description'].get_value(0)
+        theWorkspaceDescription = self.readTheCSV['Description'].iat[0]
 
-        # TODO: DECOMPOSE INTO SMALLER PARTS.
-        # TODO: INVESTIGATE: http://mydevbits.blogspot.com/2016/08/automating-creation-of-chatbot-dialog.html
-        theDialogNodesArray = [
-            {
-                "title": self.readTheDialog['Title'].get_value(0),
-                "output": {
-                    "text": {
-                        "values": [
-                            self.readTheDialog['Response'].get_value(0)
-                        ],
-                        "selection_policy": self.readTheDialog['Selection policy'].get_value(0)
-                    }
-                },
-                "parent": self.readTheDialog['Parent'].get_value(0),
-                "context": self.readTheDialog['Context'].get_value(0),
-                "created": theCreatedDate,
-                "updated": theUpdatedDate,
-                "metadata": None,
-                "next_step": self.readTheDialog['Next Step'].get_value(0),
-                "conditions": self.readTheDialog['Conditions'].get_value(0),
-                "description": self.readTheDialog['Description'].get_value(0),
-                "dialog_node": self.readTheDialog['Dialog Node #'].get_value(0),
-                "previous_sibling": self.readTheDialog['Previous Sibling'].get_value(0)
+        theDialogNodesArray = []
+        theExampleNode = {
+            "type": "standard",
+            "title": "Hijo",
+            "output": {},
+            "parent": "node_6_1514327115000",
+            "context": None,
+            "created": "2017-12-26T23:10:26.854Z",
+            "updated": "2017-12-26T23:11:19.253Z",
+            "metadata": {},
+            "next_step": None,
+            "conditions": None,
+            "description": None,
+            "dialog_node": "node_7_1514327118251",
+            "previous_sibling": None
+        }
+        theEPOCH = calendar.timegm(time.gmtime())
+        print(theEPOCH)
+        theNodeType = ''
+        theNodeTitle = ''
+        theNodeValuesArray = []
+        theNodeOutput = {
+            "text": {
+                "values": theNodeValuesArray
             }
-        ]
+        }  # CHECK STUFF
+        theNodeParent = ''
+        theNodeContext = ''
+        theNodeMetaData = {}
+        theNodeNextStep = ''
+        theNodeConditions = self.readTheDialog['Conditions']
+        theNodeDescription = ''
+        theNodeDialogNode = ''
+        theNodePreviousSibling = ''
+
+        theNode = {
+            "type": theNodeType,
+            "title": theNodeTitle,
+            "output": theNodeOutput,
+            "parent": theNodeParent,
+            "context": theNodeContext,
+            "created": "2017-12-26T23:12:52.230Z",
+            "updated": "2017-12-26T23:13:29.850Z",
+            "metadata": theNodeMetaData,
+            "next_step": theNodeNextStep,
+            "conditions": theNodeConditions,
+            "description": theNodeDescription,
+            "dialog_node": theNodeDialogNode,
+            "previous_sibling": theNodePreviousSibling
+        }
+
+        theDialogNodesArray.append(theNode)
 
         theWorkspaceID = '1234'
 
-        theWorkspaceCounterExamples = []  # TODO: CHECK PURPOSE
+        theWorkspaceCounterExamples = []
 
-        theWorkspaceLearningOptOut = False  # TODO: CHECK PURPOSE
+        theWorkspaceLearningOptOut = False
 
         # THE WORKSPACE GENERATED BY THE BACKEND. RETURN THIS WORKSPACE AS A .JSON FILE.
         theFinalWorkspace = {
             "name": theWorkspaceName,
-            "created": theCreatedDate,
             "intents": theIntentsArray,
-            "updated": theUpdatedDate,
             "entities": theEntitiesArray,
             "language": theLanguage,
             "metadata": theWorkspaceMetaData,
@@ -408,13 +326,6 @@ class Workspace:
         }
 
         return str(dict(theFinalWorkspace))
-
-    # CHANGE THIS LINE OF CODE AFTER SUPERVISOR APPROVAL OR FEEDBACK.
-    # FALSE FOR NOT FINISHED OR TRUE FOR FINISHED.
-    Supervisor_Approval = True
-
-    # TODO: TERMINAR DE COSTRUIR EL CSV
-    # TODO: PASO FINAL ==> CREAR INTERFAZ
 
 
 if __name__ == '__main__':

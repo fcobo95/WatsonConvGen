@@ -7,5 +7,5 @@ class DialogReader:
     """
 
     def __init__(self):
-        with open('../Data Files/dialog.csv') as DialogData:
+        with open('dialog.csv') as DialogData:
             self.theFinalCSVData = pandas.read_csv(DialogData, delimiter=',', skipinitialspace=True)

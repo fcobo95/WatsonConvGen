@@ -7,5 +7,5 @@ class CSVReader:
     """
 
     def __init__(self):
-        with open('../Data Files/data.csv') as CSVData:
+        with open('data.csv') as CSVData:
             self.theFinalCSVData = pandas.read_csv(CSVData, delimiter=',', skipinitialspace=True)
