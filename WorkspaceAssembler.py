@@ -55,9 +55,11 @@ def returnTheWorkspace():
     """
     if "'" in theResponse:
         theResponse = theResponse.replace("'", '"')
+    if "nan" in theResponse:
+        theResponse = theResponse.replace("nan", "null")
 
     if "None" in theResponse:
-        theResponse = theResponse.replace("None", "None")
+        theResponse = theResponse.replace("None", "null")
 
     if "False" in theResponse:
         theResponse = theResponse.replace("False", "false")
@@ -114,22 +116,32 @@ class Workspace:
             if queFlag:
                 example3 = {
                     "text": "¿Qué es un " + theIntentName + "?",
+                    "created": "2018-01-08T15:09:43.760Z",
+                    "updated": "2018-01-08T15:09:43.760Z"
                 }
 
                 example4 = {
                     "text": "¿Que es un " + theIntentName + "?",
+                    "created": "2018-01-08T15:09:43.760Z",
+                    "updated": "2018-01-08T15:09:43.760Z"
                 }
 
                 example5 = {
                     "text": "Qué es un " + theIntentName + "?",
+                    "created": "2018-01-08T15:09:43.760Z",
+                    "updated": "2018-01-08T15:09:43.760Z"
                 }
 
                 example6 = {
                     "text": "Que es un " + theIntentName + "?",
+                    "created": "2018-01-08T15:09:43.760Z",
+                    "updated": "2018-01-08T15:09:43.760Z"
                 }
 
                 example7 = {
                     "text": theIntentName + ", ¿qué es?",
+                    "created": "2018-01-08T15:09:43.760Z",
+                    "updated": "2018-01-08T15:09:43.760Z"
                 }
 
                 theIntentExamplesArray.append(example3)
@@ -141,22 +153,32 @@ class Workspace:
             if comoFlag:
                 example3 = {
                     "text": "¿Cómo es un " + theIntentName + "?",
+                    "created": "2018-01-08T15:09:43.760Z",
+                    "updated": "2018-01-08T15:09:43.760Z"
                 }
 
                 example4 = {
                     "text": "¿Como es un " + theIntentName + "?",
+                    "created": "2018-01-08T15:09:43.760Z",
+                    "updated": "2018-01-08T15:09:43.760Z"
                 }
 
                 example5 = {
                     "text": "Cómo es un " + theIntentName + "?",
+                    "created": "2018-01-08T15:09:43.760Z",
+                    "updated": "2018-01-08T15:09:43.760Z"
                 }
 
                 example6 = {
                     "text": "Como es un " + theIntentName + "?",
+                    "created": "2018-01-08T15:09:43.760Z",
+                    "updated": "2018-01-08T15:09:43.760Z"
                 }
 
                 example7 = {
                     "text": theIntentName + ", ¿cómo es?",
+                    "created": "2018-01-08T15:09:43.760Z",
+                    "updated": "2018-01-08T15:09:43.760Z"
                 }
 
                 theIntentExamplesArray.append(example3)
@@ -168,22 +190,32 @@ class Workspace:
             if cuandoFlag:
                 example3 = {
                     "text": "¿Cuándo es un " + theIntentName + "?",
+                    "created": "2018-01-08T15:09:43.760Z",
+                    "updated": "2018-01-08T15:09:43.760Z"
                 }
 
                 example4 = {
                     "text": "¿Cuando es un " + theIntentName + "?",
+                    "created": "2018-01-08T15:09:43.760Z",
+                    "updated": "2018-01-08T15:09:43.760Z"
                 }
 
                 example5 = {
                     "text": "Cuándo es un " + theIntentName + "?",
+                    "created": "2018-01-08T15:09:43.760Z",
+                    "updated": "2018-01-08T15:09:43.760Z"
                 }
 
                 example6 = {
                     "text": "Cuando es un " + theIntentName + "?",
+                    "created": "2018-01-08T15:09:43.760Z",
+                    "updated": "2018-01-08T15:09:43.760Z"
                 }
 
                 example7 = {
                     "text": theIntentName + ", ¿cuándo es?",
+                    "created": "2018-01-08T15:09:43.760Z",
+                    "updated": "2018-01-08T15:09:43.760Z"
                 }
 
                 theIntentExamplesArray.append(example3)
@@ -201,6 +233,8 @@ class Workspace:
                     for each_example in theQuestionsArray:
                         theCustomExampleIntent = {
                             "text": each_example,
+                            "created": "2018-01-08T15:09:43.760Z",
+                            "updated": "2018-01-08T15:09:43.760Z"
                         }
                         theIntentExamplesArray.append(theCustomExampleIntent)
                 else:
@@ -211,7 +245,9 @@ class Workspace:
             theIntents = {
                 "intent": each,
                 "examples": theIntentExamplesArray,
-                "description": None
+                "description": None,
+                "created": "2018-01-08T15:09:43.760Z",
+                "updated": "2018-01-08T15:09:43.760Z"
             }
 
             theIntentsArray.append(theIntents)
@@ -226,7 +262,9 @@ class Workspace:
                 "type": "synonyms",
                 "value": each,
                 "metadata": None,
-                "synonyms": atSynonyms(each)
+                "synonyms": atSynonyms(each),
+                "created": "2018-01-08T15:09:43.760Z",
+                "updated": "2018-01-08T15:09:43.760Z"
             }
             theValuesArray.append(theValues)
 
@@ -234,13 +272,15 @@ class Workspace:
                 "entity": each,
                 "values": theValuesArray,
                 "metadata": None,
-                "description": None
+                "description": None,
+                "created": "2018-01-08T15:09:43.760Z",
+                "updated": "2018-01-08T15:09:43.760Z"
             }
             theEntitiesArray.append(theEntities)
 
         theLanguage = self.readTheCSV['Language'].iat[0]
 
-        theMetaDataMajorVersion = 'v1'
+        theMetaDataMajorVersion = "v1"
         theMetaDataMinorVersion = "2017-05-26"
         theWorkspaceMetaDataAPI_VERSION = {
             "major_version": theMetaDataMajorVersion,
@@ -253,57 +293,101 @@ class Workspace:
         theWorkspaceDescription = self.readTheCSV['Description'].iat[0]
 
         theDialogNodesArray = []
-        theExampleNode = {
+        theWelcomeNode = {
             "type": "standard",
-            "title": "Hijo",
-            "output": {},
-            "parent": "node_6_1514327115000",
+            "title": "Welcome",
+            "output": {
+                "text": {
+                    "values": [
+                        "Hello. How can I help you?"
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": None,
             "context": None,
-            "created": "2017-12-26T23:10:26.854Z",
-            "updated": "2017-12-26T23:11:19.253Z",
+            "created": "2018-01-08T15:09:43.760Z",
+            "updated": "2018-01-08T15:09:43.760Z",
             "metadata": {},
             "next_step": None,
-            "conditions": None,
+            "conditions": "welcome",
             "description": None,
-            "dialog_node": "node_7_1514327118251",
+            "dialog_node": "Welcome",
             "previous_sibling": None
         }
-        theEPOCH = calendar.timegm(time.gmtime())
-        print(theEPOCH)
-        theNodeType = ''
-        theNodeTitle = ''
-        theNodeValuesArray = []
-        theNodeOutput = {
-            "text": {
-                "values": theNodeValuesArray
+        theDialogNodesArray.append(theWelcomeNode)
+        theNodesCounter = 0
+        for _ in self.readTheDialog['Row']:
+            theResponses = self.readTheDialog['Response']
+            theNodeType = 'standard'
+            theNodeTitle = self.readTheDialog['Title'].at[theNodesCounter]
+            theNodeValuesArray = []
+            if theResponses.count() > 0:
+                theNodeResponse = theResponses.iat[theNodesCounter]
+                each_value = str(theNodeResponse)
+                theNodeResponseArray = each_value.split('*')
+                for each in theNodeResponseArray:
+                    theNodeValuesArray.append(each)
+            theNodeOutput = {
+                "text": {
+                    "values": theNodeValuesArray
+                }
             }
-        }  # CHECK STUFF
-        theNodeParent = ''
-        theNodeContext = ''
-        theNodeMetaData = {}
-        theNodeNextStep = ''
-        theNodeConditions = self.readTheDialog['Conditions']
-        theNodeDescription = ''
-        theNodeDialogNode = ''
-        theNodePreviousSibling = ''
+            theNodeParent = self.readTheDialog['Parent'].at[theNodesCounter]
+            if theNodeParent is None or theNodeParent is 'nan':
+                theNodeParent = None
+            theNodeContext = self.readTheDialog['Context'].at[theNodesCounter]
+            theNodeMetaData = {}
+            theNodeNextStep = self.readTheDialog['Next Step'].at[theNodesCounter]
+            theNodeConditions = self.readTheDialog['Conditions'].at[theNodesCounter]
+            theNodeDescription = self.readTheDialog['Description'].at[theNodesCounter]
+            theNodeDialogNode = self.readTheDialog['Dialog Node #'].at[theNodesCounter]
+            theNodePreviousSibling = self.readTheDialog['Previous Sibling'].at[theNodesCounter]
+            theNode = {
+                "type": theNodeType,
+                "title": theNodeTitle,
+                "output": theNodeOutput,
+                "parent": theNodeParent,
+                "context": theNodeContext,
+                "created": "2017-12-26T23:12:52.230Z",
+                "updated": "2017-12-26T23:13:29.850Z",
+                "metadata": theNodeMetaData,
+                "next_step": theNodeNextStep,
+                "conditions": theNodeConditions,
+                "description": theNodeDescription,
+                "dialog_node": str(theNodeDialogNode),
+                "previous_sibling": theNodePreviousSibling
+            }
+            theDialogNodesArray.append(theNode)
+            theNodesCounter += 1
 
-        theNode = {
-            "type": theNodeType,
-            "title": theNodeTitle,
-            "output": theNodeOutput,
-            "parent": theNodeParent,
-            "context": theNodeContext,
-            "created": "2017-12-26T23:12:52.230Z",
-            "updated": "2017-12-26T23:13:29.850Z",
-            "metadata": theNodeMetaData,
-            "next_step": theNodeNextStep,
-            "conditions": theNodeConditions,
-            "description": theNodeDescription,
-            "dialog_node": theNodeDialogNode,
-            "previous_sibling": theNodePreviousSibling
+        theLastNodeNumber = theDialogNodesArray[-1]
+        theLastDialogNodeNumber = theLastNodeNumber['dialog_node']
+        theAnythingElseNode = {
+            "type": "standard",
+            "title": "Anything else",
+            "output": {
+                "text": {
+                    "values": [
+                        "I did not understand. You can try rephrasing.",
+                        "Can you reword your statement? I am not understanding.",
+                        "I did not get your meaning."
+                    ],
+                    "selection_policy": "sequential"
+                }
+            },
+            "parent": None,
+            "context": None,
+            "created": "2018-01-08T15:09:43.760Z",
+            "updated": "2018-01-08T15:09:43.760Z",
+            "metadata": {},
+            "next_step": None,
+            "conditions": "anything_else",
+            "description": None,
+            "dialog_node": "Anything else",
+            "previous_sibling": str(theLastDialogNodeNumber)
         }
-
-        theDialogNodesArray.append(theNode)
+        theDialogNodesArray.append(theAnythingElseNode)
 
         theWorkspaceID = '1234'
 

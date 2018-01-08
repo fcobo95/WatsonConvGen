@@ -89,7 +89,7 @@
       "type": "standard",
       "title": "Nieto",
       "output": {},
-      "parent": "node_7_1514327118251",
+      "parent": "node_1_1514327118251",
       "context": null,
       "created": "2017-12-26T23:10:37.292Z",
       "updated": "2017-12-26T23:11:23.083Z",
@@ -97,14 +97,14 @@
       "next_step": null,
       "conditions": null,
       "description": null,
-      "dialog_node": "node_10_1514327128691",
+      "dialog_node": "node_1_1514327128691",
       "previous_sibling": null
     },
     {
       "type": "standard",
       "title": "HijoNodoConPisosN_HijoSolo",
       "output": {},
-      "parent": "node_5_1514327090853",
+      "parent": "node_1_1514327090853",
       "context": null,
       "created": "2017-12-26T23:10:30.913Z",
       "updated": "2017-12-26T23:11:40.663Z",
@@ -112,8 +112,8 @@
       "next_step": null,
       "conditions": null,
       "description": null,
-      "dialog_node": "node_8_1514327122188",
-      "previous_sibling": "node_6_1514327115000"
+      "dialog_node": "node_1_1514327122188",
+      "previous_sibling": "node_1_1514327115000"
     },
     {
       "type": "standard",
@@ -126,7 +126,7 @@
           "selection_policy": "sequential"
         }
       },
-      "parent": "node_5_1514327090853",
+      "parent": "node_1_1514327090853",
       "context": null,
       "created": "2017-12-26T23:12:37.520Z",
       "updated": "2017-12-26T23:13:23.206Z",
@@ -134,18 +134,18 @@
       "next_step": {
         "behavior": "jump_to",
         "selector": "body",
-        "dialog_node": "node_13_1514327263626"
+        "dialog_node": "node_1_1514327263626"
       },
       "conditions": null,
       "description": null,
-      "dialog_node": "node_12_1514327248361",
-      "previous_sibling": "node_8_1514327122188"
+      "dialog_node": "node_1_1514327248361",
+      "previous_sibling": "node_1_1514327122188"
     },
     {
       "type": "standard",
       "title": "HijoNodoConPisosN_TieneUnHijoYUnNieto",
       "output": {},
-      "parent": "node_5_1514327090853",
+      "parent": "node_1_1514327090853",
       "context": null,
       "created": "2017-12-26T23:10:23.597Z",
       "updated": "2017-12-26T23:11:15.646Z",
@@ -153,7 +153,7 @@
       "next_step": null,
       "conditions": null,
       "description": null,
-      "dialog_node": "node_6_1514327115000",
+      "dialog_node": "node_1_1514327115000",
       "previous_sibling": null
     },
     {
@@ -167,7 +167,7 @@
           "selection_policy": "sequential"
         }
       },
-      "parent": "node_3_1514327036049",
+      "parent": "node_1_1514327036049",
       "context": null,
       "created": "2017-12-26T23:09:31.189Z",
       "updated": "2017-12-26T23:09:56.128Z",
@@ -175,14 +175,14 @@
       "next_step": null,
       "conditions": "#manzana_qué_es",
       "description": null,
-      "dialog_node": "node_4_1514327062585",
+      "dialog_node": "node_1_1514327062585",
       "previous_sibling": null
     },
     {
       "type": "standard",
       "title": "Hijo",
       "output": {},
-      "parent": "node_6_1514327115000",
+      "parent": "node_1_1514327115000",
       "context": null,
       "created": "2017-12-26T23:10:26.854Z",
       "updated": "2017-12-26T23:11:19.253Z",
@@ -190,7 +190,7 @@
       "next_step": null,
       "conditions": null,
       "description": null,
-      "dialog_node": "node_7_1514327118251",
+      "dialog_node": "node_1_1514327118251",
       "previous_sibling": null
     },
     {
@@ -204,7 +204,7 @@
           "selection_policy": "sequential"
         }
       },
-      "parent": "node_12_1514327248361",
+      "parent": "node_1_1514327248361",
       "context": null,
       "created": "2017-12-26T23:12:52.230Z",
       "updated": "2017-12-26T23:13:29.850Z",
@@ -212,14 +212,14 @@
       "next_step": null,
       "conditions": null,
       "description": null,
-      "dialog_node": "node_13_1514327263626",
+      "dialog_node": "node_1_1514327263626",
       "previous_sibling": null
     },
     {
       "type": "standard",
       "title": "Hijo",
       "output": {},
-      "parent": "node_8_1514327122188",
+      "parent": "node_1_1514327122188",
       "context": null,
       "created": "2017-12-26T23:10:34.344Z",
       "updated": "2017-12-26T23:11:43.273Z",
@@ -227,7 +227,7 @@
       "next_step": null,
       "conditions": null,
       "description": null,
-      "dialog_node": "node_9_1514327125744",
+      "dialog_node": "node_1_1514327125744",
       "previous_sibling": null
     },
     {
@@ -264,7 +264,7 @@
       "next_step": null,
       "conditions": null,
       "description": null,
-      "dialog_node": "node_2_1514327027376",
+      "dialog_node": "node_1_1514327027376",
       "previous_sibling": "node_1_1514326970290"
     },
     {
@@ -289,7 +289,7 @@
       "conditions": "anything_else",
       "description": null,
       "dialog_node": "Anything else",
-      "previous_sibling": "node_5_1514327090853"
+      "previous_sibling": "node_1_1514327090853"
     },
     {
       "type": "standard",
@@ -303,8 +303,8 @@
       "next_step": null,
       "conditions": "#manzana_qué_es",
       "description": null,
-      "dialog_node": "node_5_1514327090853",
-      "previous_sibling": "node_3_1514327036049"
+      "dialog_node": "node_1_1514327090853",
+      "previous_sibling": "node_1_1514327036049"
     },
     {
       "type": "standard",
@@ -325,8 +325,8 @@
       "next_step": null,
       "conditions": "#manzana_qué_es",
       "description": null,
-      "dialog_node": "node_3_1514327036049",
-      "previous_sibling": "node_2_1514327027376"
+      "dialog_node": "node_1_1514327036049",
+      "previous_sibling": "node_1_1514327027376"
     },
     {
       "type": "standard",
