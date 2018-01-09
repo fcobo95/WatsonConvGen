@@ -1,4 +1,6 @@
 Row, Conditions,Response,Parent,Context,Next Step,Description,Dialog Node #,Previous Sibling,Title,Selection policy
-1, #manzana_que_es, una fruta,,,,man, Node_1_1, Welcome, Manzanas1.1, random
+1, #manzana_que_es, una fruta*muy rica,,,,man, Node_1_1, Welcome, Manzanas1.1, random
 2, #manzana_que_es, una fruta,Node_1_1,,,za, Node_1_1_1,, Manzanas1.1.1, random
 3, #manzana_que_es, una fruta,Node_1_1,,,na, Node_1_1_2, Node_1_1_1, Manzanas1.1.2, random
+4,#manzana_que_es,una fruta,,,,Manzana,Node_2_1,Node_1_1,Manzanas2.1,random
+5,#manzana_que_es,una fruta,Node_2_1,,,asdf,Node_2_1_1,,Manzanas2.1.1,random

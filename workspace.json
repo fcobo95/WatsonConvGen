@@ -1,1 +1,956 @@
-{"name": "Python SDK", "intents": [{"intent": "dog_que_es", "examples": [{"text": "que es un perro?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}], "description": null, "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"intent": "cat_que_es", "examples": [{"text": "¿Qué es un cat?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Que es un cat?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Qué es un cat?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Que es un cat?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "cat, ¿qué es?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Cómo es un cat?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Como es un cat?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Cómo es un cat?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Como es un cat?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "cat, ¿cómo es?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Cuándo es un cat?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Cuando es un cat?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Cuándo es un cat?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Cuando es un cat?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "cat, ¿cuándo es?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "this", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "is a test", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": " for the examples", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}], "description": null, "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"intent": "building_que_es", "examples": [{"text": "¿Qué es un building?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Que es un building?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Qué es un building?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Que es un building?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "building, ¿qué es?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Cómo es un building?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Como es un building?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Cómo es un building?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Como es un building?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "building, ¿cómo es?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Cuándo es un building?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Cuando es un building?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Cuándo es un building?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Cuando es un building?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "building, ¿cuándo es?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "if we see", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": " this separated", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": " then it works", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}], "description": null, "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"intent": "gender_que_es", "examples": [{"text": "¿Qué es un gender?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Que es un gender?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Qué es un gender?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Que es un gender?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "gender, ¿qué es?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Cómo es un gender?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Como es un gender?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Cómo es un gender?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Como es un gender?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "gender, ¿cómo es?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Cuándo es un gender?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Cuando es un gender?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Cuándo es un gender?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Cuando es un gender?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "gender, ¿cuándo es?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}], "description": null, "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"intent": "guitar_que_es", "examples": [{"text": "¿Qué es un guitar?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Que es un guitar?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Qué es un guitar?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Que es un guitar?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "guitar, ¿qué es?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Cómo es un guitar?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Como es un guitar?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Cómo es un guitar?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Como es un guitar?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "guitar, ¿cómo es?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Cuándo es un guitar?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Cuando es un guitar?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Cuándo es un guitar?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Cuando es un guitar?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "guitar, ¿cuándo es?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}], "description": null, "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"intent": "money_que_es", "examples": [{"text": "¿Qué es un money?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Que es un money?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Qué es un money?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Que es un money?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "money, ¿qué es?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Cómo es un money?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Como es un money?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Cómo es un money?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Como es un money?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "money, ¿cómo es?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Cuándo es un money?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Cuando es un money?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Cuándo es un money?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Cuando es un money?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "money, ¿cuándo es?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}], "description": null, "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"intent": "sailor_que_es", "examples": [{"text": "¿Qué es un sailor?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Que es un sailor?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Qué es un sailor?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Que es un sailor?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "sailor, ¿qué es?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Cómo es un sailor?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Como es un sailor?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Cómo es un sailor?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Como es un sailor?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "sailor, ¿cómo es?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Cuándo es un sailor?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "¿Cuando es un sailor?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Cuándo es un sailor?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "Cuando es un sailor?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"text": "sailor, ¿cuándo es?", "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}], "description": null, "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}], "entities": [{"entity": "dog", "values": [{"type": "synonyms", "value": "dog", "metadata": null, "synonyms": ["domestic dog", "Canis familiaris", "frump", "cad", "bounder", "blackguard", "hound", "heel", "frank", "frankfurter", "hotdog", "hot dog", "wiener", "wienerwurst", "weenie", "pawl", "detent", "click", "andiron", "firedog", "dog-iron", "blighter", "canid", "canine", "catch", "chap", "cuss", "disagreeable woman", "fella", "feller", "fellow", "gent", "lad", "sausage", "scoundrel", "stop", "support", "unpleasant woman", "villain"], "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}], "metadata": null, "description": null, "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"entity": "cat", "values": [{"type": "synonyms", "value": "cat", "metadata": null, "synonyms": ["true cat", "guy", "hombre", "bozo", "kat", "khat", "qat", "quat", "Arabian tea", "African tea", "cat-o-nine-tails", "Caterpillar", "big cat", "computerized tomography", "computed tomography", "CT", "computerized axial tomography", "computed axial tomography", "CAT", "adult female", "adult male", "excitant", "felid", "feline", "gossip", "gossiper", "gossipmonger", "man", "newsmonger", "rumormonger", "rumourmonger", "stimulant", "stimulant drug", "tracked vehicle", "whip", "woman", "X-radiation", "X-raying"], "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}], "metadata": null, "description": null, "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"entity": "building", "values": [{"type": "synonyms", "value": "building", "metadata": null, "synonyms": ["edifice", "construction", "assemblage", "business", "business enterprise", "commercial enterprise", "creating from raw materials", "gathering", "structure"], "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}], "metadata": null, "description": null, "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"entity": "gender", "values": [{"type": "synonyms", "value": "gender", "metadata": null, "synonyms": ["grammatical gender", "sex", "sexuality", "grammatical category", "physiological property", "syntactic category"], "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}], "metadata": null, "description": null, "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"entity": "guitar", "values": [{"type": "synonyms", "value": "guitar", "metadata": null, "synonyms": ["stringed instrument"], "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}], "metadata": null, "description": null, "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"entity": "money", "values": [{"type": "synonyms", "value": "money", "metadata": null, "synonyms": ["currency", "medium of exchange", "monetary system", "wealth"], "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}], "metadata": null, "description": null, "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}, {"entity": "sailor", "values": [{"type": "synonyms", "value": "sailor", "metadata": null, "synonyms": ["crewman", "bluejacket", "navy man", "sailor boy", "boater", "leghorn", "Panama", "Panama hat", "skimmer", "straw hat", "chapeau", "hat", "lid", "man", "military man", "military personnel", "serviceman", "skilled worker", "skilled workman", "trained worker"], "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}], "metadata": null, "description": null, "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z"}], "language": "en", "metadata": {"api_version": {"major_version": "v1", "minor_version": "2017-05-26"}}, "description": "Perros y Gatos y Otros", "dialog_nodes": [{"type": "standard", "title": "Welcome", "output": {"text": {"values": ["Hello. How can I help you?"], "selection_policy": "sequential"}}, "parent": null, "context": null, "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z", "metadata": {}, "next_step": null, "conditions": "welcome", "description": null, "dialog_node": "Welcome", "previous_sibling": null}, {"type": "standard", "title": "Manzanas1.1", "output": {"text": {"values": ["una fruta"]}}, "parent": null, "context": null, "created": "2017-12-26T23:12:52.230Z", "updated": "2017-12-26T23:13:29.850Z", "metadata": {}, "next_step": null, "conditions": "#manzana_que_es", "description": "man", "dialog_node": "Node_1_1", "previous_sibling": "Welcome"}, {"type": "standard", "title": "Manzanas1.1.1", "output": {"text": {"values": ["una fruta"]}}, "parent": "Node_1_1", "context": null, "created": "2017-12-26T23:12:52.230Z", "updated": "2017-12-26T23:13:29.850Z", "metadata": {}, "next_step": null, "conditions": "#manzana_que_es", "description": "za", "dialog_node": "Node_1_1_1", "previous_sibling": null}, {"type": "standard", "title": "Manzanas1.1.2", "output": {"text": {"values": ["una fruta"]}}, "parent": "Node_1_1", "context": null, "created": "2017-12-26T23:12:52.230Z", "updated": "2017-12-26T23:13:29.850Z", "metadata": {}, "next_step": null, "conditions": "#manzana_que_es", "description": "na", "dialog_node": "Node_1_1_2", "previous_sibling": "Node_1_1_1"}, {"type": "standard", "title": "Anything else", "output": {"text": {"values": ["I did not understand. You can try rephrasing.", "Can you reword your statement? I am not understanding.", "I did not get your meaning."], "selection_policy": "sequential"}}, "parent": null, "context": null, "created": "2018-01-08T15:09:43.760Z", "updated": "2018-01-08T15:09:43.760Z", "metadata": {}, "next_step": null, "conditions": "anything_else", "description": null, "dialog_node": "Anything else", "previous_sibling": "Node_1_1_2"}], "workspace_id": "1234", "counterexamples": [], "learning_opt_out": false}
+{
+  "name": "Python SDK",
+  "intents": [
+    {
+      "intent": "dog_que_es",
+      "examples": [
+        {
+          "text": "que es un perro?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        }
+      ],
+      "description": null,
+      "created": "2018-01-08T15:09:43.760Z",
+      "updated": "2018-01-08T15:09:43.760Z"
+    },
+    {
+      "intent": "cat_que_es",
+      "examples": [
+        {
+          "text": "¿Qué es un cat?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Que es un cat?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Qué es un cat?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Que es un cat?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "cat, ¿qué es?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Cómo es un cat?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Como es un cat?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Cómo es un cat?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Como es un cat?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "cat, ¿cómo es?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Cuándo es un cat?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Cuando es un cat?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Cuándo es un cat?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Cuando es un cat?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "cat, ¿cuándo es?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "this",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "is a test",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": " for the examples",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        }
+      ],
+      "description": null,
+      "created": "2018-01-08T15:09:43.760Z",
+      "updated": "2018-01-08T15:09:43.760Z"
+    },
+    {
+      "intent": "building_que_es",
+      "examples": [
+        {
+          "text": "¿Qué es un building?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Que es un building?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Qué es un building?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Que es un building?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "building, ¿qué es?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Cómo es un building?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Como es un building?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Cómo es un building?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Como es un building?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "building, ¿cómo es?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Cuándo es un building?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Cuando es un building?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Cuándo es un building?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Cuando es un building?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "building, ¿cuándo es?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "if we see",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": " this separated",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": " then it works",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        }
+      ],
+      "description": null,
+      "created": "2018-01-08T15:09:43.760Z",
+      "updated": "2018-01-08T15:09:43.760Z"
+    },
+    {
+      "intent": "gender_que_es",
+      "examples": [
+        {
+          "text": "¿Qué es un gender?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Que es un gender?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Qué es un gender?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Que es un gender?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "gender, ¿qué es?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Cómo es un gender?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Como es un gender?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Cómo es un gender?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Como es un gender?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "gender, ¿cómo es?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Cuándo es un gender?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Cuando es un gender?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Cuándo es un gender?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Cuando es un gender?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "gender, ¿cuándo es?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        }
+      ],
+      "description": null,
+      "created": "2018-01-08T15:09:43.760Z",
+      "updated": "2018-01-08T15:09:43.760Z"
+    },
+    {
+      "intent": "guitar_que_es",
+      "examples": [
+        {
+          "text": "¿Qué es un guitar?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Que es un guitar?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Qué es un guitar?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Que es un guitar?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "guitar, ¿qué es?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Cómo es un guitar?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Como es un guitar?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Cómo es un guitar?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Como es un guitar?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "guitar, ¿cómo es?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Cuándo es un guitar?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Cuando es un guitar?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Cuándo es un guitar?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Cuando es un guitar?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "guitar, ¿cuándo es?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        }
+      ],
+      "description": null,
+      "created": "2018-01-08T15:09:43.760Z",
+      "updated": "2018-01-08T15:09:43.760Z"
+    },
+    {
+      "intent": "money_que_es",
+      "examples": [
+        {
+          "text": "¿Qué es un money?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Que es un money?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Qué es un money?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Que es un money?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "money, ¿qué es?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Cómo es un money?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Como es un money?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Cómo es un money?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Como es un money?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "money, ¿cómo es?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Cuándo es un money?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Cuando es un money?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Cuándo es un money?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Cuando es un money?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "money, ¿cuándo es?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        }
+      ],
+      "description": null,
+      "created": "2018-01-08T15:09:43.760Z",
+      "updated": "2018-01-08T15:09:43.760Z"
+    },
+    {
+      "intent": "sailor_que_es",
+      "examples": [
+        {
+          "text": "¿Qué es un sailor?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Que es un sailor?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Qué es un sailor?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Que es un sailor?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "sailor, ¿qué es?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Cómo es un sailor?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Como es un sailor?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Cómo es un sailor?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Como es un sailor?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "sailor, ¿cómo es?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Cuándo es un sailor?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "¿Cuando es un sailor?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Cuándo es un sailor?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "Cuando es un sailor?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        },
+        {
+          "text": "sailor, ¿cuándo es?",
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        }
+      ],
+      "description": null,
+      "created": "2018-01-08T15:09:43.760Z",
+      "updated": "2018-01-08T15:09:43.760Z"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "dog",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "dog",
+          "metadata": null,
+          "synonyms": [
+            "domestic dog",
+            "Canis familiaris",
+            "frump",
+            "cad",
+            "bounder",
+            "blackguard",
+            "hound",
+            "heel",
+            "frank",
+            "frankfurter",
+            "hotdog",
+            "hot dog",
+            "wiener",
+            "wienerwurst",
+            "weenie",
+            "pawl",
+            "detent",
+            "click",
+            "andiron",
+            "firedog",
+            "dog-iron",
+            "blighter",
+            "canid",
+            "canine",
+            "catch",
+            "chap",
+            "cuss",
+            "disagreeable woman",
+            "fella",
+            "feller",
+            "fellow",
+            "gent",
+            "lad",
+            "sausage",
+            "scoundrel",
+            "stop",
+            "support",
+            "unpleasant woman",
+            "villain"
+          ],
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        }
+      ],
+      "metadata": null,
+      "description": null,
+      "created": "2018-01-08T15:09:43.760Z",
+      "updated": "2018-01-08T15:09:43.760Z"
+    },
+    {
+      "entity": "cat",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "cat",
+          "metadata": null,
+          "synonyms": [
+            "true cat",
+            "guy",
+            "hombre",
+            "bozo",
+            "kat",
+            "khat",
+            "qat",
+            "quat",
+            "Arabian tea",
+            "African tea",
+            "cat-o-nine-tails",
+            "Caterpillar",
+            "big cat",
+            "computerized tomography",
+            "computed tomography",
+            "CT",
+            "computerized axial tomography",
+            "computed axial tomography",
+            "CAT",
+            "adult female",
+            "adult male",
+            "excitant",
+            "felid",
+            "feline",
+            "gossip",
+            "gossiper",
+            "gossipmonger",
+            "man",
+            "newsmonger",
+            "rumormonger",
+            "rumourmonger",
+            "stimulant",
+            "stimulant drug",
+            "tracked vehicle",
+            "whip",
+            "woman",
+            "X-radiation",
+            "X-raying"
+          ],
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        }
+      ],
+      "metadata": null,
+      "description": null,
+      "created": "2018-01-08T15:09:43.760Z",
+      "updated": "2018-01-08T15:09:43.760Z"
+    },
+    {
+      "entity": "building",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "building",
+          "metadata": null,
+          "synonyms": [
+            "edifice",
+            "construction",
+            "assemblage",
+            "business",
+            "business enterprise",
+            "commercial enterprise",
+            "creating from raw materials",
+            "gathering",
+            "structure"
+          ],
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        }
+      ],
+      "metadata": null,
+      "description": null,
+      "created": "2018-01-08T15:09:43.760Z",
+      "updated": "2018-01-08T15:09:43.760Z"
+    },
+    {
+      "entity": "gender",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "gender",
+          "metadata": null,
+          "synonyms": [
+            "grammatical gender",
+            "sex",
+            "sexuality",
+            "grammatical category",
+            "physiological property",
+            "syntactic category"
+          ],
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        }
+      ],
+      "metadata": null,
+      "description": null,
+      "created": "2018-01-08T15:09:43.760Z",
+      "updated": "2018-01-08T15:09:43.760Z"
+    },
+    {
+      "entity": "guitar",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "guitar",
+          "metadata": null,
+          "synonyms": [
+            "stringed instrument"
+          ],
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        }
+      ],
+      "metadata": null,
+      "description": null,
+      "created": "2018-01-08T15:09:43.760Z",
+      "updated": "2018-01-08T15:09:43.760Z"
+    },
+    {
+      "entity": "money",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "money",
+          "metadata": null,
+          "synonyms": [
+            "currency",
+            "medium of exchange",
+            "monetary system",
+            "wealth"
+          ],
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        }
+      ],
+      "metadata": null,
+      "description": null,
+      "created": "2018-01-08T15:09:43.760Z",
+      "updated": "2018-01-08T15:09:43.760Z"
+    },
+    {
+      "entity": "sailor",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "sailor",
+          "metadata": null,
+          "synonyms": [
+            "crewman",
+            "bluejacket",
+            "navy man",
+            "sailor boy",
+            "boater",
+            "leghorn",
+            "Panama",
+            "Panama hat",
+            "skimmer",
+            "straw hat",
+            "chapeau",
+            "hat",
+            "lid",
+            "man",
+            "military man",
+            "military personnel",
+            "serviceman",
+            "skilled worker",
+            "skilled workman",
+            "trained worker"
+          ],
+          "created": "2018-01-08T15:09:43.760Z",
+          "updated": "2018-01-08T15:09:43.760Z"
+        }
+      ],
+      "metadata": null,
+      "description": null,
+      "created": "2018-01-08T15:09:43.760Z",
+      "updated": "2018-01-08T15:09:43.760Z"
+    }
+  ],
+  "language": "es",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2017-05-26"
+    }
+  },
+  "description": "Perros y Gatos y Otros",
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "text": {
+          "values": [
+            "Hello. How can I help you?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2018-01-08T15:09:43.760Z",
+      "updated": "2018-01-08T15:09:43.760Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": "welcome",
+      "description": null,
+      "dialog_node": "Welcome",
+      "previous_sibling": null
+    },
+    {
+      "type": "standard",
+      "title": "Manzanas1.1",
+      "output": {
+        "text": {
+          "values": [
+            "una fruta",
+            "muy rica"
+          ]
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-12-26T23:12:52.230Z",
+      "updated": "2017-12-26T23:13:29.850Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": "#manzana_que_es",
+      "description": "man",
+      "dialog_node": "Node_1_1",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Manzanas1.1.1",
+      "output": {
+        "text": {
+          "values": [
+            "una fruta"
+          ]
+        }
+      },
+      "parent": "Node_1_1",
+      "context": null,
+      "created": "2017-12-26T23:12:52.230Z",
+      "updated": "2017-12-26T23:13:29.850Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": "#manzana_que_es",
+      "description": "za",
+      "dialog_node": "Node_1_1_1",
+      "previous_sibling": null
+    },
+    {
+      "type": "standard",
+      "title": "Manzanas1.1.2",
+      "output": {
+        "text": {
+          "values": [
+            "una fruta"
+          ]
+        }
+      },
+      "parent": "Node_1_1",
+      "context": null,
+      "created": "2017-12-26T23:12:52.230Z",
+      "updated": "2017-12-26T23:13:29.850Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": "#manzana_que_es",
+      "description": "na",
+      "dialog_node": "Node_1_1_2",
+      "previous_sibling": "Node_1_1_1"
+    },
+    {
+      "type": "standard",
+      "title": "Manzanas2.1",
+      "output": {
+        "text": {
+          "values": [
+            "una fruta"
+          ]
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-12-26T23:12:52.230Z",
+      "updated": "2017-12-26T23:13:29.850Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": "#manzana_que_es",
+      "description": "Manzana",
+      "dialog_node": "Node_2_1",
+      "previous_sibling": "Node_1_1"
+    },
+    {
+      "type": "standard",
+      "title": "Manzanas2.1.1",
+      "output": {
+        "text": {
+          "values": [
+            "una fruta"
+          ]
+        }
+      },
+      "parent": "Node_2_1",
+      "context": null,
+      "created": "2017-12-26T23:12:52.230Z",
+      "updated": "2017-12-26T23:13:29.850Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": "#manzana_que_es",
+      "description": "asdf",
+      "dialog_node": "Node_2_1_1",
+      "previous_sibling": null
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "text": {
+          "values": [
+            "I did not understand. You can try rephrasing.",
+            "Can you reword your statement? I am not understanding.",
+            "I did not get your meaning."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2018-01-08T15:09:43.760Z",
+      "updated": "2018-01-08T15:09:43.760Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": "anything_else",
+      "description": null,
+      "dialog_node": "Anything else",
+      "previous_sibling": "Node_2_1_1"
+    }
+  ],
+  "workspace_id": "1234",
+  "counterexamples": [],
+  "learning_opt_out": false
+}
